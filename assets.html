@@ -1,0 +1,1880 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>易普力数据资源门户 - 数据资源</title>
+    <!-- Arco Design 风格 SVG 图标定义 -->
+    <svg style="display: none;">
+        <symbol id="icon-notification" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+            <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+        </symbol>
+        <symbol id="icon-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </symbol>
+        <symbol id="icon-file" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <polyline points="10 9 9 9 8 9"></polyline>
+        </symbol>
+        <symbol id="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"></polyline>
+        </symbol>
+        <symbol id="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+        </symbol>
+        <symbol id="icon-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+        </symbol>
+        <symbol id="icon-arrow-rise" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </symbol>
+        <symbol id="icon-arrow-fall" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+        </symbol>
+        <symbol id="icon-bar-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="20" x2="12" y2="10"></line>
+            <line x1="18" y1="20" x2="18" y2="4"></line>
+            <line x1="6" y1="20" x2="6" y2="16"></line>
+        </symbol>
+        <symbol id="icon-line-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+        </symbol>
+        <symbol id="icon-fire" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path>
+        </symbol>
+        <symbol id="icon-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+        </symbol>
+        <symbol id="icon-star-fill" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+        </symbol>
+        <symbol id="icon-table" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="3" y1="9" x2="21" y2="9"></line>
+            <line x1="3" y1="15" x2="21" y2="15"></line>
+            <line x1="9" y1="3" x2="9" y2="21"></line>
+            <line x1="15" y1="3" x2="15" y2="21"></line>
+        </symbol>
+        <symbol id="icon-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+        </symbol>
+        <symbol id="icon-trending-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+            <polyline points="17 6 23 6 23 12"></polyline>
+        </symbol>
+    </svg>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            /* Arco Design 科技蓝色系 */
+            --primary-color: #165DFF;
+            --primary-hover: #4080FF;
+            --primary-active: #0E42D2;
+            --primary-light: #E8F3FF;
+            --success-color: #00B42A;
+            --success-light: #E8FFEA;
+            --warning-color: #FF7D00;
+            --warning-light: #FFF7E8;
+            --danger-color: #F53F3F;
+            --danger-light: #FFECE8;
+            --text-primary: #1D2129;
+            --text-secondary: #4E5969;
+            --text-light: #86909C;
+            --bg-primary: #ffffff;
+            --bg-secondary: #F2F3F5;
+            --bg-tertiary: #E5E6EB;
+            --border-color: #E5E6EB;
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+            --shadow-md: 0 2px 8px rgba(0,0,0,0.08);
+            --shadow-lg: 0 4px 12px rgba(0,0,0,0.1);
+            --radius-sm: 2px;
+            --radius-md: 4px;
+            --radius-lg: 8px;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+        
+        /* 链接样式 */
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        a:hover {
+            color: var(--primary-hover);
+        }
+        
+        /* 滚动条样式 */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: var(--bg-secondary);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--border-color);
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--text-light);
+        }
+        
+        /* 顶部导航栏 */
+        .navbar {
+            background: var(--primary-color);
+            padding: 0 40px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .navbar-logo {
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .navbar-logo img {
+            height: 36px;
+            width: auto;
+        }
+        
+        .navbar-title {
+            color: white;
+            font-size: 20px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        
+        .navbar-nav {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .nav-item {
+            padding: 8px 20px;
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+            border-radius: var(--radius-md);
+            transition: all 0.2s ease;
+            font-size: 14px;
+        }
+        
+        .nav-item:hover {
+            background: rgba(255,255,255,0.1);
+            color: white;
+        }
+        
+        .nav-item.active {
+            background: rgba(255,255,255,0.15);
+            color: white;
+            font-weight: 500;
+        }
+        
+        .navbar-user {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        
+        .user-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        
+        .user-avatar:hover {
+            background: rgba(255,255,255,0.3);
+        }
+        
+        .notification-badge {
+            position: relative;
+            cursor: pointer;
+            color: white;
+        }
+        
+        .notification-badge::after {
+            content: '3';
+            position: absolute;
+            top: -6px;
+            right: -8px;
+            background: var(--danger-color);
+            color: white;
+            font-size: 11px;
+            padding: 2px 6px;
+            border-radius: 10px;
+            font-weight: 500;
+        }
+        
+        /* 主内容区域 */
+        .main-content {
+            margin-top: 64px;
+            min-height: calc(100vh - 64px);
+            padding: 24px 40px;
+            max-width: 1440px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* 页面标题 */
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+        
+        .page-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .page-actions {
+            display: flex;
+            gap: 12px;
+        }
+        
+        /* 筛选区域 */
+        .filter-section {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border-color);
+        }
+        
+        .filter-row {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        
+        .filter-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .filter-label {
+            font-size: 14px;
+            color: var(--text-secondary);
+            white-space: nowrap;
+        }
+        
+        .filter-select {
+            height: 32px;
+            padding: 0 32px 0 12px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            font-size: 14px;
+            color: var(--text-primary);
+            background: white url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2386909C' d='M6 8L1 3h10z'/%3E%3C/svg%3E") no-repeat right 12px center;
+            cursor: pointer;
+            min-width: 140px;
+            appearance: none;
+            transition: all 0.2s;
+        }
+        
+        .filter-select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(22, 93, 255, 0.1);
+        }
+        
+        .filter-select:hover {
+            border-color: var(--primary-color);
+        }
+        
+        .filter-input {
+            height: 32px;
+            padding: 0 12px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            font-size: 14px;
+            color: var(--text-primary);
+            min-width: 200px;
+            transition: all 0.2s;
+        }
+        
+        .filter-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(22, 93, 255, 0.1);
+        }
+        
+        .filter-input:hover {
+            border-color: var(--primary-color);
+        }
+        
+        .filter-input::placeholder {
+            color: var(--text-light);
+        }
+        
+        .filter-btn {
+            height: 32px;
+            padding: 0 16px;
+            border-radius: var(--radius-md);
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .filter-btn.primary {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .filter-btn.primary:hover {
+            background: var(--primary-hover);
+        }
+        
+        .filter-btn.primary:active {
+            background: var(--primary-active);
+        }
+        
+        .filter-btn.secondary {
+            background: white;
+            color: var(--text-secondary);
+            border: 1px solid var(--border-color);
+        }
+        
+        .filter-btn.secondary:hover {
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        
+        .filter-btn:focus {
+            outline: none;
+        }
+        
+        .filter-btn.primary:focus {
+            box-shadow: 0 0 0 2px rgba(22, 93, 255, 0.2);
+        }
+        
+        .filter-btn.secondary:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(22, 93, 255, 0.1);
+        }
+        
+        .advanced-filter-toggle {
+            color: var(--primary-color);
+            font-size: 14px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            transition: color 0.2s;
+        }
+        
+        .advanced-filter-toggle:hover {
+            color: var(--primary-hover);
+        }
+        
+        .advanced-filters {
+            display: none;
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        .advanced-filters.active {
+            display: block;
+        }
+        
+        /* 工具栏 */
+        .toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .toolbar-left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        
+        .result-count {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+        
+        .result-count strong {
+            color: var(--primary-color);
+        }
+        
+        .view-toggle {
+            display: flex;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+        }
+        
+        .view-btn {
+            height: 32px;
+            padding: 0 16px;
+            background: white;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            color: var(--text-secondary);
+            transition: all 0.2s;
+        }
+        
+        .view-btn:hover {
+            color: var(--primary-color);
+        }
+        
+        .view-btn.active {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .toolbar-right {
+            display: flex;
+            gap: 12px;
+        }
+        
+        .batch-actions {
+            display: none;
+            gap: 12px;
+        }
+        
+        .batch-actions.active {
+            display: flex;
+        }
+        
+        /* 卡片视图 */
+        .assets-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        
+        .asset-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: 20px;
+            border: 1px solid var(--border-color);
+            transition: all 0.2s;
+            position: relative;
+        }
+        
+        .asset-card:hover {
+            border-color: var(--primary-color);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .asset-card.selected {
+            border: 2px solid var(--primary-color);
+        }
+        
+
+        
+
+        
+        .asset-hot-tag {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            padding: 2px 8px;
+            background: var(--danger-color);
+            color: white;
+            font-size: 11px;
+            font-weight: 500;
+            border-radius: var(--radius-sm);
+            letter-spacing: 0.5px;
+        }
+        
+        .asset-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 12px;
+            margin-top: 24px;
+        }
+        
+        .asset-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+        
+        .asset-icon.table {
+            background: var(--primary-light);
+            color: var(--primary-color);
+        }
+        
+        .asset-icon.api {
+            background: var(--success-light);
+            color: var(--success-color);
+        }
+        
+        .asset-icon.report {
+            background: var(--warning-light);
+            color: var(--warning-color);
+        }
+        
+        .asset-icon.metric {
+            background: var(--danger-light);
+            color: var(--danger-color);
+        }
+        
+        .asset-title-wrap {
+            flex: 1;
+            min-width: 0;
+        }
+        
+        .asset-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        
+        .asset-title:hover {
+            color: var(--primary-color);
+        }
+        
+        .asset-dept {
+            font-size: 12px;
+            color: var(--text-light);
+        }
+        
+        .asset-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+        
+        .asset-tag {
+            padding: 0 8px;
+            height: 24px;
+            line-height: 24px;
+            border-radius: var(--radius-sm);
+            font-size: 12px;
+            font-weight: 400;
+            display: inline-block;
+        }
+        
+        .asset-tag.type {
+            background: var(--primary-light);
+            color: var(--primary-color);
+        }
+        
+        .asset-tag.quality {
+            background: var(--success-light);
+            color: var(--success-color);
+        }
+        
+        .asset-tag.quality.warning {
+            background: var(--warning-light);
+            color: var(--warning-color);
+        }
+        
+        .asset-tag.hot {
+            background: var(--danger-light);
+            color: var(--danger-color);
+        }
+        
+        .asset-tag.status {
+            background: var(--success-light);
+            color: var(--success-color);
+        }
+        
+        .asset-tag.status.pending {
+            background: var(--warning-light);
+            color: var(--warning-color);
+        }
+        
+        /* 默认标签样式 */
+        .asset-tag.default {
+            background: var(--bg-secondary);
+            color: var(--text-light);
+        }
+        
+        /* 质量评分进度条 */
+        .quality-score {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            width: 100%;
+        }
+        
+        .quality-score-text {
+            font-size: 12px;
+            font-weight: 600;
+            min-width: 40px;
+            text-align: right;
+        }
+        
+        .quality-score-bar {
+            flex: 1;
+            height: 8px;
+            background: var(--bg-tertiary);
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        .quality-score-fill {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .quality-score-fill.high {
+            background: var(--success-color);
+        }
+        
+        .quality-score-fill.medium {
+            background: var(--warning-color);
+        }
+        
+        .quality-score-fill.low {
+            background: var(--danger-color);
+        }
+        
+        /* 列表视图中的质量评分 */
+        .list-table .quality-score {
+            max-width: 120px;
+        }
+        
+        .list-table .quality-score-text {
+            font-size: 13px;
+        }
+        
+        .list-table .quality-score-bar {
+            height: 8px;
+        }
+        
+        .asset-actions {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .asset-btn {
+            flex: 1;
+            height: 32px;
+            padding: 0 16px;
+            border-radius: var(--radius-md);
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: center;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+        
+        .asset-btn.primary {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .asset-btn.primary:hover {
+            background: var(--primary-hover);
+        }
+        
+        .asset-btn.primary:active {
+            background: var(--primary-active);
+        }
+        
+        .asset-btn.secondary {
+            background: white;
+            color: var(--text-secondary);
+            border: 1px solid var(--border-color);
+        }
+        
+        .asset-btn.secondary:hover {
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        
+        .asset-btn.favorited {
+            background: var(--danger-light);
+            color: var(--danger-color);
+            border-color: transparent;
+        }
+        
+        .asset-btn.disabled {
+            background: var(--bg-tertiary);
+            color: var(--text-light);
+            cursor: not-allowed;
+        }
+        
+        .asset-btn.disabled:hover {
+            background: var(--bg-tertiary);
+            color: var(--text-light);
+        }
+        
+        .asset-btn:focus {
+            outline: none;
+        }
+        
+        .asset-btn.primary:focus {
+            box-shadow: 0 0 0 2px rgba(22, 93, 255, 0.2);
+        }
+        
+        .asset-btn.secondary:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(22, 93, 255, 0.1);
+        }
+        
+        /* 列表视图 */
+        .assets-list {
+            display: none;
+        }
+        
+        .assets-list.active {
+            display: block;
+        }
+        
+        .assets-grid.hidden {
+            display: none;
+        }
+        
+        .list-table {
+            width: 100%;
+            background: white;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+        
+        .list-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .list-table th,
+        .list-table td {
+            padding: 14px 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .list-table th {
+            background: var(--bg-secondary);
+            font-weight: 500;
+            color: var(--text-secondary);
+            font-size: 13px;
+        }
+        
+        .list-table td {
+            font-size: 14px;
+            color: var(--text-primary);
+        }
+        
+        .list-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .list-table tr:hover td {
+            background: var(--primary-light);
+        }
+        
+        .list-table .asset-name {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        
+        .list-table .asset-name:hover {
+            color: var(--primary-color);
+        }
+        
+        .list-table .asset-name .icon {
+            width: 32px;
+            height: 32px;
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+        
+        .list-table .asset-name .icon.table {
+            background: var(--primary-light);
+            color: var(--primary-color);
+        }
+        
+        .list-table .asset-name .icon.api {
+            background: var(--success-light);
+            color: var(--success-color);
+        }
+        
+        .list-table .asset-name .icon.report {
+            background: var(--warning-light);
+            color: var(--warning-color);
+        }
+        
+        .list-table .asset-name .icon.metric {
+            background: var(--danger-light);
+            color: var(--danger-color);
+        }
+        
+        .list-table .actions-cell {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .list-table .action-btn {
+            height: 24px;
+            padding: 0 8px;
+            border-radius: var(--radius-sm);
+            font-size: 12px;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .list-table .action-btn.primary {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .list-table .action-btn.primary:hover {
+            background: var(--primary-hover);
+        }
+        
+        .list-table .action-btn.secondary {
+            background: white;
+            color: var(--text-secondary);
+            border: 1px solid var(--border-color);
+        }
+        
+        .list-table .action-btn.secondary:hover {
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        
+        /* 分页 */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            margin-top: 24px;
+        }
+        
+        .pagination-info {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-right: 16px;
+        }
+        
+        .pagination-btn {
+            min-width: 32px;
+            height: 32px;
+            padding: 0 12px;
+            border: 1px solid var(--border-color);
+            background: white;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            font-size: 14px;
+            color: var(--text-primary);
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            white-space: nowrap;
+        }
+        
+        .pagination-btn:hover:not(.disabled):not(.active) {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+        
+        .pagination-btn.active {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+            color: white;
+        }
+        
+        .pagination-btn.disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            color: var(--text-light);
+        }
+        
+        /* 弹窗 */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            padding: 20px;
+        }
+        
+        .modal-overlay.active {
+            display: flex;
+        }
+        
+        .modal {
+            background: white;
+            border-radius: var(--radius-lg);
+            max-width: 700px;
+            width: 100%;
+            max-height: 85vh;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .modal-header {
+            padding: 20px 24px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .modal-title {
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .modal-close {
+            width: 32px;
+            height: 32px;
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-size: 20px;
+            color: var(--text-light);
+            border-radius: var(--radius-md);
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-close:hover {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+        }
+        
+        .modal-close:focus {
+            outline: none;
+            background: var(--bg-secondary);
+        }
+        
+        .modal-body {
+            padding: 24px;
+            overflow-y: auto;
+            max-height: 60vh;
+        }
+        
+        .detail-section {
+            margin-bottom: 24px;
+        }
+        
+        .detail-section:last-child {
+            margin-bottom: 0;
+        }
+        
+        .detail-section h5 {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .detail-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+        
+        .detail-item {
+            display: flex;
+            font-size: 13px;
+        }
+        
+        .detail-item .label {
+            color: var(--text-light);
+            min-width: 80px;
+        }
+        
+        .detail-item .value {
+            color: var(--text-primary);
+            flex: 1;
+        }
+        
+        .field-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+        
+        .field-table th,
+        .field-table td {
+            padding: 10px 12px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .field-table th {
+            background: var(--bg-secondary);
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+        
+        .field-table td {
+            color: var(--text-primary);
+        }
+        
+        .field-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .modal-footer {
+            padding: 16px 24px;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: flex-end;
+            gap: 12px;
+        }
+        
+        .btn {
+            height: 32px;
+            padding: 0 16px;
+            border-radius: var(--radius-md);
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: var(--primary-hover);
+        }
+        
+        .btn-primary:active {
+            background: var(--primary-active);
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: var(--text-secondary);
+            border: 1px solid var(--border-color);
+        }
+        
+        .btn-secondary:hover {
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        
+        .btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+        
+        /* 底部区域 */
+        .footer {
+            background: white;
+            border-top: 1px solid var(--border-color);
+            padding: 24px 40px;
+            margin-top: 40px;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            color: var(--text-light);
+            font-size: 13px;
+        }
+        
+        /* 响应式 */
+        @media (max-width: 1200px) {
+            .assets-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .assets-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 0 20px;
+            }
+            
+            .main-content {
+                padding: 20px;
+            }
+            
+            .assets-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .filter-row {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .filter-group {
+                width: 100%;
+            }
+            
+            .filter-select,
+            .filter-input {
+                width: 100%;
+            }
+            
+            .page-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+            
+            .toolbar {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+        }
+        
+        /* 打印样式 */
+        @media print {
+            .navbar,
+            .footer,
+            .filter-section,
+            .toolbar,
+            .pagination {
+                display: none;
+            }
+            
+            .main-content {
+                margin-top: 0;
+                padding: 0;
+            }
+            
+            .asset-card {
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <div class="navbar-logo">
+                <img src="https://www.cecic.com.cn/images/logo.png" alt="中国能建" onerror="this.style.display='none'">
+            </div>
+            <span class="navbar-title">易普力数据资源门户</span>
+        </div>
+        <div class="navbar-nav">
+            <a href="index.html" class="nav-item">首页</a>
+            <a href="assets.html" class="nav-item active">数据资源</a>
+        </div>
+        <div class="navbar-user">
+            <span class="notification-badge"><svg class="icon" width="16" height="16"><use href="#icon-notification"/></svg></span>
+            <div class="user-avatar">连</div>
+        </div>
+    </nav>
+    
+    <!-- 主内容区域 -->
+    <main class="main-content">
+        <!-- 页面标题 -->
+        <div class="page-header">
+            <h1 class="page-title">数据资产</h1>
+        </div>
+        
+        <!-- 筛选区域 -->
+        <div class="filter-section">
+            <div class="filter-row">
+                <div class="filter-group">
+                    <label class="filter-label">资源分类：</label>
+                    <select class="filter-select">
+                        <option value="">全部分类</option>
+                        <option value="production">生产运营类</option>
+                        <option value="safety">安全环保类</option>
+                        <option value="hr">人力资源类</option>
+                        <option value="supply">供应链与物资类</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label class="filter-label">数据类型：</label>
+                    <select class="filter-select">
+                        <option value="">全部类型</option>
+                        <option value="table">数据表</option>
+                        <option value="api">API</option>
+                        <option value="report">报表</option>
+                        <option value="metric">指标</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label class="filter-label">资源状态：</label>
+                    <select class="filter-select">
+                        <option value="">全部状态</option>
+                        <option value="available">可申请</option>
+                        <option value="pending">审批中</option>
+                        <option value="authorized">已授权</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <input type="text" class="filter-input" placeholder="搜索资源名称、关键词...">
+                </div>
+                <button class="filter-btn primary">搜索</button>
+                <button class="filter-btn secondary">重置</button>
+                <span class="advanced-filter-toggle" onclick="toggleAdvancedFilter()">
+                    高级筛选 ▼
+                </span>
+            </div>
+            <div class="advanced-filters" id="advancedFilters">
+                <div class="filter-row">
+                    <div class="filter-group">
+                        <label class="filter-label">提供部门：</label>
+                        <select class="filter-select">
+                            <option value="">全部部门</option>
+                            <option value="production">生产运营部</option>
+                            <option value="safety">安全环保部</option>
+                            <option value="hr">人力资源部</option>
+                            <option value="supply">供应链管理部</option>
+                            <option value="sales">销售部</option>
+                            <option value="finance">财务部</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label class="filter-label">更新时间：</label>
+                        <select class="filter-select">
+                            <option value="">全部时间</option>
+                            <option value="today">今天</option>
+                            <option value="week">近一周</option>
+                            <option value="month">近一月</option>
+                            <option value="quarter">近三月</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 工具栏 -->
+        <div class="toolbar">
+            <div class="toolbar-left">
+                <span class="result-count">共 <strong>128</strong> 项资源</span>
+                <div class="view-toggle">
+                    <button class="view-btn active" onclick="switchView('grid')" id="gridViewBtn">卡片视图</button>
+                    <button class="view-btn" onclick="switchView('list')" id="listViewBtn">列表视图</button>
+                </div>
+            </div>
+            <div class="toolbar-right">
+            </div>
+        </div>
+        
+        <!-- 卡片视图 -->
+        <div class="assets-grid" id="assetsGrid">
+            <!-- 资源卡片1 -->
+            <div class="asset-card" data-id="1">
+                <span class="asset-hot-tag">HOT</span>
+                <div class="asset-header">
+                    <div class="asset-icon table"><svg class="icon" width="22" height="22"><use href="#icon-table"/></svg></div>
+                    <div class="asset-title-wrap">
+                        <div class="asset-title" onclick="goToDetail(1)">生产运营数据汇总表</div>
+                        <div class="asset-dept">生产运营部</div>
+                    </div>
+                </div>
+                <div class="asset-tags">
+                    <span class="asset-tag type">数据表</span>
+                    <span class="asset-tag hot"><svg class="icon" width="12" height="12"><use href="#icon-fire"/></svg> 2,341</span>
+                    <span class="asset-tag status">可申请</span>
+                </div>
+                <div class="asset-actions">
+                    <button class="asset-btn secondary favorite-btn" onclick="toggleFavorite(this)">
+                        <span><svg class="icon" width="14" height="14"><use href="#icon-star"/></svg></span> 收藏
+                    </button>
+                    <button class="asset-btn primary" onclick="goToApply(1)">资源申请</button>
+                </div>
+            </div>
+            
+            <!-- 资产卡片2 -->
+            <div class="asset-card" data-id="2">
+                <span class="asset-hot-tag">HOT</span>
+                <div class="asset-header">
+                    <div class="asset-icon report"><svg class="icon" width="22" height="22"><use href="#icon-bar-chart"/></svg></div>
+                    <div class="asset-title-wrap">
+                        <div class="asset-title" onclick="goToDetail(2)">销售业绩分析报表</div>
+                        <div class="asset-dept">销售部</div>
+                    </div>
+                </div>
+                <div class="asset-tags">
+                    <span class="asset-tag type">报表</span>
+                    <span class="asset-tag hot"><svg class="icon" width="12" height="12"><use href="#icon-fire"/></svg> 1,892</span>
+                    <span class="asset-tag status">可申请</span>
+                </div>
+                <div class="asset-actions">
+                    <button class="asset-btn secondary favorite-btn" onclick="toggleFavorite(this)">
+                        <span><svg class="icon" width="14" height="14"><use href="#icon-star"/></svg></span> 收藏
+                    </button>
+                    <button class="asset-btn primary" onclick="goToApply(2)">资源申请</button>
+                </div>
+            </div>
+            
+            <!-- 资产卡片3 -->
+            <div class="asset-card" data-id="3">
+                <div class="asset-header">
+                    <div class="asset-icon api">🔗</div>
+                    <div class="asset-title-wrap">
+                        <div class="asset-title" onclick="goToDetail(3)">库存查询API接口</div>
+                        <div class="asset-dept">供应链管理部</div>
+                    </div>
+                </div>
+                <div class="asset-tags">
+                    <span class="asset-tag type">API</span>
+                    <span class="asset-tag hot"><svg class="icon" width="12" height="12"><use href="#icon-fire"/></svg> 856</span>
+                    <span class="asset-tag status">已授权</span>
+                </div>
+                <div class="asset-actions">
+                    <button class="asset-btn favorited favorite-btn" onclick="toggleFavorite(this)">
+                        <span><svg class="icon" width="14" height="14"><use href="#icon-star-fill"/></svg></span> 已收藏
+                    </button>
+                    <button class="asset-btn primary" onclick="goToApply(3)">资源申请</button>
+                </div>
+            </div>
+            
+            <!-- 资产卡片4 -->
+            <div class="asset-card" data-id="4">
+                <div class="asset-header">
+                    <div class="asset-icon metric">📈</div>
+                    <div class="asset-title-wrap">
+                        <div class="asset-title" onclick="goToDetail(4)">矿山开采效率指标</div>
+                        <div class="asset-dept">生产运营部</div>
+                    </div>
+                </div>
+                <div class="asset-tags">
+                    <span class="asset-tag type">指标</span>
+                    <span class="asset-tag hot"><svg class="icon" width="12" height="12"><use href="#icon-fire"/></svg> 623</span>
+                    <span class="asset-tag status pending">审批中</span>
+                </div>
+                <div class="asset-actions">
+                    <button class="asset-btn secondary favorite-btn" onclick="toggleFavorite(this)">
+                        <span><svg class="icon" width="14" height="14"><use href="#icon-star"/></svg></span> 收藏
+                    </button>
+                    <button class="asset-btn primary" onclick="goToApply(4)">资源申请</button>
+                </div>
+            </div>
+            
+            <!-- 资产卡片5 -->
+            <div class="asset-card" data-id="5">
+                <div class="asset-header">
+                    <div class="asset-icon table">📋</div>
+                    <div class="asset-title-wrap">
+                        <div class="asset-title" onclick="goToDetail(5)">员工绩效考核数据表</div>
+                        <div class="asset-dept">人力资源部</div>
+                    </div>
+                </div>
+                <div class="asset-tags">
+                    <span class="asset-tag type">数据表</span>
+                    <span class="asset-tag hot"><svg class="icon" width="12" height="12"><use href="#icon-fire"/></svg> 445</span>
+                    <span class="asset-tag status">可申请</span>
+                </div>
+                <div class="asset-actions">
+                    <button class="asset-btn secondary favorite-btn" onclick="toggleFavorite(this)">
+                        <span><svg class="icon" width="14" height="14"><use href="#icon-star"/></svg></span> 收藏
+                    </button>
+                    <button class="asset-btn primary" onclick="goToApply(5)">资源申请</button>
+                </div>
+            </div>
+            
+            <!-- 资产卡片6 -->
+            <div class="asset-card" data-id="6">
+                <div class="asset-header">
+                    <div class="asset-icon report">📊</div>
+                    <div class="asset-title-wrap">
+                        <div class="asset-title" onclick="goToDetail(6)">安全环保监测报表</div>
+                        <div class="asset-dept">安全环保部</div>
+                    </div>
+                </div>
+                <div class="asset-tags">
+                    <span class="asset-tag type">报表</span>
+                    <span class="asset-tag hot"><svg class="icon" width="12" height="12"><use href="#icon-fire"/></svg> 312</span>
+                    <span class="asset-tag status">可申请</span>
+                </div>
+                <div class="asset-actions">
+                    <button class="asset-btn secondary favorite-btn" onclick="toggleFavorite(this)">
+                        <span><svg class="icon" width="14" height="14"><use href="#icon-star"/></svg></span> 收藏
+                    </button>
+                    <button class="asset-btn primary" onclick="goToApply(6)">资源申请</button>
+                </div>
+            </div>
+            
+            <!-- 资产卡片7 -->
+            <div class="asset-card" data-id="7">
+                <div class="asset-header">
+                    <div class="asset-icon api">🔗</div>
+                    <div class="asset-title-wrap">
+                        <div class="asset-title" onclick="goToDetail(7)">财务数据查询API</div>
+                        <div class="asset-dept">财务部</div>
+                    </div>
+                </div>
+                <div class="asset-tags">
+                    <span class="asset-tag type">API</span>
+                    <div class="quality-score">
+                        <div class="quality-score-bar">
+                            <div class="quality-score-fill high" style="width: 98.2%"></div>
+                        </div>
+                        <span class="quality-score-text" style="color: var(--success-color)">98.2%</span>
+                    </div>
+                    <span class="asset-tag hot"><svg class="icon" width="12" height="12"><use href="#icon-fire"/></svg> 289</span>
+                    <span class="asset-tag status">可申请</span>
+                </div>
+                <div class="asset-actions">
+                    <button class="asset-btn secondary favorite-btn" onclick="toggleFavorite(this)">
+                        <span><svg class="icon" width="14" height="14"><use href="#icon-star"/></svg></span> 收藏
+                    </button>
+                    <button class="asset-btn primary" onclick="goToApply(7)">资源申请</button>
+                </div>
+            </div>
+            
+            <!-- 资产卡片8 -->
+            <div class="asset-card" data-id="8">
+                <div class="asset-header">
+                    <div class="asset-icon table">📋</div>
+                    <div class="asset-title-wrap">
+                        <div class="asset-title" onclick="goToDetail(8)">供应商管理数据表</div>
+                        <div class="asset-dept">供应链管理部</div>
+                    </div>
+                </div>
+                <div class="asset-tags">
+                    <span class="asset-tag type">数据表</span>
+                    <div class="quality-score">
+                        <div class="quality-score-bar">
+                            <div class="quality-score-fill high" style="width: 97.5%"></div>
+                        </div>
+                        <span class="quality-score-text" style="color: var(--success-color)">97.5%</span>
+                    </div>
+                    <span class="asset-tag hot"><svg class="icon" width="12" height="12"><use href="#icon-fire"/></svg> 198</span>
+                    <span class="asset-tag status">可申请</span>
+                </div>
+                <div class="asset-actions">
+                    <button class="asset-btn secondary favorite-btn" onclick="toggleFavorite(this)">
+                        <span><svg class="icon" width="14" height="14"><use href="#icon-star"/></svg></span> 收藏
+                    </button>
+                    <button class="asset-btn primary" onclick="goToApply(8)">资源申请</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 列表视图 -->
+        <div class="assets-list" id="assetsList">
+            <div class="list-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th width="40"><input type="checkbox" id="selectAll" onchange="selectAllItems()"></th>
+                            <th>资源名称</th>
+                            <th>数据类型</th>
+                            <th>所属分类</th>
+                            <th>提供部门</th>
+                            <th>热度</th>
+                            <th>状态</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="checkbox" class="row-checkbox"></td>
+                            <td>
+                                <div class="asset-name" onclick="goToDetail(1)">
+                                    <span class="icon table">📋</span>
+                                    <span>生产运营数据汇总表</span>
+                                </div>
+                            </td>
+                            <td><span class="asset-tag type">数据表</span></td>
+                            <td>生产运营类</td>
+                            <td>生产运营部</td>
+                            <td><svg class="icon" width="12" height="12"><use href="#icon-fire"/></svg> 2,341</td>
+                            <td><span class="asset-tag status">可申请</span></td>
+                            <td>
+                                <div class="actions-cell">
+                                    <button class="action-btn secondary" onclick="toggleFavorite(this)"><svg class="icon" width="12" height="12"><use href="#icon-star"/></svg> 收藏</button>
+                                    <button class="action-btn primary" onclick="goToApply(1)">申请</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="row-checkbox"></td>
+                            <td>
+                                <div class="asset-name" onclick="goToDetail(2)">
+                                    <span class="icon report">📊</span>
+                                    <span>销售业绩分析报表</span>
+                                </div>
+                            </td>
+                            <td><span class="asset-tag type">报表</span></td>
+                            <td>销售类</td>
+                            <td>销售部</td>
+                            <td><svg class="icon" width="12" height="12"><use href="#icon-fire"/></svg> 1,892</td>
+                            <td><span class="asset-tag status">可申请</span></td>
+                            <td>
+                                <div class="actions-cell">
+                                    <button class="action-btn secondary"><svg class="icon" width="12" height="12"><use href="#icon-star"/></svg> 收藏</button>
+                                    <button class="action-btn primary" onclick="goToApply(2)">申请</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="row-checkbox"></td>
+                            <td>
+                                <div class="asset-name" onclick="goToDetail(3)">
+                                    <span class="icon api">🔗</span>
+                                    <span>库存查询API接口</span>
+                                </div>
+                            </td>
+                            <td><span class="asset-tag type">API</span></td>
+                            <td>供应链与物资类</td>
+                            <td>供应链管理部</td>
+                            <td><svg class="icon" width="12" height="12"><use href="#icon-fire"/></svg> 856</td>
+                            <td><span class="asset-tag status">已授权</span></td>
+                            <td>
+                                <div class="actions-cell">
+                                    <button class="action-btn secondary"><svg class="icon" width="12" height="12"><use href="#icon-star-fill"/></svg> 已收藏</button>
+                                    <button class="action-btn primary" onclick="goToApply(3)">申请</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="row-checkbox"></td>
+                            <td>
+                                <div class="asset-name" onclick="goToDetail(4)">
+                                    <span class="icon metric">📈</span>
+                                    <span>矿山开采效率指标</span>
+                                </div>
+                            </td>
+                            <td><span class="asset-tag type">指标</span></td>
+                            <td>生产运营类</td>
+                            <td>生产运营部</td>
+                            <td><svg class="icon" width="12" height="12"><use href="#icon-fire"/></svg> 623</td>
+                            <td><span class="asset-tag status pending">审批中</span></td>
+                            <td>
+                                <div class="actions-cell">
+                                    <button class="action-btn secondary"><svg class="icon" width="12" height="12"><use href="#icon-star"/></svg> 收藏</button>
+                                    <button class="action-btn primary" onclick="goToApply(4)">申请</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <!-- 分页 -->
+        <div class="pagination">
+            <span class="pagination-info">第 1-8 项，共 128 项</span>
+            <button class="pagination-btn disabled">上一页</button>
+            <button class="pagination-btn active">1</button>
+            <button class="pagination-btn">2</button>
+            <button class="pagination-btn">3</button>
+            <button class="pagination-btn">...</button>
+            <button class="pagination-btn">16</button>
+            <button class="pagination-btn">下一页</button>
+        </div>
+    </main>
+    
+    <!-- 资源详情弹窗 -->
+    <div class="modal-overlay" id="detailModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 class="modal-title">资产详情</h3>
+                <button class="modal-close" onclick="closeModal('detailModal')">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="detail-section">
+                    <h5>基础信息</h5>
+                    <div class="detail-grid">
+                        <div class="detail-item">
+                            <span class="label">资产名称：</span>
+                            <span class="value">生产运营数据汇总表</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">资源类型：</span>
+                            <span class="value">数据表</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">所属分类：</span>
+                            <span class="value">生产运营类</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">提供部门：</span>
+                            <span class="value">生产运营部</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">更新时间：</span>
+                            <span class="value">2026-03-15 10:30</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">数据量：</span>
+                            <span class="value">125,638 条</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="detail-section">
+                    <h5>字段信息</h5>
+                    <table class="field-table">
+                        <thead>
+                            <tr>
+                                <th>字段名</th>
+                                <th>字段类型</th>
+                                <th>字段说明</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>mine_code</td>
+                                <td>STRING</td>
+                                <td>矿山编码</td>
+                            </tr>
+                            <tr>
+                                <td>production_date</td>
+                                <td>DATE</td>
+                                <td>生产日期</td>
+                            </tr>
+                            <tr>
+                                <td>output_volume</td>
+                                <td>DECIMAL</td>
+                                <td>产量(吨)</td>
+                            </tr>
+                            <tr>
+                                <td>efficiency_rate</td>
+                                <td>DECIMAL</td>
+                                <td>效率指标</td>
+                            </tr>
+                            <tr>
+                                <td>safety_index</td>
+                                <td>DECIMAL</td>
+                                <td>安全指数</td>
+                            </tr>
+                            <tr>
+                                <td>env_score</td>
+                                <td>DECIMAL</td>
+                                <td>环保评分</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="detail-section">
+                    <h5>质量信息</h5>
+                    <div class="detail-grid">
+                        <div class="detail-item">
+                            <span class="label">质量评分：</span>
+                            <span class="value" style="color: var(--success-color)">99.2%</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">完整性：</span>
+                            <span class="value">99.8%</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">准确性：</span>
+                            <span class="value">98.5%</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">及时性：</span>
+                            <span class="value">99.5%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="detail-section">
+                    <h5>权限信息</h5>
+                    <div class="detail-grid">
+                        <div class="detail-item">
+                            <span class="label">当前状态：</span>
+                            <span class="value" style="color: var(--success-color)">可申请</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">已授权用户：</span>
+                            <span class="value">156 人</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">申请次数：</span>
+                            <span class="value">234 次</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">收藏次数：</span>
+                            <span class="value">89 次</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="detail-section">
+                    <h5>使用说明</h5>
+                    <div class="detail-item" style="flex-direction: column;">
+                        <p style="color: var(--text-secondary); font-size: 13px; line-height: 1.8;">
+                            1. 本数据表包含生产运营核心指标数据，申请权限后可查看完整数据。<br>
+                            2. 数据每日凌晨自动更新，更新频率为每日一次。<br>
+                            3. 如需特定字段或行级权限，请在申请时进行精细化配置。<br>
+                            4. 数据使用过程中如有疑问，请联系生产运营部数据管理员。
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal('detailModal')">关闭</button>
+                <button class="btn btn-primary" onclick="goToApply()">申请资源</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 底部区域 -->
+    <footer class="footer">
+        <div class="footer-bottom">
+            <p>© 2026 易普力数据资产门户 | 湖北小番茄数据科技 技术支持</p>
+        </div>
+    </footer>
+    
+    <script>
+        // 视图切换
+        function switchView(view) {
+            const gridView = document.getElementById('assetsGrid');
+            const listView = document.getElementById('assetsList');
+            const gridBtn = document.getElementById('gridViewBtn');
+            const listBtn = document.getElementById('listViewBtn');
+            
+            if (view === 'grid') {
+                gridView.classList.remove('hidden');
+                listView.classList.remove('active');
+                gridBtn.classList.add('active');
+                listBtn.classList.remove('active');
+            } else {
+                gridView.classList.add('hidden');
+                listView.classList.add('active');
+                gridBtn.classList.remove('active');
+                listBtn.classList.add('active');
+            }
+        }
+        
+        // 高级筛选切换
+        function toggleAdvancedFilter() {
+            const filters = document.getElementById('advancedFilters');
+            filters.classList.toggle('active');
+        }
+        
+        // 收藏切换
+        function toggleFavorite(btn) {
+            const isFavorited = btn.classList.contains('favorited');
+            // 检测按钮类型：列表视图使用12px图标，卡片视图使用14px图标
+            const isInTable = btn.closest('.list-table') !== null;
+            const iconSize = isInTable ? 12 : 14;
+            
+            if (isFavorited) {
+                btn.classList.remove('favorited');
+                btn.innerHTML = `<span><svg class="icon" width="${iconSize}" height="${iconSize}"><use href="#icon-star"/></svg></span> 收藏`;
+            } else {
+                btn.classList.add('favorited');
+                btn.innerHTML = `<span><svg class="icon" width="${iconSize}" height="${iconSize}"><use href="#icon-star-fill"/></svg></span> 已收藏`;
+            }
+        }
+        
+        // 跳转到详情页
+        function goToDetail(id) {
+            window.location.href = `detail.html?id=${id}`;
+        }
+        
+        // 关闭弹窗
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+        }
+        
+        // 点击遮罩关闭弹窗
+        document.querySelectorAll('.modal-overlay').forEach(overlay => {
+            overlay.addEventListener('click', (e) => {
+                if (e.target === overlay) {
+                    overlay.classList.remove('active');
+                }
+            });
+        });
+        
+        // 跳转到申请页
+        function goToApply(id) {
+            window.location.href = `apply.html?id=${id}`;
+        }
+    </script>
+</body>
+</html>

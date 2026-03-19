@@ -1,0 +1,3245 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>易普力数据资源门户</title>
+    <!-- Arco Design 风格 SVG 图标定义 -->
+    <svg style="display: none;">
+        <symbol id="icon-notification" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+            <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+        </symbol>
+        <symbol id="icon-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </symbol>
+        <symbol id="icon-file" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <polyline points="10 9 9 9 8 9"></polyline>
+        </symbol>
+        <symbol id="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"></polyline>
+        </symbol>
+        <symbol id="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+        </symbol>
+        <symbol id="icon-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+        </symbol>
+        <symbol id="icon-arrow-rise" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </symbol>
+        <symbol id="icon-arrow-fall" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+        </symbol>
+        <symbol id="icon-bar-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="20" x2="12" y2="10"></line>
+            <line x1="18" y1="20" x2="18" y2="4"></line>
+            <line x1="6" y1="20" x2="6" y2="16"></line>
+        </symbol>
+        <symbol id="icon-line-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+        </symbol>
+        <symbol id="icon-fire" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path>
+        </symbol>
+        <symbol id="icon-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+        </symbol>
+        <symbol id="icon-star-fill" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+        </symbol>
+        <symbol id="icon-table" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="3" y1="9" x2="21" y2="9"></line>
+            <line x1="3" y1="15" x2="21" y2="15"></line>
+            <line x1="9" y1="3" x2="9" y2="21"></line>
+            <line x1="15" y1="3" x2="15" y2="21"></line>
+        </symbol>
+        <symbol id="icon-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+        </symbol>
+        <symbol id="icon-folder" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+        </symbol>
+        <symbol id="icon-bell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+            <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+        </symbol>
+        <symbol id="icon-refresh" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="23 4 23 10 17 10"></polyline>
+            <polyline points="1 20 1 14 7 14"></polyline>
+            <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+        </symbol>
+        <symbol id="icon-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+        </symbol>
+        <symbol id="icon-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+        </symbol>
+        <symbol id="icon-trending-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+            <polyline points="17 6 23 6 23 12"></polyline>
+        </symbol>
+        <symbol id="icon-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+        </symbol>
+        <symbol id="icon-settings" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+        </symbol>
+        <symbol id="icon-logout" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+            <polyline points="16 17 21 12 16 7"></polyline>
+            <line x1="21" y1="12" x2="9" y2="12"></line>
+        </symbol>
+    </svg>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            /* Arco Design 科技蓝色系 */
+            --primary-color: #165DFF;
+            --primary-hover: #4080FF;
+            --primary-active: #0E42D2;
+            --primary-light: #E8F3FF;
+            --success-color: #00B42A;
+            --success-light: #E8FFEA;
+            --warning-color: #FF7D00;
+            --warning-light: #FFF7E8;
+            --danger-color: #F53F3F;
+            --danger-light: #FFECE8;
+            --text-primary: #1D2129;
+            --text-secondary: #4E5969;
+            --text-light: #86909C;
+            --bg-primary: #ffffff;
+            --bg-secondary: #F5F7FA;
+            --bg-tertiary: #E5E6EB;
+            --border-color: #E5E6EB;
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+            --shadow-md: 0 2px 8px rgba(0,0,0,0.08);
+            --shadow-lg: 0 4px 12px rgba(0,0,0,0.1);
+            --radius-sm: 2px;
+            --radius-md: 4px;
+            --radius-lg: 8px;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+        
+        /* 顶部导航栏 */
+        .navbar {
+            background: var(--primary-color);
+            padding: 0 40px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .navbar-logo {
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .navbar-logo img {
+            height: 36px;
+            width: auto;
+        }
+        
+        .navbar-title {
+            color: white;
+            font-size: 20px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        
+        .navbar-nav {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .nav-item {
+            padding: 8px 20px;
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+            border-radius: var(--radius-md);
+            transition: all 0.2s ease;
+            font-size: 14px;
+        }
+        
+        .nav-item:hover {
+            background: rgba(255,255,255,0.1);
+            color: white;
+        }
+        
+        .nav-item.active {
+            background: rgba(255,255,255,0.15);
+            color: white;
+            font-weight: 500;
+        }
+        
+        .navbar-user {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        
+        .user-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        
+        .user-avatar:hover {
+            background: rgba(255,255,255,0.3);
+        }
+        
+        .user-menu {
+            position: relative;
+        }
+        
+        .user-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            margin-top: 8px;
+            background: white;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            min-width: 160px;
+            overflow: hidden;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.2s;
+            z-index: 1000;
+        }
+        
+        .user-menu:hover .user-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .user-dropdown-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 16px;
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: background 0.2s;
+            cursor: pointer;
+        }
+        
+        .user-dropdown-item:hover {
+            background: var(--bg-secondary);
+        }
+        
+        .user-dropdown-item.danger {
+            color: var(--danger-color);
+        }
+        
+        .user-dropdown-divider {
+            height: 1px;
+            background: var(--border-color);
+            margin: 4px 0;
+        }
+        
+        .login-btn {
+            padding: 6px 16px;
+            background: rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: var(--radius-md);
+            color: white;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .login-btn:hover {
+            background: rgba(255,255,255,0.3);
+        }
+        
+        .logged-out .user-avatar,
+        .logged-out .user-menu {
+            display: none;
+        }
+        
+        .logged-in .login-btn {
+            display: none;
+        }
+        
+        .admin-menu-item {
+            display: none;
+        }
+        
+        .logged-in .admin-menu-item {
+            display: flex;
+        }
+        
+        .notification-badge {
+            position: relative;
+            cursor: pointer;
+            color: white;
+        }
+        
+        .notification-badge::after {
+            content: '3';
+            position: absolute;
+            top: -6px;
+            right: -8px;
+            background: var(--danger-color);
+            color: white;
+            font-size: 11px;
+            padding: 2px 6px;
+            border-radius: 10px;
+            font-weight: 500;
+        }
+        
+        /* 主内容区域 */
+        .main-content {
+            margin-top: 64px;
+            min-height: calc(100vh - 64px);
+        }
+        
+        /* Banner区域 */
+        .banner-section {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+        }
+        
+        .banner-slider {
+            position: relative;
+            height: 100%;
+        }
+        
+        .banner-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.8s ease;
+        }
+        
+        .banner-slide.active {
+            opacity: 1;
+        }
+        
+        .banner-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .banner-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(22, 93, 255, 0.85);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+        }
+        
+        .banner-title {
+            color: white;
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            text-align: center;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+        
+        .banner-subtitle {
+            color: rgba(255,255,255,0.9);
+            font-size: 18px;
+            margin-bottom: 32px;
+            text-align: center;
+        }
+        
+        /* 全局搜索框 */
+        .search-container {
+            width: 100%;
+            max-width: 35%;
+            position: relative;
+        }
+        
+        .search-box {
+            display: flex;
+            background: white;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+        }
+        
+        .search-input {
+            flex: 1;
+            padding: 14px 20px;
+            border: none;
+            font-size: 14px;
+            outline: none;
+            height: 48px;
+        }
+        
+        .search-input::placeholder {
+            color: var(--text-light);
+        }
+        
+        .search-btn {
+            padding: 14px 28px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .search-btn:hover {
+            background: var(--primary-hover);
+        }
+        
+        .search-btn:active {
+            background: var(--primary-active);
+        }
+        
+        .search-filters {
+            display: flex;
+            gap: 8px;
+            margin-top: 16px;
+            justify-content: center;
+        }
+        
+        .filter-tag {
+            padding: 0 12px;
+            height: 28px;
+            line-height: 28px;
+            background: rgba(255,255,255,0.15);
+            color: white;
+            border-radius: var(--radius-sm);
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .filter-tag:hover {
+            background: rgba(255,255,255,0.25);
+        }
+        
+        .banner-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+        
+        .banner-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.4);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .banner-dot.active {
+            background: white;
+            width: 30px;
+            border-radius: 5px;
+        }
+        
+        /* 内容区域 */
+        .content-wrapper {
+            padding: 32px 40px;
+            max-width: 1440px;
+            margin: 0 auto;
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 16px;
+        }
+        
+        .section-title {
+            font-size: 20px;
+            font-weight: 700;
+            font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            color: var(--primary-color);
+            padding: 12px 0;
+        }
+        
+        .section-more {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            transition: color 0.2s;
+        }
+        
+        .section-more:hover {
+            color: var(--primary-dark);
+        }
+        
+        /* 核心数据概览 */
+        .overview-section {
+            margin-bottom: 32px;
+        }
+        
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        
+        .overview-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: 16px 20px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .overview-content {
+            flex: 1;
+        }
+        
+        .overview-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-left: 16px;
+        }
+        
+        .overview-icon svg {
+            width: 28px;
+            height: 28px;
+        }
+        
+        .overview-icon.table {
+            background: var(--primary-light);
+            color: var(--primary-color);
+        }
+        
+        .overview-icon.api {
+            background: var(--success-light);
+            color: var(--success-color);
+        }
+        
+        .overview-icon.metric {
+            background: var(--warning-light);
+            color: var(--warning-color);
+        }
+        
+        .overview-icon.report {
+            background: var(--danger-light);
+            color: var(--danger-color);
+        }
+        
+        .overview-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-color);
+        }
+        
+        .overview-category-name {
+            font-size: 14px;
+            color: #4E5969;
+            margin-bottom: 8px;
+        }
+        
+        .overview-main-value {
+            font-size: 36px;
+            font-weight: 700;
+            color: #1D2129;
+            margin-bottom: 8px;
+        }
+        
+
+        
+        .overview-desc {
+            font-size: 13px;
+            color: #86909C;
+        }
+        
+        /* 数据质量模块 */
+        .quality-section {
+            margin-bottom: 32px;
+        }
+        
+        .quality-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+        
+        .quality-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: 20px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s;
+        }
+        
+        .quality-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-color);
+        }
+        
+        .quality-dept-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+        
+        .quality-dept-name {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .quality-dept-count {
+            font-size: 12px;
+            color: var(--text-light);
+        }
+        
+        .quality-metrics {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+        
+        .quality-metric {
+            text-align: center;
+        }
+        
+        .quality-metric-label {
+            font-size: 11px;
+            color: var(--text-light);
+            margin-bottom: 4px;
+        }
+        
+        .quality-metric-value {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .quality-metric-value.good {
+            color: var(--success-color);
+        }
+        
+        .quality-metric-value.warning {
+            color: var(--warning-color);
+        }
+        
+        .quality-metric-value.danger {
+            color: var(--danger-color);
+        }
+        
+        .quality-progress-wrap {
+            margin-bottom: 8px;
+        }
+        
+        .quality-progress-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            margin-bottom: 4px;
+        }
+        
+        .quality-progress-text {
+            color: var(--text-secondary);
+        }
+        
+        .quality-progress-value {
+            font-weight: 600;
+        }
+        
+        .quality-progress-bar {
+            height: 8px;
+            background: var(--bg-tertiary);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .quality-progress-fill {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 0.5s ease;
+        }
+        
+        .quality-progress-fill.excellent {
+            background: var(--success-color);
+        }
+        
+        .quality-progress-fill.good {
+            background: var(--primary-color);
+        }
+        
+        .quality-progress-fill.warning {
+            background: var(--warning-color);
+        }
+        
+        .quality-progress-fill.danger {
+            background: var(--danger-color);
+        }
+        
+        .quality-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 4px 12px;
+            border-radius: var(--radius-sm);
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        .quality-status.passed {
+            background: var(--success-light);
+            color: var(--success-color);
+        }
+        
+        .quality-status.failed {
+            background: var(--danger-light);
+            color: var(--danger-color);
+        }
+        
+        /* 数据质量横向布局 */
+        .quality-horizontal {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        
+        .quality-card-light {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: 20px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .quality-card-light:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-color);
+        }
+        
+        .quality-card-header {
+            flex: 1;
+        }
+        
+        .quality-card-title {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 4px;
+        }
+        
+        .quality-card-desc {
+            font-size: 12px;
+            color: var(--text-light);
+        }
+        
+        .quality-score {
+            font-size: 32px;
+            font-weight: 700;
+            margin-left: 20px;
+        }
+        
+        .quality-score.excellent {
+            color: var(--success-color);
+        }
+        
+        .quality-score.good {
+            color: var(--warning-color);
+        }
+        
+        .quality-score.poor {
+            color: var(--danger-color);
+        }
+        
+        .quality-count {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-left: 20px;
+        }
+        
+        .quality-trend {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+        
+        .quality-trend svg {
+            flex-shrink: 0;
+        }
+        
+        .quality-chart {
+            flex: 1;
+            max-width: 50%;
+            margin-left: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+        
+        @media (max-width: 768px) {
+            .quality-horizontal {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .quality-horizontal {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* 三列布局区域 */
+        .three-column-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+        
+        /* 两列布局区域 */
+        .two-column-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+        
+        @media (max-width: 768px) {
+            .two-column-section {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* 通用卡片模块 */
+        .card-module {
+            background: white;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+        }
+        
+        .card-module-header {
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .card-module-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .card-module-title::before {
+            content: '';
+            width: 4px;
+            height: 16px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+        
+        .card-module-more {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 13px;
+            transition: color 0.2s;
+        }
+        
+        .card-module-more:hover {
+            color: var(--primary-dark);
+        }
+        
+        .card-module-body {
+            padding: 16px;
+        }
+        
+        /* 待办事项模块 */
+        .todo-tabs-header {
+            display: flex;
+            border-bottom: 2px solid var(--border-color);
+        }
+        
+        .todo-tab {
+            flex: 1;
+            padding: 12px 8px;
+            text-align: center;
+            cursor: pointer;
+            font-size: 20px;
+            color: var(--text-secondary);
+            transition: all 0.2s;
+            border-bottom: 2px solid transparent;
+            margin-bottom: -2px;
+        }
+        
+        .todo-tab:hover {
+            color: var(--primary-color);
+        }
+        
+        .todo-tab.active {
+            color: var(--primary-color);
+            font-weight: 500;
+            border-bottom-color: var(--primary-color);
+        }
+        
+        .todo-tab .badge {
+            display: inline-block;
+            padding: 0 6px;
+            height: 18px;
+            line-height: 18px;
+            background: var(--danger-color);
+            color: white;
+            border-radius: 9px;
+            font-size: 11px;
+            margin-left: 4px;
+        }
+        
+        .todo-panel {
+            display: none;
+        }
+        
+        .todo-panel.active {
+            display: block;
+        }
+        
+        .todo-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 10px;
+            border-radius: var(--radius-md);
+            transition: background 0.2s;
+            cursor: pointer;
+        }
+        
+        .todo-item:hover {
+            background: var(--bg-secondary);
+        }
+        
+        .todo-item.unread {
+            background: var(--primary-light);
+        }
+        
+        .todo-item.unread::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            flex-shrink: 0;
+            margin-top: 6px;
+        }
+        
+        .todo-item.overdue {
+            background: var(--danger-light);
+        }
+        
+        .todo-item.overdue .todo-title {
+            color: var(--danger-color);
+        }
+        
+        .todo-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+        
+        .todo-icon.pending {
+            background: var(--warning-light);
+            color: var(--warning-color);
+        }
+        
+        .todo-icon.approved {
+            background: var(--success-light);
+            color: var(--success-color);
+        }
+        
+        .todo-icon.rejected {
+            background: var(--danger-light);
+            color: var(--danger-color);
+        }
+        
+        .todo-info {
+            flex: 1;
+            min-width: 0;
+        }
+        
+        .todo-title {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 2px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .todo-meta {
+            font-size: 11px;
+            color: var(--text-light);
+        }
+        
+        .todo-time {
+            font-size: 11px;
+            color: var(--text-light);
+            flex-shrink: 0;
+        }
+        
+        /* 通知公告模块 */
+        .notice-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px;
+            border-radius: var(--radius-md);
+            transition: background 0.2s;
+            cursor: pointer;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .notice-item:last-child {
+            border-bottom: none;
+        }
+        
+        .notice-item:hover {
+            background: var(--bg-secondary);
+        }
+        
+        .notice-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+        
+        .notice-icon.important {
+            background: var(--danger-light);
+            color: var(--danger-color);
+        }
+        
+        .notice-icon.normal {
+            background: var(--primary-light);
+            color: var(--primary-color);
+        }
+        
+        .notice-icon.update {
+            background: var(--success-light);
+            color: var(--success-color);
+        }
+        
+        .notice-content {
+            flex: 1;
+            min-width: 0;
+        }
+        
+        .notice-title {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        
+        .notice-meta {
+            font-size: 11px;
+            color: var(--text-light);
+        }
+        
+        .notice-tag {
+            display: inline-block;
+            padding: 0 8px;
+            height: 24px;
+            line-height: 24px;
+            border-radius: var(--radius-sm);
+            font-size: 12px;
+            margin-right: 8px;
+        }
+        
+        .notice-tag.important {
+            background: var(--danger-light);
+            color: var(--danger-color);
+        }
+        
+        .notice-tag.normal {
+            background: var(--primary-light);
+            color: var(--primary-color);
+        }
+        
+        .notice-tag.update {
+            background: var(--success-light);
+            color: var(--success-color);
+        }
+        
+        /* 数据管理标准规范模块 */
+        .standard-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            border-radius: var(--radius-md);
+            transition: background 0.2s;
+            cursor: pointer;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .standard-item:last-child {
+            border-bottom: none;
+        }
+        
+        .standard-item:hover {
+            background: var(--bg-secondary);
+        }
+        
+        .standard-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: var(--radius-sm);
+            background: var(--warning-light);
+            color: var(--warning-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+        
+        .standard-info {
+            flex: 1;
+            min-width: 0;
+        }
+        
+        .standard-title {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 2px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .standard-meta {
+            font-size: 11px;
+            color: var(--text-light);
+        }
+        
+        .standard-download {
+            padding: 0 12px;
+            height: 32px;
+            line-height: 32px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: var(--radius-md);
+            font-size: 13px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        
+        .standard-download:hover {
+            background: var(--primary-hover);
+        }
+        
+        .standard-download:active {
+            background: var(--primary-active);
+        }
+        
+        /* 资源推送模块 */
+        .assets-section {
+            margin-bottom: 32px;
+        }
+        
+        .assets-tabs {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .asset-tab {
+            padding: 0 16px;
+            height: 32px;
+            line-height: 32px;
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            font-size: 14px;
+            color: var(--text-secondary);
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .asset-tab:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+        
+        .asset-tab.active {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+            color: white;
+        }
+        
+        .asset-tab .count {
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 12px;
+        }
+        
+        .asset-tab.active .count {
+            color: white;
+        }
+        
+        .assets-list {
+            background: white;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+        }
+        
+        .assets-panel {
+            display: none;
+        }
+        
+        .assets-panel.active {
+            display: block;
+        }
+        
+        .assets-list-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .assets-list-table th {
+            padding: 14px 16px;
+            text-align: left;
+            font-weight: 500;
+            color: var(--text-secondary);
+            font-size: 13px;
+            background: var(--bg-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .assets-list-table td {
+            padding: 16px;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 14px;
+        }
+        
+        .assets-list-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .assets-list-table tr:hover td {
+            background: var(--bg-color);
+        }
+        
+        .resource-name {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        
+        .resource-name:hover {
+            color: var(--primary-color);
+        }
+        
+        .resource-name .icon {
+            width: 36px;
+            height: 36px;
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+        
+        .resource-name .icon.table {
+            background: var(--primary-light);
+            color: var(--primary-color);
+        }
+        
+        .resource-name .icon.api {
+            background: var(--success-light);
+            color: var(--success-color);
+        }
+        
+        .resource-name .icon.report {
+            background: var(--warning-light);
+            color: var(--warning-color);
+        }
+        
+        .resource-name .icon.metric {
+            background: var(--danger-light);
+            color: var(--danger-color);
+        }
+        
+        .resource-name .name-text {
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+        
+        .resource-name:hover .name-text {
+            color: var(--primary-color);
+        }
+        
+        .resource-dept {
+            color: var(--text-secondary);
+            font-size: 13px;
+        }
+        
+        .resource-type-tag {
+            display: inline-flex;
+            align-items: center;
+            padding: 4px 12px;
+            border-radius: var(--radius-sm);
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        .resource-type-tag.table {
+            background: var(--primary-light);
+            color: var(--primary-color);
+        }
+        
+        .resource-type-tag.api {
+            background: var(--success-light);
+            color: var(--success-color);
+        }
+        
+        .resource-type-tag.report {
+            background: var(--warning-light);
+            color: var(--warning-color);
+        }
+        
+        .resource-type-tag.metric {
+            background: var(--danger-light);
+            color: var(--danger-color);
+        }
+        
+        .resource-hot {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            color: var(--text-secondary);
+            font-size: 13px;
+        }
+        
+        .resource-hot svg {
+            color: var(--warning-color);
+        }
+        
+        .resource-status {
+            display: inline-flex;
+            align-items: center;
+            padding: 4px 12px;
+            border-radius: var(--radius-sm);
+            font-size: 12px;
+        }
+        
+        .resource-status.available {
+            background: var(--success-light);
+            color: var(--success-color);
+        }
+        
+        .resource-status.pending {
+            background: var(--warning-light);
+            color: var(--warning-color);
+        }
+        
+        .resource-actions {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .resource-btn {
+            padding: 6px 16px;
+            border-radius: var(--radius-sm);
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+        }
+        
+        .resource-btn.secondary {
+            background: white;
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+        }
+        
+        .resource-btn.secondary:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+        
+        .resource-btn.primary {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .resource-btn.primary:hover {
+            background: var(--primary-hover);
+        }
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .asset-icon svg {
+            width: 22px;
+            height: 22px;
+        }
+        
+        .asset-icon.table {
+            background: var(--primary-light);
+            color: var(--primary-color);
+        }
+        
+        .asset-icon.api {
+            background: var(--success-light);
+            color: var(--success-color);
+        }
+        
+        .asset-icon.report {
+            background: var(--warning-light);
+            color: var(--warning-color);
+        }
+        
+        .asset-icon.metric {
+            background: var(--danger-light);
+            color: var(--danger-color);
+        }
+        
+        .asset-title-wrap {
+            flex: 1;
+            min-width: 0;
+        }
+        
+        .asset-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        
+        .asset-title:hover {
+            color: var(--primary-color);
+        }
+        
+        .asset-dept {
+            font-size: 12px;
+            color: var(--text-light);
+        }
+        
+        .asset-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+        
+        .asset-tag {
+            padding: 0 8px;
+            height: 24px;
+            line-height: 24px;
+            border-radius: var(--radius-sm);
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        .asset-tag.type {
+            background: var(--primary-light);
+            color: var(--primary-color);
+        }
+        
+        .asset-tag.quality {
+            background: var(--success-light);
+            color: var(--success-color);
+        }
+        
+        .asset-tag.quality.warning {
+            background: var(--warning-light);
+            color: var(--warning-color);
+        }
+        
+        .asset-tag.hot {
+            background: var(--danger-light);
+            color: var(--danger-color);
+        }
+        
+        .asset-tag.status {
+            background: var(--success-light);
+            color: var(--success-color);
+        }
+        
+        .asset-tag.status.pending {
+            background: var(--warning-light);
+            color: var(--warning-color);
+        }
+        
+        .asset-actions {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .asset-btn {
+            flex: 1;
+            padding: 0 16px;
+            height: 32px;
+            line-height: 32px;
+            border-radius: var(--radius-md);
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: center;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+        
+        .asset-btn.primary {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .asset-btn.primary:hover {
+            background: var(--primary-hover);
+        }
+        
+        .asset-btn.primary:active {
+            background: var(--primary-active);
+        }
+        
+        .asset-btn.secondary {
+            background: white;
+            color: var(--text-secondary);
+            border: 1px solid var(--border-color);
+        }
+        
+        .asset-btn.secondary:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+        
+        .asset-btn.favorited {
+            background: var(--primary-light);
+            color: var(--primary-color);
+            border-color: transparent;
+        }
+        
+        .asset-btn.disabled {
+            background: var(--bg-tertiary);
+            color: var(--text-light);
+            cursor: not-allowed;
+        }
+        
+        .asset-btn.disabled:hover {
+            background: var(--bg-tertiary);
+            color: var(--text-light);
+        }
+
+        /* 底部区域 - 清爽浅色主题 */
+        .footer {
+            background: #f8fafc;
+            padding: 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-color), transparent);
+        }
+        
+        .footer-main {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 48px 40px;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 60px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* 左侧联系卡片区域 */
+        .footer-left {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .contact-card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+        }
+        
+        .contact-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 28px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .contact-title::before {
+            content: '';
+            width: 4px;
+            height: 24px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+        
+        .contact-items {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 14px;
+            background: #f8fafc;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+        
+        .contact-item:hover {
+            background: #f0f5ff;
+            transform: translateX(4px);
+            border-color: var(--primary-light);
+        }
+        
+        .contact-icon {
+            width: 44px;
+            height: 44px;
+            background: var(--primary-light);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+        
+        .contact-item:hover .contact-icon {
+            background: var(--primary-color);
+            color: #ffffff;
+            transform: scale(1.05);
+        }
+        
+        .contact-text {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        
+        .contact-label {
+            font-size: 12px;
+            color: var(--text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .contact-value {
+            font-size: 15px;
+            color: var(--text-primary);
+            font-weight: 500;
+            word-break: break-all;
+        }
+        
+        .contact-value a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        
+        .contact-value a:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+        
+        /* 右侧地图区域 */
+        .footer-right {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .map-container {
+            flex: 1;
+            background: #ffffff;
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            min-height: 280px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+        }
+        
+        .map-image {
+            width: 100%;
+            height: 100%;
+            min-height: 280px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .map-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+            padding: 20px;
+        }
+        
+        .map-label {
+            font-size: 16px;
+            font-weight: 500;
+            color: #ffffff;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* 底部版权栏 */
+        .footer-bottom {
+            background: var(--primary-color);
+            padding: 14px 40px;
+            text-align: center;
+        }
+        
+        .footer-bottom p {
+            color: #ffffff;
+            font-size: 13px;
+            margin: 0;
+            letter-spacing: 0.5px;
+        }
+        
+        /* 旧版页脚样式保留兼容 */
+        .footer-content {
+            max-width: 1440px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+        }
+        
+        .footer-section h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        /* 弹窗 */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(29, 33, 41, 0.6);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            padding: 20px;
+        }
+        
+        .modal-overlay.active {
+            display: flex;
+        }
+        
+        .modal {
+            background: white;
+            border-radius: var(--radius-lg);
+            max-width: 600px;
+            width: 100%;
+            max-height: 80vh;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .modal-header {
+            padding: 20px 24px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .modal-title {
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .modal-close {
+            width: 32px;
+            height: 32px;
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-size: 20px;
+            color: var(--text-light);
+            border-radius: var(--radius-md);
+            transition: all 0.2s;
+        }
+        
+        .modal-close:hover {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+        }
+        
+        .modal-body {
+            padding: 24px;
+            overflow-y: auto;
+            max-height: 60vh;
+        }
+        
+        .detail-section {
+            margin-bottom: 24px;
+        }
+        
+        .detail-section:last-child {
+            margin-bottom: 0;
+        }
+        
+        .detail-section h5 {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .detail-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+        
+        .detail-item {
+            display: flex;
+            font-size: 13px;
+        }
+        
+        .detail-item .label {
+            color: var(--text-light);
+            min-width: 80px;
+        }
+        
+        .detail-item .value {
+            color: var(--text-primary);
+            flex: 1;
+        }
+        
+        .field-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+        
+        .field-table th,
+        .field-table td {
+            padding: 10px 12px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .field-table th {
+            background: var(--bg-secondary);
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+        
+        .field-table td {
+            color: var(--text-primary);
+        }
+        
+        .modal-footer {
+            padding: 16px 24px;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: flex-end;
+            gap: 12px;
+        }
+        
+        .btn {
+            padding: 0 16px;
+            height: 32px;
+            line-height: 32px;
+            border-radius: var(--radius-md);
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+        }
+        
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: var(--primary-hover);
+        }
+        
+        .btn-primary:active {
+            background: var(--primary-active);
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: var(--text-secondary);
+            border: 1px solid var(--border-color);
+        }
+        
+        .btn-secondary:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+        
+        /* 响应式 */
+        @media (max-width: 1200px) {
+            .assets-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .overview-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .three-column-section {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .footer-main {
+                gap: 40px;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .three-column-section {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-main {
+                grid-template-columns: 1fr;
+                gap: 32px;
+                padding: 32px 24px;
+            }
+            
+            .map-container,
+            .map-placeholder {
+                min-height: 240px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 0 20px;
+            }
+            
+            .navbar-title {
+                font-size: 16px;
+            }
+            
+            .nav-item {
+                padding: 6px 12px;
+                font-size: 13px;
+            }
+            
+            .banner-section {
+                height: 300px;
+            }
+            
+            .banner-title {
+                font-size: 28px;
+            }
+            
+            .banner-subtitle {
+                font-size: 14px;
+            }
+            
+            .content-wrapper {
+                padding: 20px;
+            }
+            
+            .assets-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .overview-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .search-box {
+                flex-direction: column;
+            }
+            
+            .search-btn {
+                justify-content: center;
+            }
+            
+            .pagination-btn {
+                min-width: 28px;
+                height: 28px;
+                font-size: 13px;
+                padding: 0 8px;
+                white-space: nowrap;
+            }
+            
+            .footer-main {
+                padding: 24px 16px;
+                gap: 24px;
+            }
+            
+            .contact-card {
+                padding: 24px;
+            }
+            
+            .contact-title {
+                font-size: 18px;
+                margin-bottom: 20px;
+            }
+            
+            .contact-items {
+                gap: 16px;
+            }
+            
+            .contact-item {
+                padding: 12px;
+            }
+            
+            .contact-icon {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .contact-label {
+                font-size: 11px;
+            }
+            
+            .contact-value {
+                font-size: 14px;
+            }
+            
+            .map-container,
+            .map-placeholder {
+                min-height: 200px;
+            }
+            
+            .map-label {
+                font-size: 14px;
+            }
+            
+            .footer-bottom {
+                padding: 16px;
+            }
+            
+            .footer-bottom p {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <nav class="navbar logged-in">
+        <div class="navbar-brand">
+            <div class="navbar-logo">
+                <img src="https://www.cecic.com.cn/images/logo.png" alt="中国能建" onerror="this.style.display='none'">
+            </div>
+            <span class="navbar-title">易普力数据资源门户</span>
+        </div>
+        <div class="navbar-nav">
+            <a href="index.html" class="nav-item active">首页</a>
+            <a href="assets.html" class="nav-item">数据资源</a>
+        </div>
+        <div class="navbar-user">
+            <a href="admin.html" class="nav-item admin-menu-item" style="padding: 6px 16px; background: rgba(255,255,255,0.1); border-radius: 4px;">管理后台</a>
+            <span class="notification-badge"><svg class="icon" width="16" height="16"><use href="#icon-notification"/></svg></span>
+            <div class="user-menu">
+                <div class="user-avatar">连</div>
+                <div class="user-dropdown">
+                    <div class="user-dropdown-item">
+                        <svg class="icon" width="16" height="16"><use href="#icon-user"/></svg>
+                        个人中心
+                    </div>
+                    <div class="user-dropdown-item">
+                        <svg class="icon" width="16" height="16"><use href="#icon-file"/></svg>
+                        我的申请
+                    </div>
+                    <div class="user-dropdown-item">
+                        <svg class="icon" width="16" height="16"><use href="#icon-table"/></svg>
+                        我的资源
+                    </div>
+                    <div class="user-dropdown-item">
+                        <svg class="icon" width="16" height="16"><use href="#icon-settings"/></svg>
+                        修改密码
+                    </div>
+                    <div class="user-dropdown-item" onclick="window.location.href='admin.html'">
+                        <svg class="icon" width="16" height="16"><use href="#icon-book"/></svg>
+                        管理后台
+                    </div>
+                    <div class="user-dropdown-divider"></div>
+                    <div class="user-dropdown-item danger" onclick="toggleLogin()">
+                        <svg class="icon" width="16" height="16"><use href="#icon-logout"/></svg>
+                        退出登录
+                    </div>
+                </div>
+            </div>
+            <button class="login-btn" onclick="toggleLogin()">登录</button>
+        </div>
+    </nav>
+    
+    <!-- 主内容区域 -->
+    <main class="main-content">
+        <!-- Banner区域 -->
+        <section class="banner-section">
+            <div class="banner-slider">
+                <div class="banner-slide active">
+                    <img src="banner/1.jpg" alt="Banner 1">
+                </div>
+                <div class="banner-slide">
+                    <img src="banner/2.jpg" alt="Banner 2">
+                </div>
+                <div class="banner-slide">
+                    <img src="banner/3.jpg" alt="Banner 3">
+                </div>
+                <div class="banner-slide">
+                    <img src="banner/4.jpg" alt="Banner 4">
+                </div>
+            </div>
+            <div class="banner-overlay">
+                <h1 class="banner-title">数据驱动价值 创新引领未来</h1>
+                <p class="banner-subtitle">统一数据资源管理 · 精准权限管控 · 高效协同共享</p>
+                <div class="search-container">
+                    <div class="search-box">
+                        <input type="text" class="search-input" placeholder="搜索资源名称">
+                        <button class="search-btn">
+                            <span><svg class="icon" width="18" height="18"><use href="#icon-search"/></svg></span>
+                            <span>搜索</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="banner-dots">
+                <span class="banner-dot active" data-index="0"></span>
+                <span class="banner-dot" data-index="1"></span>
+                <span class="banner-dot" data-index="2"></span>
+                <span class="banner-dot" data-index="3"></span>
+            </div>
+        </section>
+        
+        <!-- 内容区域 -->
+        <div class="content-wrapper">
+            <!-- 三列布局区域 -->
+            <section class="three-column-section">
+                <!-- 待办事项模块 -->
+                <div class="card-module">
+                    <div class="todo-tabs-header">
+                        <div class="todo-tab active" data-tab="pending">
+                            我的待办
+                            <span class="badge">5</span>
+                        </div>
+                        <div class="todo-tab" data-tab="applied">我的申请</div>
+                        <div class="todo-tab" data-tab="favorites">我的收藏</div>
+                        <div class="todo-tab" data-tab="done">已办结</div>
+                    </div>
+                    <div class="card-module-body">
+                        <div class="todo-panel active" id="pending-panel">
+                            <div class="todo-item unread">
+                                <div class="todo-info">
+                                    <div class="todo-title">生产数据表访问权限申请</div>
+                                    <div class="todo-meta">提交人：李明 | 部门主管审批</div>
+                                </div>
+                                <div class="todo-time">10分钟前</div>
+                            </div>
+                            <div class="todo-item unread">
+                                <div class="todo-info">
+                                    <div class="todo-title">销售报表分析权限申请</div>
+                                    <div class="todo-meta">提交人：王芳 | 技术审批</div>
+                                </div>
+                                <div class="todo-time">30分钟前</div>
+                            </div>
+                            <div class="todo-item overdue">
+                                <div class="todo-info">
+                                    <div class="todo-title">人力资源数据API权限申请</div>
+                                    <div class="todo-meta">提交人：张伟 | 部门主管审批</div>
+                                </div>
+                                <div class="todo-time">超期2天</div>
+                            </div>
+                            <div class="todo-item">
+                                <div class="todo-info">
+                                    <div class="todo-title">库存管理数据表权限申请</div>
+                                    <div class="todo-meta">提交人：赵敏 | 部门主管审批</div>
+                                </div>
+                                <div class="todo-time">1小时前</div>
+                            </div>
+                            <div class="todo-item">
+                                <div class="todo-info">
+                                    <div class="todo-title">财务报表查看权限申请</div>
+                                    <div class="todo-meta">提交人：刘洋 | 技术审批</div>
+                                </div>
+                                <div class="todo-time">2小时前</div>
+                            </div>
+                        </div>
+                        <div class="todo-panel" id="applied-panel">
+                            <div class="todo-item">
+                                <div class="todo-info">
+                                    <div class="todo-title">矿山开采数据表权限申请</div>
+                                    <div class="todo-meta">审批中 | 部门主管审批</div>
+                                </div>
+                                <div class="todo-time">申请于昨天</div>
+                            </div>
+                            <div class="todo-item">
+                                <div class="todo-info">
+                                    <div class="todo-title">生产运营指标报表权限申请</div>
+                                    <div class="todo-meta">已通过 | 有效期至2026-06-30</div>
+                                </div>
+                                <div class="todo-time">申请于3天前</div>
+                            </div>
+                            <div class="todo-item">
+                                <div class="todo-info">
+                                    <div class="todo-title">供应链数据API权限申请</div>
+                                    <div class="todo-meta">已驳回 | 权限范围过大</div>
+                                </div>
+                                <div class="todo-time">申请于5天前</div>
+                            </div>
+                        </div>
+                        <div class="todo-panel" id="favorites-panel">
+                            <div class="todo-item">
+                                <div class="todo-info">
+                                    <div class="todo-title">生产运营数据汇总表</div>
+                                    <div class="todo-meta">数据表 | 生产运营部</div>
+                                </div>
+                                <div class="todo-time">收藏于3天前</div>
+                            </div>
+                            <div class="todo-item">
+                                <div class="todo-info">
+                                    <div class="todo-title">销售业绩分析报表</div>
+                                    <div class="todo-meta">报表 | 销售部</div>
+                                </div>
+                                <div class="todo-time">收藏于1周前</div>
+                            </div>
+                        </div>
+                        <div class="todo-panel" id="done-panel">
+                            <div class="todo-item">
+                                <div class="todo-info">
+                                    <div class="todo-title">员工信息数据表权限申请</div>
+                                    <div class="todo-meta">已通过 | 审批人：张经理</div>
+                                </div>
+                                <div class="todo-time">1周前</div>
+                            </div>
+                            <div class="todo-item">
+                                <div class="todo-info">
+                                    <div class="todo-title">财务明细报表权限申请</div>
+                                    <div class="todo-meta">已驳回 | 审批人：李主管</div>
+                                </div>
+                                <div class="todo-time">2周前</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 核心数据概览 -->
+                <div class="card-module">
+                    <div class="section-header">
+                        <h3 class="section-title">核心数据概览</h3>
+                        <a href="#" class="section-more">更多 →</a>
+                    </div>
+                    <div class="overview-grid" style="grid-template-columns: repeat(2, 1fr); gap: 16px; padding: 16px;">
+                        <div class="overview-card">
+                            <div class="overview-content">
+                                <div class="overview-category-name">数据表</div>
+                                <div class="overview-main-value">128</div>
+                                <div class="overview-desc">平台数据表总量</div>
+                            </div>
+                            <div class="overview-icon table"><svg class="icon" width="28" height="28"><use href="#icon-table"/></svg></div>
+                        </div>
+                        <div class="overview-card">
+                            <div class="overview-content">
+                                <div class="overview-category-name">API</div>
+                                <div class="overview-main-value">56</div>
+                                <div class="overview-desc">平台API接口总量</div>
+                            </div>
+                            <div class="overview-icon api"><svg class="icon" width="28" height="28"><use href="#icon-link"/></svg></div>
+                        </div>
+                        <div class="overview-card">
+                            <div class="overview-content">
+                                <div class="overview-category-name">业务指标</div>
+                                <div class="overview-main-value">89</div>
+                                <div class="overview-desc">平台业务指标总量</div>
+                            </div>
+                            <div class="overview-icon metric"><svg class="icon" width="28" height="28"><use href="#icon-trending-up"/></svg></div>
+                        </div>
+                        <div class="overview-card">
+                            <div class="overview-content">
+                                <div class="overview-category-name">报表</div>
+                                <div class="overview-main-value">67</div>
+                                <div class="overview-desc">平台报表总量</div>
+                            </div>
+                            <div class="overview-icon report"><svg class="icon" width="28" height="28"><use href="#icon-bar-chart"/></svg></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+
+            
+            <!-- 数据质量模块 -->
+            <section class="quality-section">
+                <div class="section-header">
+                    <h3 class="section-title">数据质量</h3>
+                    <a href="data-quality.html" class="section-more">更多 →</a>
+                </div>
+                <div class="quality-horizontal">
+                    <div class="quality-card-light" title="整体数据质量综合得分，反映所有数据资产的整体质量水平">
+                        <div class="quality-card-header">
+                            <div class="quality-card-title">整体数据质量</div>
+                            <div class="quality-card-desc">综合得分</div>
+                        </div>
+                        <div class="quality-score excellent">95</div>
+                    </div>
+                    <div class="quality-card-light" title="当前未修复的数据质量问题总数">
+                        <div class="quality-card-header">
+                            <div class="quality-card-title">质量问题</div>
+                            <div class="quality-card-desc">未修复问题</div>
+                        </div>
+                        <div class="quality-count">23</div>
+                    </div>
+                    <div class="quality-card-light" title="质量得分低于80分的高风险数据资产数量">
+                        <div class="quality-card-header">
+                            <div class="quality-card-title">高风险资产</div>
+                            <div class="quality-card-desc">质量分＜80</div>
+                        </div>
+                        <div class="quality-count">8</div>
+                    </div>
+                    <div class="quality-card-light" title="近7天数据质量变化趋势">
+                        <div class="quality-card-header">
+                            <div class="quality-card-title">质量趋势</div>
+                            <div class="quality-card-desc">近7天</div>
+                        </div>
+                        <div class="quality-chart">
+                            <svg width="80" height="30" viewBox="0 0 80 30">
+                                <path d="M0,25 L10,22 L20,18 L30,20 L40,15 L50,12 L60,14 L70,10" stroke="#165DFF" stroke-width="2" fill="none"/>
+                                <circle cx="0" cy="25" r="2" fill="#165DFF"/>
+                                <circle cx="70" cy="10" r="2" fill="#165DFF"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- 资源推送模块 -->
+            <section class="assets-section">
+                <div class="section-header">
+                    <h3 class="section-title">资源推送</h3>
+                    <span class="pagination-info">共计 128 项资源</span>
+                </div>
+                <div class="assets-tabs">
+                    <div class="asset-tab active">
+                        全部
+                        <span class="count">128</span>
+                    </div>
+                    <div class="asset-tab">
+                        生产运营类
+                        <span class="count">45</span>
+                    </div>
+                    <div class="asset-tab">
+                        安全环保类
+                        <span class="count">32</span>
+                    </div>
+                    <div class="asset-tab">
+                        人力资源类
+                        <span class="count">28</span>
+                    </div>
+                    <div class="asset-tab">
+                        供应链与物资类
+                        <span class="count">23</span>
+                    </div>
+                </div>
+                <div class="assets-list">
+                    <!-- 全部资源面板 -->
+                    <div class="assets-panel active" id="all-panel">
+                        <table class="assets-list-table">
+                            <thead>
+                                <tr>
+                                    <th>资源名称</th>
+                                    <th>类型</th>
+                                    <th>所属分类</th>
+                                    <th>热度</th>
+                                    <th>状态</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="resource-name" onclick="goToDetail(1)">
+                                            <span class="icon table">📋</span>
+                                            <div>
+                                                <div class="name-text">生产运营数据汇总表</div>
+                                                <div class="resource-dept">生产运营部</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><span class="resource-type-tag table">数据表</span></td>
+                                    <td>生产运营类</td>
+                                    <td>
+                                        <div class="resource-hot">
+                                            <svg class="icon" width="14" height="14"><use href="#icon-fire"/></svg>
+                                            2,341
+                                        </div>
+                                    </td>
+                                    <td><span class="resource-status available">可申请</span></td>
+                                    <td>
+                                        <div class="resource-actions">
+                                            <button class="resource-btn secondary" onclick="toggleFavorite(this)">收藏</button>
+                                            <button class="resource-btn primary" onclick="goToApply()">申请</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="resource-name" onclick="goToDetail(2)">
+                                            <span class="icon report">📊</span>
+                                            <div>
+                                                <div class="name-text">销售业绩分析报表</div>
+                                                <div class="resource-dept">销售部</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><span class="resource-type-tag report">报表</span></td>
+                                    <td>销售类</td>
+                                    <td>
+                                        <div class="resource-hot">
+                                            <svg class="icon" width="14" height="14"><use href="#icon-fire"/></svg>
+                                            1,892
+                                        </div>
+                                    </td>
+                                    <td><span class="resource-status available">可申请</span></td>
+                                    <td>
+                                        <div class="resource-actions">
+                                            <button class="resource-btn secondary" onclick="toggleFavorite(this)">收藏</button>
+                                            <button class="resource-btn primary" onclick="goToApply()">申请</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="resource-name" onclick="goToDetail(3)">
+                                            <span class="icon api">🔗</span>
+                                            <div>
+                                                <div class="name-text">库存查询API接口</div>
+                                                <div class="resource-dept">供应链管理部</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><span class="resource-type-tag api">API</span></td>
+                                    <td>供应链与物资类</td>
+                                    <td>
+                                        <div class="resource-hot">
+                                            <svg class="icon" width="14" height="14"><use href="#icon-fire"/></svg>
+                                            856
+                                        </div>
+                                    </td>
+                                    <td><span class="resource-status available">可申请</span></td>
+                                    <td>
+                                        <div class="resource-actions">
+                                            <button class="resource-btn secondary" onclick="toggleFavorite(this)">收藏</button>
+                                            <button class="resource-btn primary" onclick="goToApply()">申请</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="resource-name" onclick="goToDetail(4)">
+                                            <span class="icon metric">📈</span>
+                                            <div>
+                                                <div class="name-text">矿山开采效率指标</div>
+                                                <div class="resource-dept">生产运营部</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><span class="resource-type-tag metric">指标</span></td>
+                                    <td>生产运营类</td>
+                                    <td>
+                                        <div class="resource-hot">
+                                            <svg class="icon" width="14" height="14"><use href="#icon-fire"/></svg>
+                                            623
+                                        </div>
+                                    </td>
+                                    <td><span class="resource-status pending">审批中</span></td>
+                                    <td>
+                                        <div class="resource-actions">
+                                            <button class="resource-btn secondary" onclick="toggleFavorite(this)">收藏</button>
+                                            <button class="resource-btn primary" onclick="goToApply()">申请</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="resource-name" onclick="goToDetail(5)">
+                                            <span class="icon table">📋</span>
+                                            <div>
+                                                <div class="name-text">员工绩效考核数据表</div>
+                                                <div class="resource-dept">人力资源部</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><span class="resource-type-tag table">数据表</span></td>
+                                    <td>人力资源类</td>
+                                    <td>
+                                        <div class="resource-hot">
+                                            <svg class="icon" width="14" height="14"><use href="#icon-fire"/></svg>
+                                            445
+                                        </div>
+                                    </td>
+                                    <td><span class="resource-status available">可申请</span></td>
+                                    <td>
+                                        <div class="resource-actions">
+                                            <button class="resource-btn secondary" onclick="toggleFavorite(this)">收藏</button>
+                                            <button class="resource-btn primary" onclick="goToApply()">申请</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="resource-name" onclick="goToDetail(6)">
+                                            <span class="icon report">📊</span>
+                                            <div>
+                                                <div class="name-text">安全环保监测报表</div>
+                                                <div class="resource-dept">安全环保部</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><span class="resource-type-tag report">报表</span></td>
+                                    <td>安全环保类</td>
+                                    <td>
+                                        <div class="resource-hot">
+                                            <svg class="icon" width="14" height="14"><use href="#icon-fire"/></svg>
+                                            312
+                                        </div>
+                                    </td>
+                                    <td><span class="resource-status available">可申请</span></td>
+                                    <td>
+                                        <div class="resource-actions">
+                                            <button class="resource-btn secondary" onclick="toggleFavorite(this)">收藏</button>
+                                            <button class="resource-btn primary" onclick="goToApply()">申请</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <!-- 通知公告面板 -->
+                    <div class="assets-panel" id="notifications-panel">
+                        <div class="card-module-body">
+                            <div class="notice-item">
+                                <div class="notice-content">
+                                    <div class="notice-title">
+                                        <span class="notice-tag important">重要</span>
+                                        关于数据资源门户系统升级维护的通知
+                                    </div>
+                                    <div class="notice-meta">发布时间：2026-03-15 | 发布部门：信息技术部</div>
+                                </div>
+                            </div>
+                            <div class="notice-item">
+                                <div class="notice-content">
+                                    <div class="notice-title">
+                                        <span class="notice-tag normal">通知</span>
+                                        数据资源管理规范培训通知
+                                    </div>
+                                    <div class="notice-meta">发布时间：2026-03-14 | 发布部门：数据管理部</div>
+                                </div>
+                            </div>
+                            <div class="notice-item">
+                                <div class="notice-content">
+                                    <div class="notice-title">
+                                        <span class="notice-tag update">更新</span>
+                                        新增生产运营类数据资源上架公告
+                                    </div>
+                                    <div class="notice-meta">发布时间：2026-03-13 | 发布部门：生产运营部</div>
+                                </div>
+                            </div>
+                            <div class="notice-item">
+                                <div class="notice-content">
+                                    <div class="notice-title">
+                                        <span class="notice-tag normal">通知</span>
+                                        关于开展数据资源盘点工作的通知
+                                    </div>
+                                    <div class="notice-meta">发布时间：2026-03-12 | 发布部门：数据管理部</div>
+                                </div>
+                            </div>
+                            <div class="notice-item">
+                                <div class="notice-content">
+                                    <div class="notice-title">
+                                        <span class="notice-tag update">更新</span>
+                                        安全环保监测数据接口升级公告
+                                    </div>
+                                    <div class="notice-meta">发布时间：2026-03-11 | 发布部门：安全环保部</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 数据管理标准规范面板 -->
+                    <div class="assets-panel" id="standards-panel">
+                        <div class="card-module-body">
+                            <div class="standard-item">
+                                <div class="standard-info">
+                                    <div class="standard-title">易普力数据资源管理规范</div>
+                                    <div class="standard-meta">版本：V2.0 | 更新：2026-03-01</div>
+                                </div>
+                                <button class="standard-download">下载</button>
+                            </div>
+                            <div class="standard-item">
+                                <div class="standard-info">
+                                    <div class="standard-title">数据分类分级管理标准</div>
+                                    <div class="standard-meta">版本：V1.5 | 更新：2026-02-15</div>
+                                </div>
+                                <button class="standard-download">下载</button>
+                            </div>
+                            <div class="standard-item">
+                                <div class="standard-info">
+                                    <div class="standard-title">数据质量管理规范</div>
+                                    <div class="standard-meta">版本：V1.2 | 更新：2026-01-20</div>
+                                </div>
+                                <button class="standard-download">下载</button>
+                            </div>
+                            <div class="standard-item">
+                                <div class="standard-info">
+                                    <div class="standard-title">数据安全管理规范</div>
+                                    <div class="standard-meta">版本：V1.3 | 更新：2026-01-10</div>
+                                </div>
+                                <button class="standard-download">下载</button>
+                            </div>
+                            <div class="standard-item">
+                                <div class="standard-info">
+                                    <div class="standard-title">数据权限申请流程指南</div>
+                                    <div class="standard-meta">版本：V1.1 | 更新：2025-12-25</div>
+                                </div>
+                                <button class="standard-download">下载</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- 通知公告和数据管理标准规范模块 -->
+            <div class="two-column-section">
+                <!-- 通知公告模块 -->
+                <section class="assets-section">
+                    <div class="section-header">
+                        <h3 class="section-title">通知公告</h3>
+                        <a href="notifications.html" class="section-more">更多 →</a>
+                    </div>
+                    <div class="card-module">
+                        <div class="card-module-body">
+                            <div class="notice-item">
+                                <div class="notice-content">
+                                    <div class="notice-title">
+                                        <span class="notice-tag important">重要</span>
+                                        关于数据资源门户系统升级维护的通知
+                                    </div>
+                                    <div class="notice-meta">发布时间：2026-03-15 | 发布部门：信息技术部</div>
+                                </div>
+                            </div>
+                            <div class="notice-item">
+                                <div class="notice-content">
+                                    <div class="notice-title">
+                                        <span class="notice-tag normal">通知</span>
+                                        数据资源管理规范培训通知
+                                    </div>
+                                    <div class="notice-meta">发布时间：2026-03-14 | 发布部门：数据管理部</div>
+                                </div>
+                            </div>
+                            <div class="notice-item">
+                                <div class="notice-content">
+                                    <div class="notice-title">
+                                        <span class="notice-tag update">更新</span>
+                                        新增生产运营类数据资源上架公告
+                                    </div>
+                                    <div class="notice-meta">发布时间：2026-03-13 | 发布部门：生产运营部</div>
+                                </div>
+                            </div>
+                            <div class="notice-item">
+                                <div class="notice-content">
+                                    <div class="notice-title">
+                                        <span class="notice-tag normal">通知</span>
+                                        关于开展数据资源盘点工作的通知
+                                    </div>
+                                    <div class="notice-meta">发布时间：2026-03-12 | 发布部门：数据管理部</div>
+                                </div>
+                            </div>
+                            <div class="notice-item">
+                                <div class="notice-content">
+                                    <div class="notice-title">
+                                        <span class="notice-tag update">更新</span>
+                                        安全环保监测数据接口升级公告
+                                    </div>
+                                    <div class="notice-meta">发布时间：2026-03-11 | 发布部门：安全环保部</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- 数据管理标准规范模块 -->
+                <section class="assets-section">
+                    <div class="section-header">
+                        <h3 class="section-title">数据管理标准规范</h3>
+                        <a href="#" class="section-more">更多 →</a>
+                    </div>
+                    <div class="card-module">
+                        <div class="card-module-body">
+                            <div class="standard-item">
+                                <div class="standard-info">
+                                    <div class="standard-title">易普力数据资源管理规范</div>
+                                    <div class="standard-meta">版本：V2.0 | 更新：2026-03-01</div>
+                                </div>
+                                <button class="standard-download">下载</button>
+                            </div>
+                            <div class="standard-item">
+                                <div class="standard-info">
+                                    <div class="standard-title">数据分类分级管理标准</div>
+                                    <div class="standard-meta">版本：V1.5 | 更新：2026-02-15</div>
+                                </div>
+                                <button class="standard-download">下载</button>
+                            </div>
+                            <div class="standard-item">
+                                <div class="standard-info">
+                                    <div class="standard-title">数据质量管理规范</div>
+                                    <div class="standard-meta">版本：V1.2 | 更新：2026-01-20</div>
+                                </div>
+                                <button class="standard-download">下载</button>
+                            </div>
+                            <div class="standard-item">
+                                <div class="standard-info">
+                                    <div class="standard-title">数据安全管理规范</div>
+                                    <div class="standard-meta">版本：V1.3 | 更新：2026-01-10</div>
+                                </div>
+                                <button class="standard-download">下载</button>
+                            </div>
+                            <div class="standard-item">
+                                <div class="standard-info">
+                                    <div class="standard-title">数据权限申请流程指南</div>
+                                    <div class="standard-meta">版本：V1.1 | 更新：2025-12-25</div>
+                                </div>
+                                <button class="standard-download">下载</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        
+        <!-- 底部区域 -->
+        <footer class="footer">
+            <div class="footer-main">
+                <div class="footer-left">
+                    <div class="contact-card">
+                        <h4 class="contact-title">联系我们</h4>
+                        <div class="contact-items">
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                                    </svg>
+                                </div>
+                                <div class="contact-text">
+                                    <span class="contact-label">电话</span>
+                                    <span class="contact-value">15549401234</span>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                        <circle cx="12" cy="10" r="3"></circle>
+                                    </svg>
+                                </div>
+                                <div class="contact-text">
+                                    <span class="contact-label">地址</span>
+                                    <span class="contact-value">湖南省长沙市岳麓区谷苑路389号科研楼</span>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                        <polyline points="22,6 12,13 2,6"></polyline>
+                                    </svg>
+                                </div>
+                                <div class="contact-text">
+                                    <span class="contact-label">邮箱</span>
+                                    <span class="contact-value">chenli@minitomato.cn</span>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <line x1="2" y1="12" x2="22" y2="12"></line>
+                                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                                    </svg>
+                                </div>
+                                <div class="contact-text">
+                                    <span class="contact-label">网址</span>
+                                    <a href="http://192.168.1.101/sdh/platform" class="contact-value" target="_blank">http://192.168.1.101/sdh/platform</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-right">
+                    <div class="map-container">
+                        <img src="banner/Snipaste_2026-03-17_16-34-36.png" alt="湖南易普力公司位置地图" class="map-image">
+                        <div class="map-overlay">
+                            <p class="map-label">湖南易普力公司</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 易普力数据资源门户 | 湖北小番茄数据科技 技术支持</p>
+            </div>
+        </footer>
+    </main>
+    
+    <!-- 资源详情弹窗 -->
+    <div class="modal-overlay" id="detailModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 class="modal-title">资源详情 - 生产运营数据汇总表</h3>
+                <button class="modal-close" onclick="closeModal('detailModal')">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="detail-section">
+                    <h5>基础信息</h5>
+                    <div class="detail-grid">
+                        <div class="detail-item">
+                            <span class="label">资源名称：</span>
+                            <span class="value">生产运营数据汇总表</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">资源类型：</span>
+                            <span class="value">数据表</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">所属分类：</span>
+                            <span class="value">生产运营类</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">提供部门：</span>
+                            <span class="value">生产运营部</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">更新时间：</span>
+                            <span class="value">2026-03-15 10:30</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">数据量：</span>
+                            <span class="value">125,638 条</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="detail-section">
+                    <h5>字段信息</h5>
+                    <table class="field-table">
+                        <thead>
+                            <tr>
+                                <th>字段名</th>
+                                <th>字段类型</th>
+                                <th>字段说明</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>mine_code</td>
+                                <td>STRING</td>
+                                <td>矿山编码</td>
+                            </tr>
+                            <tr>
+                                <td>production_date</td>
+                                <td>DATE</td>
+                                <td>生产日期</td>
+                            </tr>
+                            <tr>
+                                <td>output_volume</td>
+                                <td>DECIMAL</td>
+                                <td>产量(吨)</td>
+                            </tr>
+                            <tr>
+                                <td>efficiency_rate</td>
+                                <td>DECIMAL</td>
+                                <td>效率指标</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="detail-section">
+                    <h5>质量信息</h5>
+                    <div class="detail-grid">
+                        <div class="detail-item">
+                            <span class="label">质量评分：</span>
+                            <span class="value" style="color: var(--success-color)">99.2%</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">完整性：</span>
+                            <span class="value">99.8%</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">准确性：</span>
+                            <span class="value">98.5%</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">及时性：</span>
+                            <span class="value">99.5%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="detail-section">
+                    <h5>权限信息</h5>
+                    <div class="detail-grid">
+                        <div class="detail-item">
+                            <span class="label">当前状态：</span>
+                            <span class="value" style="color: var(--success-color)">可申请</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">已授权用户：</span>
+                            <span class="value">156 人</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal('detailModal')">关闭</button>
+                <button class="btn btn-primary" onclick="goToApply()">申请资源</button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Banner轮播
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.banner-slide');
+        const dots = document.querySelectorAll('.banner-dot');
+        
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+            });
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+            currentSlide = index;
+        }
+        
+        function nextSlide() {
+            const next = (currentSlide + 1) % slides.length;
+            showSlide(next);
+        }
+        
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => showSlide(index));
+        });
+        
+        setInterval(nextSlide, 5000);
+        
+        // 待办事项Tab切换
+        const todoTabs = document.querySelectorAll('.todo-tab');
+        const todoPanels = document.querySelectorAll('.todo-panel');
+        
+        todoTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const target = tab.dataset.tab;
+                todoTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                todoPanels.forEach(panel => {
+                    panel.classList.toggle('active', panel.id === `${target}-panel`);
+                });
+            });
+        });
+        
+        // 资源分类Tab切换
+        const assetTabs = document.querySelectorAll('.asset-tab');
+        const assetPanels = document.querySelectorAll('.assets-panel');
+        
+        // 为标签页添加data-tab属性
+        assetTabs.forEach((tab, index) => {
+            const tabText = tab.textContent.trim();
+            let tabId = 'all';
+            
+            switch(tabText) {
+                case '全部':
+                    tabId = 'all';
+                    break;
+                case '生产运营类':
+                    tabId = 'production';
+                    break;
+                case '安全环保类':
+                    tabId = 'safety';
+                    break;
+                case '人力资源类':
+                    tabId = 'hr';
+                    break;
+                case '供应链与物资类':
+                    tabId = 'supply';
+                    break;
+                case '通知公告':
+                    tabId = 'notifications';
+                    break;
+                case '数据管理标准规范':
+                    tabId = 'standards';
+                    break;
+            }
+            
+            tab.dataset.tab = tabId;
+        });
+        
+        assetTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const target = tab.dataset.tab;
+                assetTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                assetPanels.forEach(panel => {
+                    panel.classList.toggle('active', panel.id === `${target}-panel`);
+                });
+            });
+        });
+        
+        // 收藏切换
+        function toggleFavorite(btn) {
+            const isFavorited = btn.classList.contains('favorited');
+            if (isFavorited) {
+                btn.classList.remove('favorited');
+                btn.innerHTML = '<span><svg class="icon" width="14" height="14"><use href="#icon-star"/></svg></span> 收藏';
+            } else {
+                btn.classList.add('favorited');
+                btn.innerHTML = '<span><svg class="icon" width="14" height="14"><use href="#icon-star-fill"/></svg></span> 已收藏';
+            }
+        }
+        
+        // 打开弹窗
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.add('active');
+        }
+        
+        // 关闭弹窗
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+        }
+        
+        // 点击遮罩关闭弹窗
+        document.querySelectorAll('.modal-overlay').forEach(overlay => {
+            overlay.addEventListener('click', (e) => {
+                if (e.target === overlay) {
+                    overlay.classList.remove('active');
+                }
+            });
+        });
+        
+        // 登录状态管理
+        let isLoggedIn = true;
+        
+        function toggleLogin() {
+            isLoggedIn = !isLoggedIn;
+            updateLoginState();
+        }
+        
+        function updateLoginState() {
+            const navbar = document.querySelector('.navbar');
+            if (isLoggedIn) {
+                navbar.classList.add('logged-in');
+                navbar.classList.remove('logged-out');
+            } else {
+                navbar.classList.add('logged-out');
+                navbar.classList.remove('logged-in');
+            }
+        }
+        
+        // 初始化登录状态
+        updateLoginState();
+        
+        // 跳转到申请页
+        function goToDetail(id) {
+            window.location.href = `detail.html?id=${id}`;
+        }
+        
+        function goToApply() {
+            window.location.href = 'apply.html';
+        }
+        
+        function goToAnalysis() {
+            alert('正在跳转到报表分析页面...');
+        }
+        
+        // 搜索功能
+        document.querySelector('.search-btn').addEventListener('click', () => {
+            const keyword = document.querySelector('.search-input').value;
+            if (keyword.trim()) {
+                window.location.href = `assets.html?keyword=${encodeURIComponent(keyword)}`;
+            }
+        });
+        
+        // 回车搜索
+        document.querySelector('.search-input').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                document.querySelector('.search-btn').click();
+            }
+        });
+    </script>
+</body>
+</html>

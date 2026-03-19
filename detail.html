@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>易普力数据资源门户 - 资源详情</title>
+    <!-- Arco Design 风格 SVG 图标定义 -->
+    <svg style="display: none;">
+        <symbol id="icon-notification" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+            <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+        </symbol>
+        <symbol id="icon-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </symbol>
+        <symbol id="icon-table" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="3" y1="9" x2="21" y2="9"></line>
+            <line x1="3" y1="15" x2="21" y2="15"></line>
+            <line x1="9" y1="3" x2="9" y2="21"></line>
+            <line x1="15" y1="3" x2="15" y2="21"></line>
+        </symbol>
+        <symbol id="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"></polyline>
+        </symbol>
+        <symbol id="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+        </symbol>
+        <symbol id="icon-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+        </symbol>
+        <symbol id="icon-arrow-rise" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </symbol>
+        <symbol id="icon-arrow-fall" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+        </symbol>
+        <symbol id="icon-bar-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="20" x2="12" y2="10"></line>
+            <line x1="18" y1="20" x2="18" y2="4"></line>
+            <line x1="6" y1="20" x2="6" y2="16"></line>
+        </symbol>
+        <symbol id="icon-fire" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path>
+        </symbol>
+        <symbol id="icon-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+        </symbol>
+        <symbol id="icon-star-fill" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+        </symbol>
+        <symbol id="icon-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+        </symbol>
+        <symbol id="icon-trending-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+            <polyline points="17 6 23 6 23 12"></polyline>
+        </symbol>
+        <symbol id="icon-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+        </symbol>
+        <symbol id="icon-settings" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+        </symbol>
+        <symbol id="icon-logout" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+            <polyline points="16 17 21 12 16 7"></polyline>
+            <line x1="21" y1="12" x2="9" y2="12"></line>
+        </symbol>
+    </svg>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Arco Design 科技蓝色系 */
+            --primary-color: #165DFF;
+            --primary-hover: #4080FF;
+            --primary-active: #0E42D2;
+            --primary-light: #E8F3FF;
+            --success-color: #00B42A;
+            --success-light: #E8FFEA;
+            --warning-color: #FF7D00;
+            --warning-light: #FFF7E8;
+            --danger-color: #F53F3F;
+            --danger-light: #FFECE8;
+            --text-primary: #1D2129;
+            --text-secondary: #4E5969;
+            --text-light: #86909C;
+            --bg-primary: #ffffff;
+            --bg-secondary: #F7F8FA;
+            --bg-tertiary: #E5E6EB;
+            --border-color: #E5E8EB;
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+            --shadow-md: 0 2px 8px rgba(0,0,0,0.08);
+            --shadow-lg: 0 4px 12px rgba(0,0,0,0.1);
+            --radius-sm: 2px;
+            --radius-md: 6px;
+            --radius-lg: 12px;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        /* 链接样式 */
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: var(--primary-hover);
+        }
+
+        /* 滚动条样式 */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-secondary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--border-color);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--text-light);
+        }
+
+        /* 顶部导航栏 */
+        .navbar {
+            background: var(--primary-color);
+            padding: 0 40px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-md);
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .navbar-logo {
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .navbar-logo img {
+            height: 36px;
+            width: auto;
+        }
+
+        .navbar-title {
+            color: white;
+            font-size: 20px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .navbar-nav {
+            display: flex;
+            gap: 8px;
+        }
+
+        .nav-item {
+            padding: 8px 20px;
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+            border-radius: var(--radius-md);
+            transition: all 0.2s ease;
+            font-size: 14px;
+        }
+
+        .nav-item:hover {
+            background: rgba(255,255,255,0.1);
+            color: white;
+        }
+
+        .nav-item.active {
+            background: rgba(255,255,255,0.15);
+            color: white;
+            font-weight: 500;
+        }
+
+        .navbar-user {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .user-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .user-avatar:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        .user-menu {
+            position: relative;
+        }
+
+        .user-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            margin-top: 8px;
+            background: white;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            min-width: 160px;
+            overflow: hidden;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.2s;
+            z-index: 1000;
+        }
+
+        .user-menu:hover .user-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .user-dropdown-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 16px;
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: background 0.2s;
+            cursor: pointer;
+        }
+
+        .user-dropdown-item:hover {
+            background: var(--bg-secondary);
+        }
+
+        .user-dropdown-item.danger {
+            color: var(--danger-color);
+        }
+
+        .user-dropdown-divider {
+            height: 1px;
+            background: var(--border-color);
+            margin: 4px 0;
+        }
+
+        .notification-badge {
+            position: relative;
+            cursor: pointer;
+            color: white;
+        }
+
+        .notification-badge::after {
+            content: '3';
+            position: absolute;
+            top: -6px;
+            right: -8px;
+            background: var(--danger-color);
+            color: white;
+            font-size: 11px;
+            padding: 2px 6px;
+            border-radius: 10px;
+            font-weight: 500;
+        }
+
+        /* 主内容区域 */
+        .main-content {
+            margin-top: 64px;
+            min-height: calc(100vh - 64px);
+            padding: 32px 40px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* 面包屑导航 */
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 24px;
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .breadcrumb a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--primary-color);
+        }
+
+        .breadcrumb-separator {
+            color: var(--text-light);
+        }
+
+        .breadcrumb-current {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        /* 详情页面容器 */
+        .detail-container {
+            background: white;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+        }
+
+        /* 详情头部 */
+        .detail-header {
+            padding: 28px 32px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .detail-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .detail-icon.table {
+            background: var(--primary-light);
+            color: var(--primary-color);
+        }
+
+        .detail-icon.api {
+            background: var(--success-light);
+            color: var(--success-color);
+        }
+
+        .detail-icon.report {
+            background: var(--warning-light);
+            color: var(--warning-color);
+        }
+
+        .detail-icon.metric {
+            background: var(--danger-light);
+            color: var(--danger-color);
+        }
+
+        .detail-icon svg {
+            width: 28px;
+            height: 28px;
+        }
+
+        .detail-header-content {
+            flex: 1;
+        }
+
+        .detail-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+
+        .detail-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .detail-tag {
+            padding: 0 12px;
+            height: 28px;
+            line-height: 28px;
+            border-radius: var(--radius-sm);
+            font-size: 13px;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .detail-tag.type {
+            background: var(--primary-light);
+            color: var(--primary-color);
+        }
+
+        .detail-tag.quality {
+            background: var(--success-light);
+            color: var(--success-color);
+        }
+
+        .detail-tag.quality.warning {
+            background: var(--warning-light);
+            color: var(--warning-color);
+        }
+
+        .detail-tag.hot {
+            background: var(--danger-light);
+            color: var(--danger-color);
+        }
+
+        .detail-tag.status {
+            background: var(--success-light);
+            color: var(--success-color);
+        }
+
+        .detail-tag.status.pending {
+            background: var(--warning-light);
+            color: var(--warning-color);
+        }
+
+        /* 详情内容区域 */
+        .detail-body {
+            padding: 32px;
+        }
+
+        /* 模块样式 */
+        .detail-section {
+            margin-bottom: 32px;
+        }
+
+        .detail-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .section-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-title::before {
+            content: '';
+            width: 4px;
+            height: 18px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        /* 基础信息网格 */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .info-item {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .info-label {
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        .info-value {
+            font-size: 15px;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .info-value.highlight {
+            color: var(--success-color);
+        }
+
+        .info-value.warning {
+            color: var(--warning-color);
+        }
+
+        /* 字段信息表格 */
+        .field-table-container {
+            overflow-x: auto;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+        }
+
+        .field-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        .field-table th,
+        .field-table td {
+            padding: 14px 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .field-table th {
+            background: var(--bg-secondary);
+            font-weight: 600;
+            color: var(--text-secondary);
+            font-size: 13px;
+            white-space: nowrap;
+        }
+
+        .field-table td {
+            color: var(--text-primary);
+        }
+
+        .field-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .field-table tbody tr:hover {
+            background: var(--primary-light);
+        }
+
+        .field-name {
+            font-family: 'Consolas', 'Monaco', monospace;
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        .field-type {
+            display: inline-block;
+            padding: 2px 8px;
+            background: var(--bg-tertiary);
+            border-radius: var(--radius-sm);
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        /* 质量信息卡片 */
+        .quality-cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .quality-card {
+            background: var(--bg-secondary);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .quality-card-label {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+
+        .quality-card-value {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .quality-card-value.excellent {
+            color: var(--success-color);
+        }
+
+        .quality-card-value.good {
+            color: var(--primary-color);
+        }
+
+        .quality-card-value.warning {
+            color: var(--warning-color);
+        }
+
+        /* 底部操作按钮 */
+        .detail-footer {
+            padding: 24px 32px;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: flex-end;
+            gap: 16px;
+            background: var(--bg-secondary);
+        }
+
+        .btn {
+            height: 40px;
+            padding: 0 24px;
+            border-radius: var(--radius-md);
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-weight: 500;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-hover);
+        }
+
+        .btn-primary:active {
+            background: var(--primary-active);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--text-secondary);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .btn:focus {
+            outline: none;
+        }
+
+        .btn-primary:focus {
+            box-shadow: 0 0 0 2px rgba(22, 93, 255, 0.2);
+        }
+
+        .btn-secondary:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(22, 93, 255, 0.1);
+        }
+
+        /* 底部区域 */
+        .footer {
+            background: white;
+            border-top: 1px solid var(--border-color);
+            padding: 24px 40px;
+            margin-top: 40px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            color: var(--text-light);
+            font-size: 13px;
+        }
+
+        /* 响应式 */
+        @media (max-width: 992px) {
+            .info-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .quality-cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 0 20px;
+            }
+
+            .main-content {
+                padding: 20px;
+            }
+
+            .detail-header {
+                padding: 20px;
+                flex-direction: column;
+            }
+
+            .detail-body {
+                padding: 20px;
+            }
+
+            .detail-footer {
+                padding: 16px 20px;
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .quality-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <div class="navbar-logo">
+                <img src="https://www.cecic.com.cn/images/logo.png" alt="中国能建" onerror="this.style.display='none'">
+            </div>
+            <span class="navbar-title">易普力数据资源门户</span>
+        </div>
+        <div class="navbar-nav">
+            <a href="index.html" class="nav-item">首页</a>
+            <a href="assets.html" class="nav-item active">数据资源</a>
+        </div>
+        <div class="navbar-user">
+            <span class="notification-badge"><svg class="icon" width="16" height="16"><use href="#icon-notification"/></svg></span>
+            <div class="user-menu">
+                <div class="user-avatar">连</div>
+                <div class="user-dropdown">
+                    <div class="user-dropdown-item">
+                        <svg class="icon" width="16" height="16"><use href="#icon-user"/></svg>
+                        个人中心
+                    </div>
+                    <div class="user-dropdown-divider"></div>
+                    <div class="user-dropdown-item danger">
+                        <svg class="icon" width="16" height="16"><use href="#icon-logout"/></svg>
+                        退出登录
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主内容区域 -->
+    <main class="main-content">
+        <!-- 面包屑导航 -->
+        <div class="breadcrumb">
+            <a href="index.html">首页</a>
+            <span class="breadcrumb-separator">/</span>
+            <a href="assets.html">数据资产</a>
+            <span class="breadcrumb-separator">/</span>
+            <span class="breadcrumb-current">资源详情</span>
+        </div>
+
+        <!-- 详情页面容器 -->
+        <div class="detail-container">
+            <!-- 详情头部 -->
+            <div class="detail-header">
+                <div class="detail-icon table">
+                    <svg class="icon" width="28" height="28"><use href="#icon-table"/></svg>
+                </div>
+                <div class="detail-header-content">
+                    <h1 class="detail-title">生产运营数据汇总表</h1>
+                    <div class="detail-tags">
+                        <span class="detail-tag type">数据表</span>
+                        <span class="detail-tag quality">质量 99.2%</span>
+                        <span class="detail-tag hot">
+                            <svg class="icon" width="12" height="12"><use href="#icon-fire"/></svg>
+                            2,341
+                        </span>
+                        <span class="detail-tag status">可申请</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 详情内容区域 -->
+            <div class="detail-body">
+                <!-- 基础信息模块 -->
+                <div class="detail-section">
+                    <h3 class="section-title">基础信息</h3>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <span class="info-label">资源名称</span>
+                            <span class="info-value">生产运营数据汇总表</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">资源类型</span>
+                            <span class="info-value">数据表</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">所属分类</span>
+                            <span class="info-value">生产运营类</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">提供部门</span>
+                            <span class="info-value">生产运营部</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">更新时间</span>
+                            <span class="info-value">2026-03-15 10:30</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">数据量</span>
+                            <span class="info-value">125,638 条</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 字段信息模块 -->
+                <div class="detail-section">
+                    <h3 class="section-title">字段信息</h3>
+                    <div class="field-table-container">
+                        <table class="field-table">
+                            <thead>
+                                <tr>
+                                    <th width="200">字段名</th>
+                                    <th width="120">字段类型</th>
+                                    <th>字段说明</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><span class="field-name">mine_code</span></td>
+                                    <td><span class="field-type">STRING</span></td>
+                                    <td>矿山编码，唯一标识矿山</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="field-name">production_date</span></td>
+                                    <td><span class="field-type">DATE</span></td>
+                                    <td>生产日期，格式为YYYY-MM-DD</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="field-name">output_volume</span></td>
+                                    <td><span class="field-type">DECIMAL</span></td>
+                                    <td>产量，单位为吨</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="field-name">efficiency_rate</span></td>
+                                    <td><span class="field-type">DECIMAL</span></td>
+                                    <td>效率指标，百分比数值</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="field-name">safety_index</span></td>
+                                    <td><span class="field-type">DECIMAL</span></td>
+                                    <td>安全指数，综合安全评分</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="field-name">env_score</span></td>
+                                    <td><span class="field-type">DECIMAL</span></td>
+                                    <td>环保评分，环境指标综合评分</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="field-name">operator_name</span></td>
+                                    <td><span class="field-type">STRING</span></td>
+                                    <td>操作员姓名</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="field-name">create_time</span></td>
+                                    <td><span class="field-type">DATETIME</span></td>
+                                    <td>记录创建时间</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            <!-- 底部操作按钮 -->
+            <div class="detail-footer">
+                <button class="btn btn-secondary" onclick="goBack()">
+                    <svg class="icon" width="16" height="16"><use href="#icon-close"/></svg>
+                    关闭
+                </button>
+                <button class="btn btn-primary" onclick="goToApply()">
+                    <svg class="icon" width="16" height="16"><use href="#icon-check"/></svg>
+                    申请资源
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- 底部区域 -->
+    <footer class="footer">
+        <div class="footer-bottom">
+            <p>© 2026 易普力数据资产门户 | 湖北小番茄数据科技 技术支持</p>
+        </div>
+    </footer>
+
+    <script>
+        // 返回上一页
+        function goBack() {
+            // 优先返回上一页，如果没有历史记录则跳转到资源列表页
+            if (window.history.length > 1) {
+                window.history.back();
+            } else {
+                window.location.href = 'assets.html';
+            }
+        }
+
+        // 跳转到申请页
+        function goToApply() {
+            // 获取当前资产ID（实际项目中可以从URL参数获取）
+            const assetId = getAssetIdFromUrl();
+            window.location.href = `apply.html?id=${assetId}`;
+        }
+
+        // 从URL获取资产ID
+        function getAssetIdFromUrl() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get('id') || '1';
+        }
+
+        // 页面加载时可以根据URL参数加载资源详情
+        document.addEventListener('DOMContentLoaded', function() {
+            const assetId = getAssetIdFromUrl();
+            // 实际项目中这里可以调用API获取资产详情数据
+            console.log('加载资产详情，ID:', assetId);
+        });
+    </script>
+</body>
+</html>

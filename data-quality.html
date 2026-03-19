@@ -1,0 +1,1379 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据质量详情 - 易普力数据资源门户</title>
+    <!-- Arco Design 风格 SVG 图标定义 -->
+    <svg style="display: none;">
+        <symbol id="icon-notification" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+            <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+        </symbol>
+        <symbol id="icon-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </symbol>
+        <symbol id="icon-file" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <polyline points="10 9 9 9 8 9"></polyline>
+        </symbol>
+        <symbol id="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"></polyline>
+        </symbol>
+        <symbol id="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+        </symbol>
+        <symbol id="icon-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+        </symbol>
+        <symbol id="icon-arrow-rise" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </symbol>
+        <symbol id="icon-arrow-fall" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+        </symbol>
+        <symbol id="icon-bar-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="20" x2="12" y2="10"></line>
+            <line x1="18" y1="20" x2="18" y2="4"></line>
+            <line x1="6" y1="20" x2="6" y2="16"></line>
+        </symbol>
+        <symbol id="icon-line-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+        </symbol>
+        <symbol id="icon-fire" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path>
+        </symbol>
+        <symbol id="icon-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+        </symbol>
+        <symbol id="icon-star-fill" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+        </symbol>
+        <symbol id="icon-table" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="3" y1="9" x2="21" y2="9"></line>
+            <line x1="3" y1="15" x2="21" y2="15"></line>
+            <line x1="9" y1="3" x2="9" y2="21"></line>
+            <line x1="15" y1="3" x2="15" y2="21"></line>
+        </symbol>
+        <symbol id="icon-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+        </symbol>
+        <symbol id="icon-folder" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+        </symbol>
+        <symbol id="icon-bell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+            <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+        </symbol>
+        <symbol id="icon-refresh" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="23 4 23 10 17 10"></polyline>
+            <polyline points="1 20 1 14 7 14"></polyline>
+            <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+        </symbol>
+        <symbol id="icon-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+        </symbol>
+        <symbol id="icon-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+        </symbol>
+        <symbol id="icon-trending-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+            <polyline points="17 6 23 6 23 12"></polyline>
+        </symbol>
+        <symbol id="icon-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+        </symbol>
+        <symbol id="icon-settings" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+        </symbol>
+        <symbol id="icon-logout" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+            <polyline points="16 17 21 12 16 7"></polyline>
+            <line x1="21" y1="12" x2="9" y2="12"></line>
+        </symbol>
+    </svg>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            /* Arco Design 科技蓝色系 */
+            --primary-color: #165DFF;
+            --primary-hover: #4080FF;
+            --primary-active: #0E42D2;
+            --primary-light: #E8F3FF;
+            --success-color: #00B42A;
+            --success-light: #E8FFEA;
+            --warning-color: #FF7D00;
+            --warning-light: #FFF7E8;
+            --danger-color: #F53F3F;
+            --danger-light: #FFECE8;
+            --text-primary: #1D2129;
+            --text-secondary: #4E5969;
+            --text-light: #86909C;
+            --bg-primary: #ffffff;
+            --bg-secondary: #F2F3F5;
+            --bg-tertiary: #E5E6EB;
+            --border-color: #E5E6EB;
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+            --shadow-md: 0 2px 8px rgba(0,0,0,0.08);
+            --shadow-lg: 0 4px 12px rgba(0,0,0,0.1);
+            --radius-sm: 2px;
+            --radius-md: 4px;
+            --radius-lg: 8px;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+        
+        /* 顶部导航栏 */
+        .navbar {
+            background: var(--primary-color);
+            padding: 0 40px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .navbar-logo {
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .navbar-logo img {
+            height: 36px;
+            width: auto;
+        }
+        
+        .navbar-title {
+            color: white;
+            font-size: 20px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        
+        .navbar-nav {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .nav-item {
+            padding: 8px 20px;
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+            border-radius: var(--radius-md);
+            transition: all 0.2s ease;
+            font-size: 14px;
+        }
+        
+        .nav-item:hover {
+            background: rgba(255,255,255,0.1);
+            color: white;
+        }
+        
+        .nav-item.active {
+            background: rgba(255,255,255,0.15);
+            color: white;
+            font-weight: 500;
+        }
+        
+        .navbar-user {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        
+        .user-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        
+        .user-avatar:hover {
+            background: rgba(255,255,255,0.3);
+        }
+        
+        .user-menu {
+            position: relative;
+        }
+        
+        .user-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            margin-top: 8px;
+            background: white;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            min-width: 160px;
+            overflow: hidden;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.2s;
+            z-index: 1000;
+        }
+        
+        .user-menu:hover .user-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .user-dropdown-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 16px;
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: background 0.2s;
+            cursor: pointer;
+        }
+        
+        .user-dropdown-item:hover {
+            background: var(--bg-secondary);
+        }
+        
+        .user-dropdown-item.danger {
+            color: var(--danger-color);
+        }
+        
+        .user-dropdown-divider {
+            height: 1px;
+            background: var(--border-color);
+            margin: 4px 0;
+        }
+        
+        .login-btn {
+            padding: 6px 16px;
+            background: rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: var(--radius-md);
+            color: white;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .login-btn:hover {
+            background: rgba(255,255,255,0.3);
+        }
+        
+        .logged-out .user-avatar,
+        .logged-out .user-menu {
+            display: none;
+        }
+        
+        .logged-in .login-btn {
+            display: none;
+        }
+        
+        .admin-menu-item {
+            display: none;
+        }
+        
+        .logged-in .admin-menu-item {
+            display: flex;
+        }
+        
+        .notification-badge {
+            position: relative;
+            cursor: pointer;
+            color: white;
+        }
+        
+        .notification-badge::after {
+            content: '3';
+            position: absolute;
+            top: -6px;
+            right: -8px;
+            background: var(--danger-color);
+            color: white;
+            font-size: 11px;
+            padding: 2px 6px;
+            border-radius: 10px;
+            font-weight: 500;
+        }
+        
+        /* 主内容区域 */
+        .main-content {
+            margin-top: 64px;
+            min-height: calc(100vh - 64px);
+        }
+        
+        /* 内容区域 */
+        .content-wrapper {
+            padding: 32px 40px;
+            max-width: 1440px;
+            margin: 0 auto;
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .section-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .section-title::before {
+            content: '';
+            width: 4px;
+            height: 20px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+        
+        .section-more {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            transition: color 0.2s;
+        }
+        
+        .section-more:hover {
+            color: var(--primary-dark);
+        }
+        
+        /* 数据质量详情页样式 */
+        .quality-detail-header {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 32px;
+        }
+        
+        .quality-detail-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+        }
+        
+        .quality-breadcrumb {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+        
+        .quality-breadcrumb a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        .quality-breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        
+        /* 概览卡片 */
+        .quality-overview {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 32px;
+        }
+        
+        .quality-overview-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s;
+        }
+        
+        .quality-overview-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-color);
+        }
+        
+        .quality-overview-title {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+        
+        .quality-overview-value {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+        
+        .quality-overview-trend {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+        
+        /* 质量趋势图表 */
+        .quality-trend-chart {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 32px;
+        }
+        
+        .chart-container {
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* 质量维度 */
+        .quality-dimensions {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 32px;
+        }
+        
+        .dimensions-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        
+        .dimension-item {
+            padding: 20px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            transition: all 0.3s;
+        }
+        
+        .dimension-item:hover {
+            border-color: var(--primary-color);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .dimension-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        
+        .dimension-name {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+        
+        .dimension-status {
+            padding: 2px 8px;
+            border-radius: var(--radius-sm);
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        .dimension-status.normal {
+            background: var(--success-light);
+            color: var(--success-color);
+        }
+        
+        .dimension-status.warning {
+            background: var(--warning-light);
+            color: var(--warning-color);
+        }
+        
+        .dimension-status.error {
+            background: var(--danger-light);
+            color: var(--danger-color);
+        }
+        
+        .dimension-score {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+        
+        .dimension-bar {
+            height: 8px;
+            background: var(--bg-tertiary);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .dimension-bar-fill {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 0.5s ease;
+        }
+        
+        /* 资产排行榜 */
+        .quality-assets {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+        
+        .assets-ranking {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .ranking-list {
+            margin-top: 20px;
+        }
+        
+        .ranking-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .ranking-item:last-child {
+            border-bottom: none;
+        }
+        
+        .ranking-rank {
+            width: 32px;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-right: 16px;
+        }
+        
+        .ranking-asset {
+            flex: 1;
+        }
+        
+        .ranking-asset-name {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+        
+        .ranking-asset-meta {
+            font-size: 12px;
+            color: var(--text-light);
+        }
+        
+        .ranking-score {
+            font-size: 16px;
+            font-weight: 600;
+            margin-right: 16px;
+        }
+        
+        .ranking-score.good {
+            color: var(--success-color);
+        }
+        
+        .ranking-score.poor {
+            color: var(--danger-color);
+        }
+        
+        .ranking-status {
+            padding: 2px 8px;
+            border-radius: var(--radius-sm);
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        /* 质量问题清单 */
+        .quality-issues {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 32px;
+        }
+        
+        .issues-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .issues-filters {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+        
+        .filter-select {
+            padding: 6px 12px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            font-size: 14px;
+            color: var(--text-primary);
+        }
+        
+        .search-box {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .search-input {
+            padding: 6px 12px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            font-size: 14px;
+            width: 200px;
+        }
+        
+        .search-btn {
+            padding: 6px 12px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: var(--radius-md);
+            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        
+        .search-btn:hover {
+            background: var(--primary-hover);
+        }
+        
+        .issues-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .issues-table th {
+            padding: 12px 16px;
+            text-align: left;
+            font-weight: 500;
+            color: var(--text-secondary);
+            font-size: 14px;
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .issues-table td {
+            padding: 16px;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 14px;
+        }
+        
+        .issues-table tr:hover td {
+            background: var(--bg-secondary);
+        }
+        
+        .issue-dimension {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: var(--radius-sm);
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        .issue-dimension.completeness {
+            background: var(--primary-light);
+            color: var(--primary-color);
+        }
+        
+        .issue-dimension.accuracy {
+            background: var(--success-light);
+            color: var(--success-color);
+        }
+        
+        .issue-dimension.timeliness {
+            background: var(--warning-light);
+            color: var(--warning-color);
+        }
+        
+        .issue-dimension.uniqueness {
+            background: var(--danger-light);
+            color: var(--danger-color);
+        }
+        
+        .issue-dimension.validity {
+            background: #f0f0ff;
+            color: #6666ff;
+        }
+        
+        .issue-dimension.consistency {
+            background: #fff0f0;
+            color: #ff6666;
+        }
+        
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            margin-top: 24px;
+        }
+        
+        .page-btn {
+            padding: 6px 12px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            background: white;
+            color: var(--text-primary);
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .page-btn:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+        
+        .page-btn.active {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+            color: white;
+        }
+        
+        /* 底部区域 - 清爽浅色主题 */
+        .footer {
+            background: #f8fafc;
+            padding: 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-color), transparent);
+        }
+        
+        .footer-main {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 48px 40px;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 60px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* 左侧联系卡片区域 */
+        .footer-left {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .contact-card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+        }
+        
+        .contact-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 28px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .contact-title::before {
+            content: '';
+            width: 4px;
+            height: 24px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+        
+        .contact-items {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 14px;
+            background: #f8fafc;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+        
+        .contact-item:hover {
+            background: #f0f5ff;
+            transform: translateX(4px);
+            border-color: var(--primary-light);
+        }
+        
+        .contact-icon {
+            width: 44px;
+            height: 44px;
+            background: var(--primary-light);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+        
+        .contact-item:hover .contact-icon {
+            background: var(--primary-color);
+            color: #ffffff;
+            transform: scale(1.05);
+        }
+        
+        .contact-text {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        
+        .contact-label {
+            font-size: 12px;
+            color: var(--text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .contact-value {
+            font-size: 15px;
+            color: var(--text-primary);
+            font-weight: 500;
+            word-break: break-all;
+        }
+        
+        .contact-value a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        
+        .contact-value a:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+        
+        /* 右侧地图区域 */
+        .footer-right {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .map-container {
+            flex: 1;
+            background: #ffffff;
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            min-height: 280px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+        }
+        
+        .map-image {
+            width: 100%;
+            height: 100%;
+            min-height: 280px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .map-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+            padding: 20px;
+        }
+        
+        .map-label {
+            font-size: 16px;
+            font-weight: 500;
+            color: #ffffff;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* 底部版权栏 */
+        .footer-bottom {
+            background: var(--primary-color);
+            padding: 14px 40px;
+            text-align: center;
+        }
+        
+        .footer-bottom p {
+            color: #ffffff;
+            font-size: 13px;
+            margin: 0;
+            letter-spacing: 0.5px;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 0 20px;
+            }
+            
+            .navbar-nav {
+                display: none;
+            }
+            
+            .content-wrapper {
+                padding: 20px;
+            }
+            
+            .quality-overview {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .dimensions-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .quality-assets {
+                grid-template-columns: 1fr;
+            }
+            
+            .issues-filters {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .footer-main {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                padding: 32px 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .quality-overview {
+                grid-template-columns: 1fr;
+            }
+            
+            .quality-detail-title {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body class="logged-in">
+    <!-- 顶部导航栏 -->
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <div class="navbar-logo">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='8' fill='%23165DFF'/%3E%3Cpath d='M12 20h24v8H12v-8z' fill='white'/%3E%3Cpath d='M16 12h16v24H16V12z' fill='white' fill-opacity='0.3'/%3E%3C/svg%3E" alt="易普力数据门户" />
+            </div>
+            <div class="navbar-title">易普力数据资源门户</div>
+        </div>
+        <div class="navbar-nav">
+            <a href="index.html" class="nav-item">首页</a>
+            <a href="#" class="nav-item">数据资源</a>
+        </div>
+        <div class="navbar-user">
+            <div class="notification-badge">
+                <svg class="icon" width="20" height="20"><use href="#icon-bell"/></svg>
+            </div>
+            <div class="user-menu">
+                <div class="user-avatar">
+                    <svg class="icon" width="20" height="20"><use href="#icon-user"/></svg>
+                </div>
+                <div class="user-dropdown">
+                    <div class="user-dropdown-item">
+                        <svg class="icon" width="16" height="16"><use href="#icon-user"/></svg>
+                        <span>个人中心</span>
+                    </div>
+                    <div class="user-dropdown-item">
+                        <svg class="icon" width="16" height="16"><use href="#icon-settings"/></svg>
+                        <span>账号设置</span>
+                    </div>
+                    <div class="user-dropdown-divider"></div>
+                    <div class="user-dropdown-item danger">
+                        <svg class="icon" width="16" height="16"><use href="#icon-logout"/></svg>
+                        <span>退出登录</span>
+                    </div>
+                </div>
+            </div>
+            <button class="login-btn" onclick="toggleLogin()">登录</button>
+        </div>
+    </nav>
+    
+    <!-- 主内容区域 -->
+    <main class="main-content">
+        <div class="content-wrapper">
+            <!-- 页面头部 -->
+            <div class="quality-detail-header">
+                <h1 class="quality-detail-title">数据质量详情</h1>
+                <div class="quality-breadcrumb">
+                    <a href="index.html">首页</a> &gt; <span>数据质量详情</span>
+                </div>
+            </div>
+            
+            <!-- 概览卡片 -->
+            <div class="quality-overview">
+                <div class="quality-overview-card">
+                    <div class="quality-overview-title">整体质量得分</div>
+                    <div class="quality-overview-value">95</div>
+                    <div class="quality-overview-trend">
+                        <svg class="icon" width="14" height="14"><use href="#icon-arrow-rise"/></svg>
+                        <span>上升 2.3%</span>
+                    </div>
+                </div>
+                <div class="quality-overview-card">
+                    <div class="quality-overview-title">质量问题总数</div>
+                    <div class="quality-overview-value">23</div>
+                    <div class="quality-overview-trend">
+                        <svg class="icon" width="14" height="14"><use href="#icon-arrow-fall"/></svg>
+                        <span>下降 5</span>
+                    </div>
+                </div>
+                <div class="quality-overview-card">
+                    <div class="quality-overview-title">已配置质量规则数</div>
+                    <div class="quality-overview-value">128</div>
+                    <div class="quality-overview-trend">
+                        <svg class="icon" width="14" height="14"><use href="#icon-arrow-rise"/></svg>
+                        <span>上升 12</span>
+                    </div>
+                </div>
+                <div class="quality-overview-card">
+                    <div class="quality-overview-title">高风险资产数</div>
+                    <div class="quality-overview-value">8</div>
+                    <div class="quality-overview-trend">
+                        <svg class="icon" width="14" height="14"><use href="#icon-arrow-rise"/></svg>
+                        <span>上升 2</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 质量趋势图表 -->
+            <div class="quality-trend-chart">
+                <div class="section-header">
+                    <h3 class="section-title">近30天质量问题趋势</h3>
+                </div>
+                <div class="chart-container">
+                    <svg width="800" height="300" viewBox="0 0 800 300">
+                        <defs>
+                            <linearGradient id="areaGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" style="stop-color:#165DFF;stop-opacity:0.1" />
+                                <stop offset="100%" style="stop-color:#165DFF;stop-opacity:0" />
+                            </linearGradient>
+                        </defs>
+                        <path d="M50,250 L100,220 L150,180 L200,200 L250,150 L300,120 L350,140 L400,100 L450,120 L500,90 L550,70 L600,80 L650,60 L700,40 L750,50" stroke="#165DFF" stroke-width="2" fill="none"/>
+                        <path d="M50,250 L100,220 L150,180 L200,200 L250,150 L300,120 L350,140 L400,100 L450,120 L500,90 L550,70 L600,80 L650,60 L700,40 L750,50 L750,250 L50,250" fill="url(#areaGradient)"/>
+                        <circle cx="50" cy="250" r="3" fill="#165DFF"/>
+                        <circle cx="750" cy="50" r="3" fill="#165DFF"/>
+                        <line x1="50" y1="250" x2="750" y2="250" stroke="#E5E6EB" stroke-width="1"/>
+                        <line x1="50" y1="200" x2="750" y2="200" stroke="#E5E6EB" stroke-width="1"/>
+                        <line x1="50" y1="150" x2="750" y2="150" stroke="#E5E6EB" stroke-width="1"/>
+                        <line x1="50" y1="100" x2="750" y2="100" stroke="#E5E6EB" stroke-width="1"/>
+                        <line x1="50" y1="50" x2="750" y2="50" stroke="#E5E6EB" stroke-width="1"/>
+                    </svg>
+                </div>
+            </div>
+            
+            <!-- 质量维度 -->
+            <div class="quality-dimensions">
+                <div class="section-header">
+                    <h3 class="section-title">六大质量维度得分</h3>
+                </div>
+                <div class="dimensions-grid">
+                    <div class="dimension-item">
+                        <div class="dimension-header">
+                            <div class="dimension-name">完整性</div>
+                            <div class="dimension-status normal">正常</div>
+                        </div>
+                        <div class="dimension-score">98.5%</div>
+                        <div class="dimension-bar">
+                            <div class="dimension-bar-fill" style="width: 98.5%; background: var(--success-color);"></div>
+                        </div>
+                    </div>
+                    <div class="dimension-item">
+                        <div class="dimension-header">
+                            <div class="dimension-name">准确性</div>
+                            <div class="dimension-status normal">正常</div>
+                        </div>
+                        <div class="dimension-score">97.2%</div>
+                        <div class="dimension-bar">
+                            <div class="dimension-bar-fill" style="width: 97.2%; background: var(--success-color);"></div>
+                        </div>
+                    </div>
+                    <div class="dimension-item">
+                        <div class="dimension-header">
+                            <div class="dimension-name">及时性</div>
+                            <div class="dimension-status warning">预警</div>
+                        </div>
+                        <div class="dimension-score">92.1%</div>
+                        <div class="dimension-bar">
+                            <div class="dimension-bar-fill" style="width: 92.1%; background: var(--warning-color);"></div>
+                        </div>
+                    </div>
+                    <div class="dimension-item">
+                        <div class="dimension-header">
+                            <div class="dimension-name">唯一性</div>
+                            <div class="dimension-status normal">正常</div>
+                        </div>
+                        <div class="dimension-score">96.8%</div>
+                        <div class="dimension-bar">
+                            <div class="dimension-bar-fill" style="width: 96.8%; background: var(--success-color);"></div>
+                        </div>
+                    </div>
+                    <div class="dimension-item">
+                        <div class="dimension-header">
+                            <div class="dimension-name">有效性</div>
+                            <div class="dimension-status normal">正常</div>
+                        </div>
+                        <div class="dimension-score">95.4%</div>
+                        <div class="dimension-bar">
+                            <div class="dimension-bar-fill" style="width: 95.4%; background: var(--success-color);"></div>
+                        </div>
+                    </div>
+                    <div class="dimension-item">
+                        <div class="dimension-header">
+                            <div class="dimension-name">一致性</div>
+                            <div class="dimension-status warning">预警</div>
+                        </div>
+                        <div class="dimension-score">91.5%</div>
+                        <div class="dimension-bar">
+                            <div class="dimension-bar-fill" style="width: 91.5%; background: var(--warning-color);"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 资产排行榜 -->
+            <div class="quality-assets">
+                <div class="assets-ranking">
+                    <div class="section-header">
+                        <h3 class="section-title">优质资产 TOP10</h3>
+                    </div>
+                    <div class="ranking-list">
+                        <div class="ranking-item">
+                            <div class="ranking-rank">1</div>
+                            <div class="ranking-asset">
+                                <div class="ranking-asset-name"><a href="detail.html" style="color: var(--text-primary); text-decoration: none;">生产运营数据汇总表</a></div>
+                                <div class="ranking-asset-meta">生产运营部 | 数据表</div>
+                            </div>
+                            <div class="ranking-score good">99.8</div>
+                            <div class="ranking-status dimension-status normal">正常</div>
+                        </div>
+                        <div class="ranking-item">
+                            <div class="ranking-rank">2</div>
+                            <div class="ranking-asset">
+                                <div class="ranking-asset-name"><a href="detail.html" style="color: var(--text-primary); text-decoration: none;">销售业绩分析报表</a></div>
+                                <div class="ranking-asset-meta">销售部 | 报表</div>
+                            </div>
+                            <div class="ranking-score good">99.5</div>
+                            <div class="ranking-status dimension-status normal">正常</div>
+                        </div>
+                        <div class="ranking-item">
+                            <div class="ranking-rank">3</div>
+                            <div class="ranking-asset">
+                                <div class="ranking-asset-name"><a href="detail.html" style="color: var(--text-primary); text-decoration: none;">员工信息数据表</a></div>
+                                <div class="ranking-asset-meta">人力资源部 | 数据表</div>
+                            </div>
+                            <div class="ranking-score good">99.2</div>
+                            <div class="ranking-status dimension-status normal">正常</div>
+                        </div>
+                        <div class="ranking-item">
+                            <div class="ranking-rank">4</div>
+                            <div class="ranking-asset">
+                                <div class="ranking-asset-name"><a href="detail.html" style="color: var(--text-primary); text-decoration: none;">安全环保监测数据</a></div>
+                                <div class="ranking-asset-meta">安全环保部 | 数据表</div>
+                            </div>
+                            <div class="ranking-score good">98.8</div>
+                            <div class="ranking-status dimension-status normal">正常</div>
+                        </div>
+                        <div class="ranking-item">
+                            <div class="ranking-rank">5</div>
+                            <div class="ranking-asset">
+                                <div class="ranking-asset-name"><a href="detail.html" style="color: var(--text-primary); text-decoration: none;">财务报表数据</a></div>
+                                <div class="ranking-asset-meta">财务部 | 数据表</div>
+                            </div>
+                            <div class="ranking-score good">98.5</div>
+                            <div class="ranking-status dimension-status normal">正常</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="assets-ranking">
+                    <div class="section-header">
+                        <h3 class="section-title">问题资产 TOP10</h3>
+                    </div>
+                    <div class="ranking-list">
+                        <div class="ranking-item">
+                            <div class="ranking-rank">1</div>
+                            <div class="ranking-asset">
+                                <div class="ranking-asset-name"><a href="detail.html" style="color: var(--text-primary); text-decoration: none;">供应链库存数据表</a></div>
+                                <div class="ranking-asset-meta">供应链管理部 | 数据表</div>
+                            </div>
+                            <div class="ranking-score poor">75.2</div>
+                            <div class="ranking-status dimension-status error">异常</div>
+                        </div>
+                        <div class="ranking-item">
+                            <div class="ranking-rank">2</div>
+                            <div class="ranking-asset">
+                                <div class="ranking-asset-name"><a href="detail.html" style="color: var(--text-primary); text-decoration: none;">采购合同数据</a></div>
+                                <div class="ranking-asset-meta">供应链管理部 | 数据表</div>
+                            </div>
+                            <div class="ranking-score poor">78.5</div>
+                            <div class="ranking-status dimension-status error">异常</div>
+                        </div>
+                        <div class="ranking-item">
+                            <div class="ranking-rank">3</div>
+                            <div class="ranking-asset">
+                                <div class="ranking-asset-name"><a href="detail.html" style="color: var(--text-primary); text-decoration: none;">设备维护记录</a></div>
+                                <div class="ranking-asset-meta">生产运营部 | 数据表</div>
+                            </div>
+                            <div class="ranking-score poor">79.8</div>
+                            <div class="ranking-status dimension-status error">异常</div>
+                        </div>
+                        <div class="ranking-item">
+                            <div class="ranking-rank">4</div>
+                            <div class="ranking-asset">
+                                <div class="ranking-asset-name"><a href="detail.html" style="color: var(--text-primary); text-decoration: none;">原材料库存数据</a></div>
+                                <div class="ranking-asset-meta">供应链管理部 | 数据表</div>
+                            </div>
+                            <div class="ranking-score poor">81.2</div>
+                            <div class="ranking-status dimension-status warning">预警</div>
+                        </div>
+                        <div class="ranking-item">
+                            <div class="ranking-rank">5</div>
+                            <div class="ranking-asset">
+                                <div class="ranking-asset-name"><a href="detail.html" style="color: var(--text-primary); text-decoration: none;">能耗监测数据</a></div>
+                                <div class="ranking-asset-meta">生产运营部 | 数据表</div>
+                            </div>
+                            <div class="ranking-score poor">82.5</div>
+                            <div class="ranking-status dimension-status warning">预警</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 质量问题清单 -->
+            <div class="quality-issues">
+                <div class="issues-header">
+                    <h3 class="section-title">质量问题清单</h3>
+                    <div class="issues-filters">
+                        <div class="search-box">
+                            <input type="text" class="search-input" placeholder="搜索资产名称">
+                            <button class="search-btn">
+                                <svg class="icon" width="14" height="14"><use href="#icon-search"/></svg>
+                            </button>
+                        </div>
+                        <select class="filter-select">
+                            <option>所有维度</option>
+                            <option>完整性</option>
+                            <option>准确性</option>
+                            <option>及时性</option>
+                            <option>唯一性</option>
+                            <option>有效性</option>
+                            <option>一致性</option>
+                        </select>
+                        <select class="filter-select">
+                            <option>所有等级</option>
+                            <option>高</option>
+                            <option>中</option>
+                            <option>低</option>
+                        </select>
+                        <select class="filter-select">
+                            <option>近7天</option>
+                            <option>近30天</option>
+                            <option>本月</option>
+                        </select>
+                    </div>
+                </div>
+                <table class="issues-table">
+                    <thead>
+                        <tr>
+                            <th>资产名称</th>
+                            <th>问题维度</th>
+                            <th>问题描述</th>
+                            <th>规则名称</th>
+                            <th>更新时间</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><a href="detail.html">供应链库存数据表</a></td>
+                            <td><span class="issue-dimension completeness">完整性</span></td>
+                            <td>存在空值记录</td>
+                            <td>非空检查规则</td>
+                            <td>2026-03-18 10:30</td>
+                        </tr>
+                        <tr>
+                            <td><a href="detail.html">采购合同数据</a></td>
+                            <td><span class="issue-dimension accuracy">准确性</span></td>
+                            <td>金额字段格式错误</td>
+                            <td>格式验证规则</td>
+                            <td>2026-03-18 09:15</td>
+                        </tr>
+                        <tr>
+                            <td><a href="detail.html">设备维护记录</a></td>
+                            <td><span class="issue-dimension timeliness">及时性</span></td>
+                            <td>数据更新延迟</td>
+                            <td>时效性检查规则</td>
+                            <td>2026-03-
