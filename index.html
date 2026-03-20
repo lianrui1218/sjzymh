@@ -126,7 +126,7 @@
             --text-secondary: #4E5969;
             --text-light: #86909C;
             --bg-primary: #ffffff;
-            --bg-secondary: #F2F3F5;
+            --bg-secondary: #F5F7FA;
             --bg-tertiary: #E5E6EB;
             --border-color: #E5E6EB;
             --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
@@ -407,7 +407,7 @@
         /* 全局搜索框 */
         .search-container {
             width: 100%;
-            max-width: 700px;
+            max-width: 35%;
             position: relative;
         }
         
@@ -511,24 +511,15 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
+            padding: 0 16px;
         }
         
         .section-title {
             font-size: 20px;
-            font-weight: 600;
-            color: var(--text-primary);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .section-title::before {
-            content: '';
-            width: 4px;
-            height: 20px;
-            background: var(--primary-color);
-            border-radius: 2px;
+            font-weight: 700;
+            font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            color: var(--primary-color);
+            padding: 12px 0;
         }
         
         .section-more {
@@ -539,6 +530,45 @@
             align-items: center;
             gap: 4px;
             transition: color 0.2s;
+        }
+        
+        .module-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border-color);
+            background: white;
+        }
+        
+        .module-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0;
+        }
+        
+        .module-action {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .module-action a,
+        .module-action span,
+        .module-action button {
+            color: #1677ff;
+            text-decoration: none;
+            font-size: 14px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        
+        .module-action a:hover,
+        .module-action button:hover {
+            color: #4096ff;
         }
         
         .section-more:hover {
@@ -559,7 +589,7 @@
         .overview-card {
             background: white;
             border-radius: var(--radius-lg);
-            padding: 24px;
+            padding: 16px 20px;
             box-shadow: var(--shadow-sm);
             border: 1px solid var(--border-color);
             transition: all 0.3s;
@@ -784,20 +814,454 @@
             color: var(--danger-color);
         }
         
+        /* 数据质量横向布局 */
+        .quality-horizontal {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        
+        .quality-card-light {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: 20px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .quality-card-light:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-color);
+        }
+        
+        .quality-card-header {
+            flex: 1;
+        }
+        
+        .quality-card-title {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 4px;
+        }
+        
+        .quality-card-desc {
+            font-size: 12px;
+            color: var(--text-light);
+        }
+        
+        .quality-score {
+            font-size: 32px;
+            font-weight: 700;
+            margin-left: 20px;
+        }
+        
+        .quality-score.excellent {
+            color: var(--success-color);
+        }
+        
+        .quality-score.good {
+            color: var(--warning-color);
+        }
+        
+        .quality-score.poor {
+            color: var(--danger-color);
+        }
+        
+        .quality-count {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-left: 20px;
+        }
+        
+        .quality-trend {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+        
+        .quality-trend svg {
+            flex-shrink: 0;
+        }
+        
+        .quality-chart {
+            flex: 1;
+            max-width: 50%;
+            margin-left: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+        
+        @media (max-width: 768px) {
+            .quality-horizontal {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .quality-horizontal {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* 数据质量卡片 */
+        .quality-section {
+            margin-bottom: 32px;
+        }
+        
+        .quality-cards-container {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        
+        .quality-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            padding: 16px;
+        }
+        
+        .quality-card {
+            background: #fafbfc;
+            border-radius: 8px;
+            padding: 16px;
+            border: 1px solid #e8e8e8;
+            transition: all 0.2s;
+        }
+        
+        .quality-card:hover {
+            border-color: #1677ff;
+            box-shadow: 0 4px 12px rgba(22, 119, 255, 0.1);
+        }
+        
+        .quality-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        
+        .quality-card-header .dept-name {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .quality-status {
+            font-size: 12px;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+        
+        .quality-status.status-pass {
+            background: #f6ffed;
+            color: #52c41a;
+        }
+        
+        .quality-status.status-warning {
+            background: #e6f7ff;
+            color: #1677ff;
+        }
+        
+        .quality-status.status-fail {
+            background: #fff2f0;
+            color: #ff4d4f;
+        }
+        
+        .quality-card-body {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .quality-resource-count {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+        
+        .quality-resource-count strong {
+            color: var(--text-primary);
+            font-size: 16px;
+        }
+        
+        .quality-metrics {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .metric-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .metric-label {
+            font-size: 12px;
+            color: var(--text-secondary);
+            width: 48px;
+            flex-shrink: 0;
+        }
+        
+        .metric-bar {
+            flex: 1;
+            height: 6px;
+            background: #f0f0f0;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        
+        .metric-fill {
+            height: 100%;
+            border-radius: 3px;
+            transition: width 0.3s;
+        }
+        
+        .metric-fill.pass {
+            background: linear-gradient(90deg, #52c41a, #73d13d);
+        }
+        
+        .metric-fill.warning {
+            background: linear-gradient(90deg, #1677ff, #4096ff);
+        }
+        
+        .metric-fill.fail {
+            background: linear-gradient(90deg, #ff4d4f, #ff7875);
+        }
+        
+        .metric-value {
+            font-size: 12px;
+            font-weight: 500;
+            width: 36px;
+            text-align: right;
+        }
+        
+        .metric-value.pass {
+            color: #52c41a;
+        }
+        
+        .metric-value.warning {
+            color: #1677ff;
+        }
+        
+        .metric-value.fail {
+            color: #ff4d4f;
+        }
+        
+        .quality-overall {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding-top: 8px;
+            border-top: 1px dashed #e8e8e8;
+        }
+        
+        .overall-label {
+            font-size: 12px;
+            color: var(--text-secondary);
+            width: 70px;
+        }
+        
+        .overall-progress {
+            flex: 1;
+            height: 8px;
+            background: #f0f0f0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .overall-fill {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 0.3s;
+        }
+        
+        .overall-fill.pass {
+            background: linear-gradient(90deg, #52c41a, #73d13d);
+        }
+        
+        .overall-fill.warning {
+            background: linear-gradient(90deg, #1677ff, #4096ff);
+        }
+        
+        .overall-fill.fail {
+            background: linear-gradient(90deg, #ff4d4f, #ff7875);
+        }
+        
+        .overall-value {
+            font-size: 14px;
+            font-weight: 600;
+            width: 40px;
+            text-align: right;
+        }
+        
+        .overall-value.pass {
+            color: #52c41a;
+        }
+        
+        .overall-value.warning {
+            color: #1677ff;
+        }
+        
+        .overall-value.fail {
+            color: #ff4d4f;
+        }
+        
+        @media (max-width: 1200px) {
+            .quality-cards-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .quality-cards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+            border-bottom: none;
+        }
+        
+        .quality-ranking-table td {
+            padding: 16px 20px;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 14px;
+            color: var(--text-primary);
+        }
+        
+        .quality-ranking-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .quality-ranking-table tbody tr:hover td {
+            background: #fafafa;
+        }
+        
+        .col-rank {
+            width: 80px;
+            text-align: center;
+        }
+        
+        .col-dept {
+            width: auto;
+            text-align: left;
+        }
+        
+        .col-score {
+            width: 100px;
+            text-align: right;
+        }
+        
+        .col-assets {
+            width: 100px;
+            text-align: right;
+        }
+        
+        .col-issues {
+            width: 100px;
+            text-align: right;
+        }
+        
+        .rank-cell {
+            text-align: center;
+        }
+        
+        .rank-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: #f5f5f5;
+            color: var(--text-secondary);
+            font-size: 13px;
+            font-weight: 600;
+        }
+        
+        .rank-badge.rank-1 {
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            color: white;
+        }
+        
+        .rank-badge.rank-2 {
+            background: linear-gradient(135deg, #C0C0C0, #A0A0A0);
+            color: white;
+        }
+        
+        .rank-badge.rank-3 {
+            background: linear-gradient(135deg, #CD7F32, #B8860B);
+            color: white;
+        }
+        
+        .dept-name {
+            font-weight: 500;
+            text-align: left;
+        }
+        
+        .score-cell {
+            text-align: right;
+            font-weight: 600;
+        }
+        
+        .num-cell {
+            text-align: right;
+            color: var(--text-secondary);
+        }
+        
         /* 三列布局区域 */
         .three-column-section {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-columns: 1fr 1fr;
             gap: 24px;
             margin-bottom: 32px;
+        }
+        
+        /* 两列布局区域 */
+        .two-column-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 32px;
+            align-items: stretch;
+        }
+        
+        .two-column-section .assets-section {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .two-column-section .card-module {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+        
+        .two-column-section .card-module-body {
+            flex: 1;
+        }
+        
+        @media (max-width: 768px) {
+            .two-column-section {
+                grid-template-columns: 1fr;
+            }
         }
         
         /* 通用卡片模块 */
         .card-module {
             background: white;
             border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-sm);
-            border: 1px solid var(--border-color);
             overflow: hidden;
         }
         
@@ -839,39 +1303,61 @@
         
         .card-module-body {
             padding: 16px;
-            max-height: 320px;
-            overflow-y: auto;
         }
         
         /* 待办事项模块 */
-        .todo-tabs-header {
+        .todo-module-header {
             display: flex;
-            border-bottom: 2px solid var(--border-color);
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border-color);
         }
         
-        .todo-tab {
-            flex: 1;
-            padding: 12px 8px;
+        .todo-main-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 0;
+        }
+        
+        .view-all-btn {
+            color: #1677ff;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+        
+        .view-all-btn:hover {
+            color: #1677ff;
+        }
+        
+        .tab-bar {
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        .tab-item {
+            padding: 12px 16px;
             text-align: center;
             cursor: pointer;
-            font-size: 13px;
-            color: var(--text-secondary);
-            transition: all 0.2s;
-            border-bottom: 2px solid transparent;
-            margin-bottom: -2px;
+            font-size: 14px;
+            color: #666;
+            transition: color 0.2s;
+            position: relative;
         }
         
-        .todo-tab:hover {
-            color: var(--primary-color);
+        .tab-item:hover {
+            color: #333;
         }
         
-        .todo-tab.active {
-            color: var(--primary-color);
+        .tab-item.active {
+            color: #1677ff;
             font-weight: 500;
-            border-bottom-color: var(--primary-color);
         }
         
-        .todo-tab .badge {
+        .tab-item .badge {
             display: inline-block;
             padding: 0 6px;
             height: 18px;
@@ -1155,6 +1641,7 @@
             gap: 12px;
             margin-bottom: 20px;
             flex-wrap: wrap;
+            padding: 16px 20px 0;
         }
         
         .asset-tab {
@@ -1197,9 +1684,15 @@
         .assets-list {
             background: white;
             border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-sm);
-            border: 1px solid var(--border-color);
             overflow: hidden;
+        }
+        
+        .assets-panel {
+            display: none;
+        }
+        
+        .assets-panel.active {
+            display: block;
         }
         
         .assets-list-table {
@@ -1215,6 +1708,33 @@
             font-size: 13px;
             background: var(--bg-color);
             border-bottom: 1px solid var(--border-color);
+        }
+        
+        .assets-list-table th.sortable {
+            cursor: pointer;
+            user-select: none;
+            transition: color 0.2s;
+        }
+        
+        .assets-list-table th.sortable:hover {
+            color: var(--primary-color);
+        }
+        
+        .assets-list-table th.sortable .sort-icon {
+            margin-left: 4px;
+            font-size: 12px;
+            opacity: 0.5;
+        }
+        
+        .assets-list-table th.sortable.sort-asc .sort-icon,
+        .assets-list-table th.sortable.sort-desc .sort-icon {
+            opacity: 1;
+            color: var(--primary-color);
+        }
+        
+        .time-cell {
+            color: var(--text-secondary);
+            font-size: 13px;
         }
         
         .assets-list-table td {
@@ -2158,7 +2678,7 @@
                 <p class="banner-subtitle">统一数据资源管理 · 精准权限管控 · 高效协同共享</p>
                 <div class="search-container">
                     <div class="search-box">
-                        <input type="text" class="search-input" placeholder="搜索资源名称、关键词、提供部门...">
+                        <input type="text" class="search-input" placeholder="搜索资源名称">
                         <button class="search-btn">
                             <span><svg class="icon" width="18" height="18"><use href="#icon-search"/></svg></span>
                             <span>搜索</span>
@@ -2180,14 +2700,20 @@
             <section class="three-column-section">
                 <!-- 待办事项模块 -->
                 <div class="card-module">
-                    <div class="todo-tabs-header">
-                        <div class="todo-tab active" data-tab="pending">
+                    <div class="module-header">
+                        <h3 class="module-title">我的待办</h3>
+                        <div class="module-action">
+                            <a href="todo.html">查看全部</a>
+                        </div>
+                    </div>
+                    <div class="tab-bar">
+                        <div class="tab-item active" data-tab="pending">
                             我的待办
                             <span class="badge">5</span>
                         </div>
-                        <div class="todo-tab" data-tab="applied">我的申请</div>
-                        <div class="todo-tab" data-tab="favorites">我的收藏</div>
-                        <div class="todo-tab" data-tab="done">已办结</div>
+                        <div class="tab-item" data-tab="applied">我的申请</div>
+                        <div class="tab-item" data-tab="favorites">我的收藏</div>
+                        <div class="tab-item" data-tab="done">已办结</div>
                     </div>
                     <div class="card-module-body">
                         <div class="todo-panel active" id="pending-panel">
@@ -2285,296 +2811,232 @@
                     </div>
                 </div>
                 
-                <!-- 通知公告模块 -->
+                <!-- 核心数据概览 -->
                 <div class="card-module">
-                    <div class="card-module-header">
-                        <h3 class="card-module-title">通知公告</h3>
-                        <a href="notifications.html" class="card-module-more">更多 →</a>
-                    </div>
-                    <div class="card-module-body">
-                        <div class="notice-item">
-                            <div class="notice-content">
-                                <div class="notice-title">
-                                    <span class="notice-tag important">重要</span>
-                                    关于数据资源门户系统升级维护的通知
-                                </div>
-                                <div class="notice-meta">发布时间：2026-03-15 | 发布部门：信息技术部</div>
-                            </div>
-                        </div>
-                        <div class="notice-item">
-                            <div class="notice-content">
-                                <div class="notice-title">
-                                    <span class="notice-tag normal">通知</span>
-                                    数据资源管理规范培训通知
-                                </div>
-                                <div class="notice-meta">发布时间：2026-03-14 | 发布部门：数据管理部</div>
-                            </div>
-                        </div>
-                        <div class="notice-item">
-                            <div class="notice-content">
-                                <div class="notice-title">
-                                    <span class="notice-tag update">更新</span>
-                                    新增生产运营类数据资源上架公告
-                                </div>
-                                <div class="notice-meta">发布时间：2026-03-13 | 发布部门：生产运营部</div>
-                            </div>
-                        </div>
-                        <div class="notice-item">
-                            <div class="notice-content">
-                                <div class="notice-title">
-                                    <span class="notice-tag normal">通知</span>
-                                    关于开展数据资源盘点工作的通知
-                                </div>
-                                <div class="notice-meta">发布时间：2026-03-12 | 发布部门：数据管理部</div>
-                            </div>
-                        </div>
-                        <div class="notice-item">
-                            <div class="notice-content">
-                                <div class="notice-title">
-                                    <span class="notice-tag update">更新</span>
-                                    安全环保监测数据接口升级公告
-                                </div>
-                                <div class="notice-meta">发布时间：2026-03-11 | 发布部门：安全环保部</div>
-                            </div>
+                    <div class="module-header">
+                        <h3 class="module-title">核心数据概览</h3>
+                        <div class="module-action">
+                            <a href="#">查看全部</a>
                         </div>
                     </div>
-                </div>
-                
-                <!-- 数据管理标准规范模块 -->
-                <div class="card-module">
-                    <div class="card-module-header">
-                        <h3 class="card-module-title">数据管理标准规范</h3>
-                        <a href="#" class="card-module-more">更多 →</a>
-                    </div>
-                    <div class="card-module-body">
-                        <div class="standard-item">
-                            <div class="standard-info">
-                                <div class="standard-title">易普力数据资源管理规范</div>
-                                <div class="standard-meta">版本：V2.0 | 更新：2026-03-01</div>
+                    <div class="overview-grid" style="grid-template-columns: repeat(2, 1fr); gap: 16px; padding: 16px;">
+                        <div class="overview-card">
+                            <div class="overview-content">
+                                <div class="overview-category-name">数据表</div>
+                                <div class="overview-main-value">128</div>
+                                <div class="overview-desc">平台数据表总量</div>
                             </div>
-                            <button class="standard-download">下载</button>
+                            <div class="overview-icon table"><svg class="icon" width="28" height="28"><use href="#icon-table"/></svg></div>
                         </div>
-                        <div class="standard-item">
-                            <div class="standard-info">
-                                <div class="standard-title">数据分类分级管理标准</div>
-                                <div class="standard-meta">版本：V1.5 | 更新：2026-02-15</div>
+                        <div class="overview-card">
+                            <div class="overview-content">
+                                <div class="overview-category-name">API</div>
+                                <div class="overview-main-value">56</div>
+                                <div class="overview-desc">平台API接口总量</div>
                             </div>
-                            <button class="standard-download">下载</button>
+                            <div class="overview-icon api"><svg class="icon" width="28" height="28"><use href="#icon-link"/></svg></div>
                         </div>
-                        <div class="standard-item">
-                            <div class="standard-info">
-                                <div class="standard-title">数据质量管理规范</div>
-                                <div class="standard-meta">版本：V1.2 | 更新：2026-01-20</div>
+                        <div class="overview-card">
+                            <div class="overview-content">
+                                <div class="overview-category-name">业务指标</div>
+                                <div class="overview-main-value">89</div>
+                                <div class="overview-desc">平台业务指标总量</div>
                             </div>
-                            <button class="standard-download">下载</button>
+                            <div class="overview-icon metric"><svg class="icon" width="28" height="28"><use href="#icon-trending-up"/></svg></div>
                         </div>
-                        <div class="standard-item">
-                            <div class="standard-info">
-                                <div class="standard-title">数据安全管理规范</div>
-                                <div class="standard-meta">版本：V1.3 | 更新：2026-01-10</div>
+                        <div class="overview-card">
+                            <div class="overview-content">
+                                <div class="overview-category-name">报表</div>
+                                <div class="overview-main-value">67</div>
+                                <div class="overview-desc">平台报表总量</div>
                             </div>
-                            <button class="standard-download">下载</button>
-                        </div>
-                        <div class="standard-item">
-                            <div class="standard-info">
-                                <div class="standard-title">数据权限申请流程指南</div>
-                                <div class="standard-meta">版本：V1.1 | 更新：2025-12-25</div>
-                            </div>
-                            <button class="standard-download">下载</button>
+                            <div class="overview-icon report"><svg class="icon" width="28" height="28"><use href="#icon-bar-chart"/></svg></div>
                         </div>
                     </div>
                 </div>
             </section>
             
-            <!-- 核心数据概览 -->
-            <section class="overview-section">
-                <div class="section-header">
-                    <h3 class="section-title">核心数据概览</h3>
-                    <a href="#" class="section-more">查看更多 →</a>
-                </div>
-                <div class="overview-grid">
-                    <div class="overview-card">
-                        <div class="overview-content">
-                            <div class="overview-category-name">数据表</div>
-                            <div class="overview-main-value">128</div>
-                            <div class="overview-desc">平台数据表总量</div>
-                        </div>
-                        <div class="overview-icon table"><svg class="icon" width="28" height="28"><use href="#icon-table"/></svg></div>
-                    </div>
-                    <div class="overview-card">
-                        <div class="overview-content">
-                            <div class="overview-category-name">API</div>
-                            <div class="overview-main-value">56</div>
-                            <div class="overview-desc">平台API接口总量</div>
-                        </div>
-                        <div class="overview-icon api"><svg class="icon" width="28" height="28"><use href="#icon-link"/></svg></div>
-                    </div>
-                    <div class="overview-card">
-                        <div class="overview-content">
-                            <div class="overview-category-name">业务指标</div>
-                            <div class="overview-main-value">89</div>
-                            <div class="overview-desc">平台业务指标总量</div>
-                        </div>
-                        <div class="overview-icon metric"><svg class="icon" width="28" height="28"><use href="#icon-trending-up"/></svg></div>
-                    </div>
-                    <div class="overview-card">
-                        <div class="overview-content">
-                            <div class="overview-category-name">报表</div>
-                            <div class="overview-main-value">67</div>
-                            <div class="overview-desc">平台报表总量</div>
-                        </div>
-                        <div class="overview-icon report"><svg class="icon" width="28" height="28"><use href="#icon-bar-chart"/></svg></div>
-                    </div>
-                </div>
-            </section>
+
             
             <!-- 数据质量模块 -->
             <section class="quality-section">
-                <div class="section-header">
-                    <h3 class="section-title">数据质量</h3>
-                    <a href="#" class="section-more">查看详情 →</a>
-                </div>
-                <div class="quality-grid">
-                    <div class="quality-card">
-                        <div class="quality-dept-header">
-                            <span class="quality-dept-name">生产运营部</span>
-                            <span class="quality-dept-count">数据资源 32 项</span>
-                        </div>
-                        <div class="quality-metrics">
-                            <div class="quality-metric">
-                                <div class="quality-metric-label">完整性</div>
-                                <div class="quality-metric-value good">98.5%</div>
-                            </div>
-                            <div class="quality-metric">
-                                <div class="quality-metric-label">准确性</div>
-                                <div class="quality-metric-value good">97.2%</div>
-                            </div>
-                            <div class="quality-metric">
-                                <div class="quality-metric-label">及时性</div>
-                                <div class="quality-metric-value good">99.1%</div>
-                            </div>
-                        </div>
-                        <div class="quality-progress-wrap">
-                            <div class="quality-progress-label">
-                                <span class="quality-progress-text">综合达标率</span>
-                                <span class="quality-progress-value" style="color: #00B42A;">98.3%</span>
-                            </div>
-                            <div class="quality-progress-bar">
-                                <div class="quality-progress-fill excellent" style="width: 98.3%;"></div>
-                            </div>
-                        </div>
-                        <div style="text-align: right;">
-                            <span class="quality-status passed"><svg class="icon" width="12" height="12"><use href="#icon-check"/></svg> 达标</span>
+                <div class="quality-cards-container">
+                    <div class="module-header">
+                        <h3 class="module-title">数据质量</h3>
+                        <div class="module-action">
+                            <a href="data-quality.html">查看更多</a>
                         </div>
                     </div>
-                    
-                    <div class="quality-card">
-                        <div class="quality-dept-header">
-                            <span class="quality-dept-name">安全环保部</span>
-                            <span class="quality-dept-count">数据资源 28 项</span>
-                        </div>
-                        <div class="quality-metrics">
-                            <div class="quality-metric">
-                                <div class="quality-metric-label">完整性</div>
-                                <div class="quality-metric-value good">96.8%</div>
+                    <div class="quality-cards-grid">
+                        <div class="quality-card">
+                            <div class="quality-card-header">
+                                <div class="dept-name">生产运营部</div>
+                                <span class="quality-status status-pass">达标</span>
                             </div>
-                            <div class="quality-metric">
-                                <div class="quality-metric-label">准确性</div>
-                                <div class="quality-metric-value good">95.4%</div>
-                            </div>
-                            <div class="quality-metric">
-                                <div class="quality-metric-label">及时性</div>
-                                <div class="quality-metric-value warning">92.1%</div>
-                            </div>
-                        </div>
-                        <div class="quality-progress-wrap">
-                            <div class="quality-progress-label">
-                                <span class="quality-progress-text">综合达标率</span>
-                                <span class="quality-progress-value" style="color: #165DFF;">94.8%</span>
-                            </div>
-                            <div class="quality-progress-bar">
-                                <div class="quality-progress-fill good" style="width: 94.8%;"></div>
-                            </div>
-                        </div>
-                        <div style="text-align: right;">
-                            <span class="quality-status passed"><svg class="icon" width="12" height="12"><use href="#icon-check"/></svg> 达标</span>
-                        </div>
-                    </div>
-                    
-                    <div class="quality-card">
-                        <div class="quality-dept-header">
-                            <span class="quality-dept-name">人力资源部</span>
-                            <span class="quality-dept-count">数据资源 24 项</span>
-                        </div>
-                        <div class="quality-metrics">
-                            <div class="quality-metric">
-                                <div class="quality-metric-label">完整性</div>
-                                <div class="quality-metric-value good">97.6%</div>
-                            </div>
-                            <div class="quality-metric">
-                                <div class="quality-metric-label">准确性</div>
-                                <div class="quality-metric-value good">96.9%</div>
-                            </div>
-                            <div class="quality-metric">
-                                <div class="quality-metric-label">及时性</div>
-                                <div class="quality-metric-value good">98.2%</div>
+                            <div class="quality-card-body">
+                                <div class="quality-resource-count">数据资源 <strong>28</strong> 项</div>
+                                <div class="quality-metrics">
+                                    <div class="metric-item">
+                                        <span class="metric-label">完整性</span>
+                                        <div class="metric-bar">
+                                            <div class="metric-fill pass" style="width: 98%"></div>
+                                        </div>
+                                        <span class="metric-value pass">98%</span>
+                                    </div>
+                                    <div class="metric-item">
+                                        <span class="metric-label">准确性</span>
+                                        <div class="metric-bar">
+                                            <div class="metric-fill pass" style="width: 96%"></div>
+                                        </div>
+                                        <span class="metric-value pass">96%</span>
+                                    </div>
+                                    <div class="metric-item">
+                                        <span class="metric-label">及时性</span>
+                                        <div class="metric-bar">
+                                            <div class="metric-fill pass" style="width: 97%"></div>
+                                        </div>
+                                        <span class="metric-value pass">97%</span>
+                                    </div>
+                                </div>
+                                <div class="quality-overall">
+                                    <span class="overall-label">综合达标率</span>
+                                    <div class="overall-progress">
+                                        <div class="overall-fill pass" style="width: 96%"></div>
+                                    </div>
+                                    <span class="overall-value pass">96%</span>
+                                </div>
                             </div>
                         </div>
-                        <div class="quality-progress-wrap">
-                            <div class="quality-progress-label">
-                                <span class="quality-progress-text">综合达标率</span>
-                                <span class="quality-progress-value" style="color: #00B42A;">97.6%</span>
+                        <div class="quality-card">
+                            <div class="quality-card-header">
+                                <div class="dept-name">安全环保部</div>
+                                <span class="quality-status status-pass">达标</span>
                             </div>
-                            <div class="quality-progress-bar">
-                                <div class="quality-progress-fill excellent" style="width: 97.6%;"></div>
-                            </div>
-                        </div>
-                        <div style="text-align: right;">
-                            <span class="quality-status passed"><svg class="icon" width="12" height="12"><use href="#icon-check"/></svg> 达标</span>
-                        </div>
-                    </div>
-                    
-                    <div class="quality-card">
-                        <div class="quality-dept-header">
-                            <span class="quality-dept-name">供应链管理部</span>
-                            <span class="quality-dept-count">数据资源 18 项</span>
-                        </div>
-                        <div class="quality-metrics">
-                            <div class="quality-metric">
-                                <div class="quality-metric-label">完整性</div>
-                                <div class="quality-metric-value warning">88.5%</div>
-                            </div>
-                            <div class="quality-metric">
-                                <div class="quality-metric-label">准确性</div>
-                                <div class="quality-metric-value good">94.2%</div>
-                            </div>
-                            <div class="quality-metric">
-                                <div class="quality-metric-label">及时性</div>
-                                <div class="quality-metric-value warning">91.8%</div>
-                            </div>
-                        </div>
-                        <div class="quality-progress-wrap">
-                            <div class="quality-progress-label">
-                                <span class="quality-progress-text">综合达标率</span>
-                                <span class="quality-progress-value" style="color: #FF7D00;">91.5%</span>
-                            </div>
-                            <div class="quality-progress-bar">
-                                <div class="quality-progress-fill warning" style="width: 91.5%;"></div>
+                            <div class="quality-card-body">
+                                <div class="quality-resource-count">数据资源 <strong>22</strong> 项</div>
+                                <div class="quality-metrics">
+                                    <div class="metric-item">
+                                        <span class="metric-label">完整性</span>
+                                        <div class="metric-bar">
+                                            <div class="metric-fill pass" style="width: 95%"></div>
+                                        </div>
+                                        <span class="metric-value pass">95%</span>
+                                    </div>
+                                    <div class="metric-item">
+                                        <span class="metric-label">准确性</span>
+                                        <div class="metric-bar">
+                                            <div class="metric-fill pass" style="width: 94%"></div>
+                                        </div>
+                                        <span class="metric-value pass">94%</span>
+                                    </div>
+                                    <div class="metric-item">
+                                        <span class="metric-label">及时性</span>
+                                        <div class="metric-bar">
+                                            <div class="metric-fill warning" style="width: 92%"></div>
+                                        </div>
+                                        <span class="metric-value warning">92%</span>
+                                    </div>
+                                </div>
+                                <div class="quality-overall">
+                                    <span class="overall-label">综合达标率</span>
+                                    <div class="overall-progress">
+                                        <div class="overall-fill pass" style="width: 94%"></div>
+                                    </div>
+                                    <span class="overall-value pass">94%</span>
+                                </div>
                             </div>
                         </div>
-                        <div style="text-align: right;">
-                            <span class="quality-status failed"><svg class="icon" width="12" height="12"><use href="#icon-close"/></svg> 未达标</span>
+                        <div class="quality-card">
+                            <div class="quality-card-header">
+                                <div class="dept-name">财务部</div>
+                                <span class="quality-status status-pass">达标</span>
+                            </div>
+                            <div class="quality-card-body">
+                                <div class="quality-resource-count">数据资源 <strong>18</strong> 项</div>
+                                <div class="quality-metrics">
+                                    <div class="metric-item">
+                                        <span class="metric-label">完整性</span>
+                                        <div class="metric-bar">
+                                            <div class="metric-fill pass" style="width: 96%"></div>
+                                        </div>
+                                        <span class="metric-value pass">96%</span>
+                                    </div>
+                                    <div class="metric-item">
+                                        <span class="metric-label">准确性</span>
+                                        <div class="metric-bar">
+                                            <div class="metric-fill pass" style="width: 93%"></div>
+                                        </div>
+                                        <span class="metric-value pass">93%</span>
+                                    </div>
+                                    <div class="metric-item">
+                                        <span class="metric-label">及时性</span>
+                                        <div class="metric-bar">
+                                            <div class="metric-fill warning" style="width: 91%"></div>
+                                        </div>
+                                        <span class="metric-value warning">91%</span>
+                                    </div>
+                                </div>
+                                <div class="quality-overall">
+                                    <span class="overall-label">综合达标率</span>
+                                    <div class="overall-progress">
+                                        <div class="overall-fill pass" style="width: 92%"></div>
+                                    </div>
+                                    <span class="overall-value pass">92%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="quality-card">
+                            <div class="quality-card-header">
+                                <div class="dept-name">人力资源部</div>
+                                <span class="quality-status status-warning">预警</span>
+                            </div>
+                            <div class="quality-card-body">
+                                <div class="quality-resource-count">数据资源 <strong>15</strong> 项</div>
+                                <div class="quality-metrics">
+                                    <div class="metric-item">
+                                        <span class="metric-label">完整性</span>
+                                        <div class="metric-bar">
+                                            <div class="metric-fill warning" style="width: 93%"></div>
+                                        </div>
+                                        <span class="metric-value warning">93%</span>
+                                    </div>
+                                    <div class="metric-item">
+                                        <span class="metric-label">准确性</span>
+                                        <div class="metric-bar">
+                                            <div class="metric-fill warning" style="width: 90%"></div>
+                                        </div>
+                                        <span class="metric-value warning">90%</span>
+                                    </div>
+                                    <div class="metric-item">
+                                        <span class="metric-label">及时性</span>
+                                        <div class="metric-bar">
+                                            <div class="metric-fill fail" style="width: 88%"></div>
+                                        </div>
+                                        <span class="metric-value fail">88%</span>
+                                    </div>
+                                </div>
+                                <div class="quality-overall">
+                                    <span class="overall-label">综合达标率</span>
+                                    <div class="overall-progress">
+                                        <div class="overall-fill warning" style="width: 91%"></div>
+                                    </div>
+                                    <span class="overall-value warning">91%</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
             
-            <!-- 资源推送模块 -->
+            <!-- 资源推荐模块 -->
             <section class="assets-section">
-                <div class="section-header">
-                    <h3 class="section-title">资源推送</h3>
-                    <span class="pagination-info">共计 128 项资源</span>
-                </div>
+                <div class="assets-list">
+                    <div class="module-header">
+                        <h3 class="module-title">资源推荐</h3>
+                        <div class="module-action">
+                            <a href="data-resources.html">查看全部</a>
+                        </div>
+                    </div>
                 <div class="assets-tabs">
                     <div class="asset-tab active">
                         全部
@@ -2598,171 +3060,391 @@
                     </div>
                 </div>
                 <div class="assets-list">
-                    <table class="assets-list-table">
-                        <thead>
-                            <tr>
-                                <th>资源名称</th>
-                                <th>类型</th>
-                                <th>热度</th>
-                                <th>状态</th>
-                                <th>操作</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <div class="resource-name" onclick="goToDetail(1)">
-                                        <span class="icon table">📋</span>
-                                        <div>
-                                            <div class="name-text">生产运营数据汇总表</div>
-                                            <div class="resource-dept">生产运营部</div>
+                    <!-- 全部资源面板 -->
+                    <div class="assets-panel active" id="all-panel">
+                        <table class="assets-list-table">
+                            <thead>
+                                <tr>
+                                    <th>资源名称</th>
+                                    <th>类型</th>
+                                    <th>所属分类</th>
+                                    <th class="sortable sort-desc" data-sort="hot">热度 <span class="sort-icon">↓</span></th>
+                                    <th class="sortable" data-sort="time">上架时间 <span class="sort-icon">↕</span></th>
+                                    <th>状态</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="resource-name" onclick="goToDetail(1)">
+                                            <span class="icon table">📋</span>
+                                            <div>
+                                                <div class="name-text">生产运营数据汇总表</div>
+                                                <div class="resource-dept">生产运营部</div>
+                                            </div>
                                         </div>
-                                    </div>
-                                </td>
-                                <td><span class="resource-type-tag table">数据表</span></td>
-                                <td>
-                                    <div class="resource-hot">
-                                        <svg class="icon" width="14" height="14"><use href="#icon-fire"/></svg>
-                                        2,341
-                                    </div>
-                                </td>
-                                <td><span class="resource-status available">可申请</span></td>
-                                <td>
-                                    <div class="resource-actions">
-                                        <button class="resource-btn secondary" onclick="toggleFavorite(this)">收藏</button>
-                                        <button class="resource-btn primary" onclick="goToApply()">申请</button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="resource-name" onclick="goToDetail(2)">
-                                        <span class="icon report">📊</span>
-                                        <div>
-                                            <div class="name-text">销售业绩分析报表</div>
-                                            <div class="resource-dept">销售部</div>
+                                    </td>
+                                    <td><span class="resource-type-tag table">数据表</span></td>
+                                    <td>生产运营类</td>
+                                    <td>
+                                        <div class="resource-hot">
+                                            <svg class="icon" width="14" height="14"><use href="#icon-fire"/></svg>
+                                            2,341
                                         </div>
-                                    </div>
-                                </td>
-                                <td><span class="resource-type-tag report">报表</span></td>
-                                <td>
-                                    <div class="resource-hot">
-                                        <svg class="icon" width="14" height="14"><use href="#icon-fire"/></svg>
-                                        1,892
-                                    </div>
-                                </td>
-                                <td><span class="resource-status available">可申请</span></td>
-                                <td>
-                                    <div class="resource-actions">
-                                        <button class="resource-btn secondary" onclick="toggleFavorite(this)">收藏</button>
-                                        <button class="resource-btn primary" onclick="goToApply()">申请</button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="resource-name" onclick="goToDetail(3)">
-                                        <span class="icon api">🔗</span>
-                                        <div>
-                                            <div class="name-text">库存查询API接口</div>
-                                            <div class="resource-dept">供应链管理部</div>
+                                    </td>
+                                    <td class="time-cell">2026-03-15</td>
+                                    <td><span class="resource-status available">可申请</span></td>
+                                    <td>
+                                        <div class="resource-actions">
+                                            <button class="resource-btn secondary" onclick="toggleFavorite(this)">收藏</button>
+                                            <button class="resource-btn primary" onclick="goToApply()">申请</button>
                                         </div>
-                                    </div>
-                                </td>
-                                <td><span class="resource-type-tag api">API</span></td>
-                                <td>
-                                    <div class="resource-hot">
-                                        <svg class="icon" width="14" height="14"><use href="#icon-fire"/></svg>
-                                        856
-                                    </div>
-                                </td>
-                                <td><span class="resource-status available">可申请</span></td>
-                                <td>
-                                    <div class="resource-actions">
-                                        <button class="resource-btn secondary" onclick="toggleFavorite(this)">收藏</button>
-                                        <button class="resource-btn primary" onclick="goToApply()">申请</button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="resource-name" onclick="goToDetail(4)">
-                                        <span class="icon metric">📈</span>
-                                        <div>
-                                            <div class="name-text">矿山开采效率指标</div>
-                                            <div class="resource-dept">生产运营部</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="resource-name" onclick="goToDetail(2)">
+                                            <span class="icon report">📊</span>
+                                            <div>
+                                                <div class="name-text">销售业绩分析报表</div>
+                                                <div class="resource-dept">销售部</div>
+                                            </div>
                                         </div>
-                                    </div>
-                                </td>
-                                <td><span class="resource-type-tag metric">指标</span></td>
-                                <td>
-                                    <div class="resource-hot">
-                                        <svg class="icon" width="14" height="14"><use href="#icon-fire"/></svg>
-                                        623
-                                    </div>
-                                </td>
-                                <td><span class="resource-status pending">审批中</span></td>
-                                <td>
-                                    <div class="resource-actions">
-                                        <button class="resource-btn secondary" onclick="toggleFavorite(this)">收藏</button>
-                                        <button class="resource-btn primary" onclick="goToApply()">申请</button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="resource-name" onclick="goToDetail(5)">
-                                        <span class="icon table">📋</span>
-                                        <div>
-                                            <div class="name-text">员工绩效考核数据表</div>
-                                            <div class="resource-dept">人力资源部</div>
+                                    </td>
+                                    <td><span class="resource-type-tag report">报表</span></td>
+                                    <td>销售类</td>
+                                    <td>
+                                        <div class="resource-hot">
+                                            <svg class="icon" width="14" height="14"><use href="#icon-fire"/></svg>
+                                            1,892
                                         </div>
-                                    </div>
-                                </td>
-                                <td><span class="resource-type-tag table">数据表</span></td>
-                                <td>
-                                    <div class="resource-hot">
-                                        <svg class="icon" width="14" height="14"><use href="#icon-fire"/></svg>
-                                        445
-                                    </div>
-                                </td>
-                                <td><span class="resource-status available">可申请</span></td>
-                                <td>
-                                    <div class="resource-actions">
-                                        <button class="resource-btn secondary" onclick="toggleFavorite(this)">收藏</button>
-                                        <button class="resource-btn primary" onclick="goToApply()">申请</button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="resource-name" onclick="goToDetail(6)">
-                                        <span class="icon report">📊</span>
-                                        <div>
-                                            <div class="name-text">安全环保监测报表</div>
-                                            <div class="resource-dept">安全环保部</div>
+                                    </td>
+                                    <td class="time-cell">2026-03-12</td>
+                                    <td><span class="resource-status available">可申请</span></td>
+                                    <td>
+                                        <div class="resource-actions">
+                                            <button class="resource-btn secondary" onclick="toggleFavorite(this)">收藏</button>
+                                            <button class="resource-btn primary" onclick="goToApply()">申请</button>
                                         </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="resource-name" onclick="goToDetail(3)">
+                                            <span class="icon api">🔗</span>
+                                            <div>
+                                                <div class="name-text">库存查询API接口</div>
+                                                <div class="resource-dept">供应链管理部</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><span class="resource-type-tag api">API</span></td>
+                                    <td>供应链与物资类</td>
+                                    <td>
+                                        <div class="resource-hot">
+                                            <svg class="icon" width="14" height="14"><use href="#icon-fire"/></svg>
+                                            856
+                                        </div>
+                                    </td>
+                                    <td class="time-cell">2026-03-10</td>
+                                    <td><span class="resource-status available">可申请</span></td>
+                                    <td>
+                                        <div class="resource-actions">
+                                            <button class="resource-btn secondary" onclick="toggleFavorite(this)">收藏</button>
+                                            <button class="resource-btn primary" onclick="goToApply()">申请</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="resource-name" onclick="goToDetail(4)">
+                                            <span class="icon metric">📈</span>
+                                            <div>
+                                                <div class="name-text">矿山开采效率指标</div>
+                                                <div class="resource-dept">生产运营部</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><span class="resource-type-tag metric">指标</span></td>
+                                    <td>生产运营类</td>
+                                    <td>
+                                        <div class="resource-hot">
+                                            <svg class="icon" width="14" height="14"><use href="#icon-fire"/></svg>
+                                            623
+                                        </div>
+                                    </td>
+                                    <td class="time-cell">2026-03-08</td>
+                                    <td><span class="resource-status pending">审批中</span></td>
+                                    <td>
+                                        <div class="resource-actions">
+                                            <button class="resource-btn secondary" onclick="toggleFavorite(this)">收藏</button>
+                                            <button class="resource-btn primary" onclick="goToApply()">申请</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="resource-name" onclick="goToDetail(5)">
+                                            <span class="icon table">📋</span>
+                                            <div>
+                                                <div class="name-text">员工绩效考核数据表</div>
+                                                <div class="resource-dept">人力资源部</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><span class="resource-type-tag table">数据表</span></td>
+                                    <td>人力资源类</td>
+                                    <td>
+                                        <div class="resource-hot">
+                                            <svg class="icon" width="14" height="14"><use href="#icon-fire"/></svg>
+                                            445
+                                        </div>
+                                    </td>
+                                    <td class="time-cell">2026-03-05</td>
+                                    <td><span class="resource-status available">可申请</span></td>
+                                    <td>
+                                        <div class="resource-actions">
+                                            <button class="resource-btn secondary" onclick="toggleFavorite(this)">收藏</button>
+                                            <button class="resource-btn primary" onclick="goToApply()">申请</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="resource-name" onclick="goToDetail(6)">
+                                            <span class="icon report">📊</span>
+                                            <div>
+                                                <div class="name-text">安全环保监测报表</div>
+                                                <div class="resource-dept">安全环保部</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><span class="resource-type-tag report">报表</span></td>
+                                    <td>安全环保类</td>
+                                    <td>
+                                        <div class="resource-hot">
+                                            <svg class="icon" width="14" height="14"><use href="#icon-fire"/></svg>
+                                            312
+                                        </div>
+                                    </td>
+                                    <td class="time-cell">2026-03-01</td>
+                                    <td><span class="resource-status available">可申请</span></td>
+                                    <td>
+                                        <div class="resource-actions">
+                                            <button class="resource-btn secondary" onclick="toggleFavorite(this)">收藏</button>
+                                            <button class="resource-btn primary" onclick="goToApply()">申请</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <!-- 通知公告面板 -->
+                    <div class="assets-panel" id="notifications-panel">
+                        <div class="card-module-body">
+                            <div class="notice-item">
+                                <div class="notice-content">
+                                    <div class="notice-title">
+                                        <span class="notice-tag important">重要</span>
+                                        关于数据资源门户系统升级维护的通知
                                     </div>
-                                </td>
-                                <td><span class="resource-type-tag report">报表</span></td>
-                                <td>
-                                    <div class="resource-hot">
-                                        <svg class="icon" width="14" height="14"><use href="#icon-fire"/></svg>
-                                        312
+                                    <div class="notice-meta">发布时间：2026-03-15 | 发布部门：信息技术部</div>
+                                </div>
+                            </div>
+                            <div class="notice-item">
+                                <div class="notice-content">
+                                    <div class="notice-title">
+                                        <span class="notice-tag normal">通知</span>
+                                        数据资源管理规范培训通知
                                     </div>
-                                </td>
-                                <td><span class="resource-status available">可申请</span></td>
-                                <td>
-                                    <div class="resource-actions">
-                                        <button class="resource-btn secondary" onclick="toggleFavorite(this)">收藏</button>
-                                        <button class="resource-btn primary" onclick="goToApply()">申请</button>
+                                    <div class="notice-meta">发布时间：2026-03-14 | 发布部门：数据管理部</div>
+                                </div>
+                            </div>
+                            <div class="notice-item">
+                                <div class="notice-content">
+                                    <div class="notice-title">
+                                        <span class="notice-tag update">更新</span>
+                                        新增生产运营类数据资源上架公告
                                     </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                                    <div class="notice-meta">发布时间：2026-03-13 | 发布部门：生产运营部</div>
+                                </div>
+                            </div>
+                            <div class="notice-item">
+                                <div class="notice-content">
+                                    <div class="notice-title">
+                                        <span class="notice-tag normal">通知</span>
+                                        关于开展数据资源盘点工作的通知
+                                    </div>
+                                    <div class="notice-meta">发布时间：2026-03-12 | 发布部门：数据管理部</div>
+                                </div>
+                            </div>
+                            <div class="notice-item">
+                                <div class="notice-content">
+                                    <div class="notice-title">
+                                        <span class="notice-tag update">更新</span>
+                                        安全环保监测数据接口升级公告
+                                    </div>
+                                    <div class="notice-meta">发布时间：2026-03-11 | 发布部门：安全环保部</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 数据管理标准规范面板 -->
+                    <div class="assets-panel" id="standards-panel">
+                        <div class="card-module-body">
+                            <div class="standard-item">
+                                <div class="standard-info">
+                                    <div class="standard-title">易普力数据资源管理规范</div>
+                                    <div class="standard-meta">版本：V2.0 | 更新：2026-03-01</div>
+                                </div>
+                                <button class="standard-download">下载</button>
+                            </div>
+                            <div class="standard-item">
+                                <div class="standard-info">
+                                    <div class="standard-title">数据分类分级管理标准</div>
+                                    <div class="standard-meta">版本：V1.5 | 更新：2026-02-15</div>
+                                </div>
+                                <button class="standard-download">下载</button>
+                            </div>
+                            <div class="standard-item">
+                                <div class="standard-info">
+                                    <div class="standard-title">数据质量管理规范</div>
+                                    <div class="standard-meta">版本：V1.2 | 更新：2026-01-20</div>
+                                </div>
+                                <button class="standard-download">下载</button>
+                            </div>
+                            <div class="standard-item">
+                                <div class="standard-info">
+                                    <div class="standard-title">数据安全管理规范</div>
+                                    <div class="standard-meta">版本：V1.3 | 更新：2026-01-10</div>
+                                </div>
+                                <button class="standard-download">下载</button>
+                            </div>
+                            <div class="standard-item">
+                                <div class="standard-info">
+                                    <div class="standard-title">数据权限申请流程指南</div>
+                                    <div class="standard-meta">版本：V1.1 | 更新：2025-12-25</div>
+                                </div>
+                                <button class="standard-download">下载</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
+            
+            <!-- 通知公告和数据管理标准规范模块 -->
+            <div class="two-column-section">
+                <!-- 通知公告模块 -->
+                <section class="assets-section">
+                    <div class="card-module">
+                        <div class="module-header">
+                            <h3 class="module-title">通知公告</h3>
+                            <div class="module-action">
+                                <a href="notifications.html">查看全部</a>
+                            </div>
+                        </div>
+                        <div class="card-module-body">
+                            <div class="notice-item">
+                                <div class="notice-content">
+                                    <div class="notice-title">
+                                        <span class="notice-tag important">重要</span>
+                                        关于数据资源门户系统升级维护的通知
+                                    </div>
+                                    <div class="notice-meta">发布时间：2026-03-15 | 发布部门：信息技术部</div>
+                                </div>
+                            </div>
+                            <div class="notice-item">
+                                <div class="notice-content">
+                                    <div class="notice-title">
+                                        <span class="notice-tag normal">通知</span>
+                                        数据资源管理规范培训通知
+                                    </div>
+                                    <div class="notice-meta">发布时间：2026-03-14 | 发布部门：数据管理部</div>
+                                </div>
+                            </div>
+                            <div class="notice-item">
+                                <div class="notice-content">
+                                    <div class="notice-title">
+                                        <span class="notice-tag update">更新</span>
+                                        新增生产运营类数据资源上架公告
+                                    </div>
+                                    <div class="notice-meta">发布时间：2026-03-13 | 发布部门：生产运营部</div>
+                                </div>
+                            </div>
+                            <div class="notice-item">
+                                <div class="notice-content">
+                                    <div class="notice-title">
+                                        <span class="notice-tag normal">通知</span>
+                                        关于开展数据资源盘点工作的通知
+                                    </div>
+                                    <div class="notice-meta">发布时间：2026-03-12 | 发布部门：数据管理部</div>
+                                </div>
+                            </div>
+                            <div class="notice-item">
+                                <div class="notice-content">
+                                    <div class="notice-title">
+                                        <span class="notice-tag update">更新</span>
+                                        安全环保监测数据接口升级公告
+                                    </div>
+                                    <div class="notice-meta">发布时间：2026-03-11 | 发布部门：安全环保部</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- 数据管理标准规范模块 -->
+                <section class="assets-section">
+                    <div class="card-module">
+                        <div class="module-header">
+                            <h3 class="module-title">数据管理标准规范</h3>
+                            <div class="module-action">
+                                <a href="#">查看全部</a>
+                            </div>
+                        </div>
+                        <div class="card-module-body">
+                            <div class="standard-item">
+                                <div class="standard-info">
+                                    <div class="standard-title">易普力数据资源管理规范</div>
+                                    <div class="standard-meta">版本：V2.0 | 更新：2026-03-01</div>
+                                </div>
+                                <button class="standard-download">下载</button>
+                            </div>
+                            <div class="standard-item">
+                                <div class="standard-info">
+                                    <div class="standard-title">数据分类分级管理标准</div>
+                                    <div class="standard-meta">版本：V1.5 | 更新：2026-02-15</div>
+                                </div>
+                                <button class="standard-download">下载</button>
+                            </div>
+                            <div class="standard-item">
+                                <div class="standard-info">
+                                    <div class="standard-title">数据质量管理规范</div>
+                                    <div class="standard-meta">版本：V1.2 | 更新：2026-01-20</div>
+                                </div>
+                                <button class="standard-download">下载</button>
+                            </div>
+                            <div class="standard-item">
+                                <div class="standard-info">
+                                    <div class="standard-title">数据安全管理规范</div>
+                                    <div class="standard-meta">版本：V1.3 | 更新：2026-01-10</div>
+                                </div>
+                                <button class="standard-download">下载</button>
+                            </div>
+                            <div class="standard-item">
+                                <div class="standard-info">
+                                    <div class="standard-title">数据权限申请流程指南</div>
+                                    <div class="standard-meta">版本：V1.1 | 更新：2025-12-25</div>
+                                </div>
+                                <button class="standard-download">下载</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
         </div>
         
         <!-- 底部区域 -->
@@ -2979,7 +3661,7 @@
         setInterval(nextSlide, 5000);
         
         // 待办事项Tab切换
-        const todoTabs = document.querySelectorAll('.todo-tab');
+        const todoTabs = document.querySelectorAll('.tab-item');
         const todoPanels = document.querySelectorAll('.todo-panel');
         
         todoTabs.forEach(tab => {
@@ -2995,10 +3677,48 @@
         
         // 资源分类Tab切换
         const assetTabs = document.querySelectorAll('.asset-tab');
+        const assetPanels = document.querySelectorAll('.assets-panel');
+        
+        // 为标签页添加data-tab属性
+        assetTabs.forEach((tab, index) => {
+            const tabText = tab.textContent.trim();
+            let tabId = 'all';
+            
+            switch(tabText) {
+                case '全部':
+                    tabId = 'all';
+                    break;
+                case '生产运营类':
+                    tabId = 'production';
+                    break;
+                case '安全环保类':
+                    tabId = 'safety';
+                    break;
+                case '人力资源类':
+                    tabId = 'hr';
+                    break;
+                case '供应链与物资类':
+                    tabId = 'supply';
+                    break;
+                case '通知公告':
+                    tabId = 'notifications';
+                    break;
+                case '数据管理标准规范':
+                    tabId = 'standards';
+                    break;
+            }
+            
+            tab.dataset.tab = tabId;
+        });
+        
         assetTabs.forEach(tab => {
             tab.addEventListener('click', () => {
+                const target = tab.dataset.tab;
                 assetTabs.forEach(t => t.classList.remove('active'));
                 tab.classList.add('active');
+                assetPanels.forEach(panel => {
+                    panel.classList.toggle('active', panel.id === `${target}-panel`);
+                });
             });
         });
         
@@ -3023,6 +3743,62 @@
         function closeModal(modalId) {
             document.getElementById(modalId).classList.remove('active');
         }
+        
+        // 资源推荐表格排序
+        document.querySelectorAll('.assets-list-table th.sortable').forEach(th => {
+            th.addEventListener('click', function() {
+                const table = this.closest('table');
+                const tbody = table.querySelector('tbody');
+                const rows = Array.from(tbody.querySelectorAll('tr'));
+                const sortKey = this.dataset.sort;
+                const isAsc = this.classList.contains('sort-asc');
+                const isDesc = this.classList.contains('sort-desc');
+                
+                // 移除其他列的排序状态
+                table.querySelectorAll('th.sortable').forEach(header => {
+                    if (header !== this) {
+                        header.classList.remove('sort-asc', 'sort-desc');
+                        header.querySelector('.sort-icon').textContent = '↕';
+                    }
+                });
+                
+                // 切换排序状态
+                if (isDesc) {
+                    this.classList.remove('sort-desc');
+                    this.classList.add('sort-asc');
+                    this.querySelector('.sort-icon').textContent = '↑';
+                } else {
+                    this.classList.remove('sort-asc');
+                    this.classList.add('sort-desc');
+                    this.querySelector('.sort-icon').textContent = '↓';
+                }
+                
+                // 排序
+                const colIndex = Array.from(this.parentNode.children).indexOf(this);
+                const newIsAsc = this.classList.contains('sort-asc');
+                
+                rows.sort((a, b) => {
+                    let aVal, bVal;
+                    
+                    if (sortKey === 'hot') {
+                        const aHot = a.querySelector('.resource-hot');
+                        const bHot = b.querySelector('.resource-hot');
+                        aVal = aHot ? parseInt(aHot.textContent.replace(/,/g, '')) : 0;
+                        bVal = bHot ? parseInt(bHot.textContent.replace(/,/g, '')) : 0;
+                    } else if (sortKey === 'time') {
+                        const aTime = a.querySelector('.time-cell');
+                        const bTime = b.querySelector('.time-cell');
+                        aVal = aTime ? new Date(aTime.textContent).getTime() : 0;
+                        bVal = bTime ? new Date(bTime.textContent).getTime() : 0;
+                    }
+                    
+                    return newIsAsc ? aVal - bVal : bVal - aVal;
+                });
+                
+                // 重新排列
+                rows.forEach(row => tbody.appendChild(row));
+            });
+        });
         
         // 点击遮罩关闭弹窗
         document.querySelectorAll('.modal-overlay').forEach(overlay => {

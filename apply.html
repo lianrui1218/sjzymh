@@ -996,51 +996,51 @@
                         <div class="column-list">
                             <label class="column-item required checked">
                                 <input type="checkbox" checked disabled>
-                                <span class="name">mine_code</span>
+                                <span class="name" data-field="mine_code">矿山编码</span>
                                 <span class="required-tag">必选</span>
                             </label>
                             <label class="column-item checked">
                                 <input type="checkbox" checked>
-                                <span class="name">production_date</span>
+                                <span class="name" data-field="production_date">生产日期</span>
                                 <span class="type">DATE</span>
                             </label>
                             <label class="column-item checked">
                                 <input type="checkbox" checked>
-                                <span class="name">output_volume</span>
+                                <span class="name" data-field="output_volume">产量</span>
                                 <span class="type">DECIMAL</span>
                             </label>
                             <label class="column-item">
                                 <input type="checkbox">
-                                <span class="name">efficiency_rate</span>
+                                <span class="name" data-field="efficiency_rate">效率比率</span>
                                 <span class="type">DECIMAL</span>
                             </label>
                             <label class="column-item">
                                 <input type="checkbox">
-                                <span class="name">safety_index</span>
+                                <span class="name" data-field="safety_index">安全指数</span>
                                 <span class="type">DECIMAL</span>
                             </label>
                             <label class="column-item">
                                 <input type="checkbox">
-                                <span class="name">env_score</span>
+                                <span class="name" data-field="env_score">环境评分</span>
                                 <span class="type">DECIMAL</span>
                             </label>
                             <label class="column-item">
                                 <input type="checkbox">
-                                <span class="name">cost_amount</span>
+                                <span class="name" data-field="cost_amount">成本金额</span>
                                 <span class="type">DECIMAL</span>
                             </label>
                             <label class="column-item">
                                 <input type="checkbox">
-                                <span class="name">worker_count</span>
+                                <span class="name" data-field="worker_count">员工人数</span>
                                 <span class="type">INT</span>
                             </label>
                         </div>
                         <div class="selected-columns">
                             <div class="selected-columns-title">已选字段（3个）：</div>
                             <div class="selected-columns-list" id="selectedColumnsList">
-                                <span class="selected-tag">mine_code</span>
-                                <span class="selected-tag">production_date</span>
-                                <span class="selected-tag">output_volume</span>
+                                <span class="selected-tag" data-field="mine_code">矿山编码</span>
+                                <span class="selected-tag" data-field="production_date">生产日期</span>
+                                <span class="selected-tag" data-field="output_volume">产量</span>
                             </div>
                         </div>
                     </div>
@@ -1253,7 +1253,8 @@
             document.getElementById('successOverlay').classList.add('active');
         });
         
-
+        // 初始化已选字段列表
+        updateSelectedColumns();
         
         // 返回首页
         function goHome() {

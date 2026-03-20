@@ -477,86 +477,343 @@
             justify-content: center;
         }
         
-        /* 质量维度 */
-        .quality-dimensions {
-            background: white;
-            border-radius: var(--radius-lg);
-            padding: 24px;
-            box-shadow: var(--shadow-sm);
-            margin-bottom: 32px;
+        /* 部门质量卡片 */
+        .quality-dept-cards {
+            margin-top: 24px;
         }
         
-        .dimensions-grid {
+        .dept-cards-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-top: 16px;
         }
         
-        .dimension-item {
-            padding: 20px;
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-lg);
-            transition: all 0.3s;
+        .quality-card {
+            background: #fafbfc;
+            border-radius: 8px;
+            padding: 16px;
+            border: 1px solid #e8e8e8;
+            transition: all 0.2s;
         }
         
-        .dimension-item:hover {
-            border-color: var(--primary-color);
-            box-shadow: var(--shadow-sm);
+        .quality-card:hover {
+            border-color: #1677ff;
+            box-shadow: 0 4px 12px rgba(22, 119, 255, 0.1);
         }
         
-        .dimension-header {
+        .quality-card-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 12px;
         }
         
-        .dimension-name {
-            font-size: 14px;
-            font-weight: 500;
+        .quality-card-header .dept-name {
+            font-size: 15px;
+            font-weight: 600;
             color: var(--text-primary);
         }
         
-        .dimension-status {
+        .quality-status {
+            font-size: 12px;
             padding: 2px 8px;
-            border-radius: var(--radius-sm);
+            border-radius: 4px;
+            font-weight: 500;
+        }
+        
+        .quality-status.status-pass {
+            background: #f6ffed;
+            color: #52c41a;
+        }
+        
+        .quality-status.status-warning {
+            background: #e6f7ff;
+            color: #1677ff;
+        }
+        
+        .quality-status.status-fail {
+            background: #fff2f0;
+            color: #ff4d4f;
+        }
+        
+        .quality-card-body {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .quality-resource-count {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+        
+        .quality-resource-count strong {
+            color: var(--text-primary);
+            font-size: 16px;
+        }
+        
+        .quality-metrics {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .metric-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .metric-label {
+            font-size: 12px;
+            color: var(--text-secondary);
+            width: 48px;
+            flex-shrink: 0;
+        }
+        
+        .metric-bar {
+            flex: 1;
+            height: 6px;
+            background: #f0f0f0;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        
+        .metric-fill {
+            height: 100%;
+            border-radius: 3px;
+            transition: width 0.3s;
+        }
+        
+        .metric-fill.pass {
+            background: linear-gradient(90deg, #52c41a, #73d13d);
+        }
+        
+        .metric-fill.warning {
+            background: linear-gradient(90deg, #1677ff, #4096ff);
+        }
+        
+        .metric-fill.fail {
+            background: linear-gradient(90deg, #ff4d4f, #ff7875);
+        }
+        
+        .metric-value {
             font-size: 12px;
             font-weight: 500;
+            width: 36px;
+            text-align: right;
         }
         
-        .dimension-status.normal {
-            background: var(--success-light);
-            color: var(--success-color);
+        .metric-value.pass {
+            color: #52c41a;
         }
         
-        .dimension-status.warning {
-            background: var(--warning-light);
-            color: var(--warning-color);
+        .metric-value.warning {
+            color: #1677ff;
         }
         
-        .dimension-status.error {
-            background: var(--danger-light);
-            color: var(--danger-color);
+        .metric-value.fail {
+            color: #ff4d4f;
         }
         
-        .dimension-score {
-            font-size: 28px;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 12px;
+        .quality-overall {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding-top: 8px;
+            border-top: 1px dashed #e8e8e8;
         }
         
-        .dimension-bar {
+        .overall-label {
+            font-size: 12px;
+            color: var(--text-secondary);
+            width: 70px;
+        }
+        
+        .overall-progress {
+            flex: 1;
             height: 8px;
-            background: var(--bg-tertiary);
+            background: #f0f0f0;
             border-radius: 4px;
             overflow: hidden;
         }
         
-        .dimension-bar-fill {
+        .overall-fill {
             height: 100%;
             border-radius: 4px;
-            transition: width 0.5s ease;
+            transition: width 0.3s;
+        }
+        
+        .overall-fill.pass {
+            background: linear-gradient(90deg, #52c41a, #73d13d);
+        }
+        
+        .overall-fill.warning {
+            background: linear-gradient(90deg, #1677ff, #4096ff);
+        }
+        
+        .overall-fill.fail {
+            background: linear-gradient(90deg, #ff4d4f, #ff7875);
+        }
+        
+        .overall-value {
+            font-size: 14px;
+            font-weight: 600;
+            width: 40px;
+            text-align: right;
+        }
+        
+        .overall-value.pass {
+            color: #52c41a;
+        }
+        
+        .overall-value.warning {
+            color: #1677ff;
+        }
+        
+        .overall-value.fail {
+            color: #ff4d4f;
+        }
+        
+        @media (max-width: 1200px) {
+            .dept-cards-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .dept-cards-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .dept-cards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* 部门质量排行榜 */
+        .dept-ranking-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .dept-ranking-table th {
+            padding: 14px 16px;
+            text-align: left;
+            font-weight: 500;
+            color: var(--text-secondary);
+            font-size: 13px;
+            background: var(--bg-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .dept-ranking-table td {
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 14px;
+        }
+        
+        .dept-ranking-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .dept-ranking-table tr:hover td {
+            background: #fafafa;
+        }
+        
+        .dept-ranking-table .col-rank {
+            width: 80px;
+            text-align: center;
+        }
+        
+        .dept-ranking-table .col-dept {
+            width: auto;
+        }
+        
+        .dept-ranking-table .col-score {
+            width: 100px;
+            text-align: center;
+        }
+        
+        .dept-ranking-table .col-assets,
+        .dept-ranking-table .col-issues {
+            width: 100px;
+            text-align: center;
+        }
+        
+        .dept-ranking-table .rank-cell {
+            text-align: center;
+        }
+        
+        .dept-ranking-table .rank-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: #f5f5f5;
+            color: var(--text-secondary);
+            font-size: 13px;
+            font-weight: 600;
+        }
+        
+        .dept-ranking-table .rank-badge.rank-1 {
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            color: white;
+        }
+        
+        .dept-ranking-table .rank-badge.rank-2 {
+            background: linear-gradient(135deg, #C0C0C0, #A0A0A0);
+            color: white;
+        }
+        
+        .dept-ranking-table .rank-badge.rank-3 {
+            background: linear-gradient(135deg, #CD7F32, #B8860B);
+            color: white;
+        }
+        
+        .dept-ranking-table .dept-name {
+            font-weight: 500;
+        }
+        
+        .dept-ranking-table .dept-link {
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        .dept-ranking-table .dept-link:hover {
+            color: var(--primary-color);
+        }
+        
+        .dept-ranking-table .score-cell {
+            text-align: center;
+            font-weight: 600;
+            font-size: 16px;
+        }
+        
+        .dept-ranking-table .score-cell.good {
+            color: #52c41a;
+        }
+        
+        .dept-ranking-table .score-cell.warning {
+            color: #faad14;
+        }
+        
+        .dept-ranking-table .score-cell.poor {
+            color: #ff4d4f;
+        }
+        
+        .dept-ranking-table .num-cell {
+            text-align: center;
+            color: var(--text-secondary);
         }
         
         /* 资产排行榜 */
@@ -632,158 +889,6 @@
             border-radius: var(--radius-sm);
             font-size: 12px;
             font-weight: 500;
-        }
-        
-        /* 质量问题清单 */
-        .quality-issues {
-            background: white;
-            border-radius: var(--radius-lg);
-            padding: 24px;
-            box-shadow: var(--shadow-sm);
-            margin-bottom: 32px;
-        }
-        
-        .issues-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-        
-        .issues-filters {
-            display: flex;
-            gap: 12px;
-            align-items: center;
-        }
-        
-        .filter-select {
-            padding: 6px 12px;
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-md);
-            font-size: 14px;
-            color: var(--text-primary);
-        }
-        
-        .search-box {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .search-input {
-            padding: 6px 12px;
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-md);
-            font-size: 14px;
-            width: 200px;
-        }
-        
-        .search-btn {
-            padding: 6px 12px;
-            background: var(--primary-color);
-            color: white;
-            border: none;
-            border-radius: var(--radius-md);
-            font-size: 14px;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-        
-        .search-btn:hover {
-            background: var(--primary-hover);
-        }
-        
-        .issues-table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        
-        .issues-table th {
-            padding: 12px 16px;
-            text-align: left;
-            font-weight: 500;
-            color: var(--text-secondary);
-            font-size: 14px;
-            background: var(--bg-secondary);
-            border-bottom: 1px solid var(--border-color);
-        }
-        
-        .issues-table td {
-            padding: 16px;
-            border-bottom: 1px solid var(--border-color);
-            font-size: 14px;
-        }
-        
-        .issues-table tr:hover td {
-            background: var(--bg-secondary);
-        }
-        
-        .issue-dimension {
-            display: inline-block;
-            padding: 2px 8px;
-            border-radius: var(--radius-sm);
-            font-size: 12px;
-            font-weight: 500;
-        }
-        
-        .issue-dimension.completeness {
-            background: var(--primary-light);
-            color: var(--primary-color);
-        }
-        
-        .issue-dimension.accuracy {
-            background: var(--success-light);
-            color: var(--success-color);
-        }
-        
-        .issue-dimension.timeliness {
-            background: var(--warning-light);
-            color: var(--warning-color);
-        }
-        
-        .issue-dimension.uniqueness {
-            background: var(--danger-light);
-            color: var(--danger-color);
-        }
-        
-        .issue-dimension.validity {
-            background: #f0f0ff;
-            color: #6666ff;
-        }
-        
-        .issue-dimension.consistency {
-            background: #fff0f0;
-            color: #ff6666;
-        }
-        
-        .pagination {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 8px;
-            margin-top: 24px;
-        }
-        
-        .page-btn {
-            padding: 6px 12px;
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-md);
-            background: white;
-            color: var(--text-primary);
-            font-size: 14px;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        
-        .page-btn:hover {
-            border-color: var(--primary-color);
-            color: var(--primary-color);
-        }
-        
-        .page-btn.active {
-            background: var(--primary-color);
-            border-color: var(--primary-color);
-            color: white;
         }
         
         /* 底部区域 - 清爽浅色主题 */
@@ -1074,306 +1179,405 @@
                 </div>
             </div>
             
-            <!-- 概览卡片 -->
-            <div class="quality-overview">
-                <div class="quality-overview-card">
-                    <div class="quality-overview-title">整体质量得分</div>
-                    <div class="quality-overview-value">95</div>
-                    <div class="quality-overview-trend">
-                        <svg class="icon" width="14" height="14"><use href="#icon-arrow-rise"/></svg>
-                        <span>上升 2.3%</span>
-                    </div>
-                </div>
-                <div class="quality-overview-card">
-                    <div class="quality-overview-title">质量问题总数</div>
-                    <div class="quality-overview-value">23</div>
-                    <div class="quality-overview-trend">
-                        <svg class="icon" width="14" height="14"><use href="#icon-arrow-fall"/></svg>
-                        <span>下降 5</span>
-                    </div>
-                </div>
-                <div class="quality-overview-card">
-                    <div class="quality-overview-title">已配置质量规则数</div>
-                    <div class="quality-overview-value">128</div>
-                    <div class="quality-overview-trend">
-                        <svg class="icon" width="14" height="14"><use href="#icon-arrow-rise"/></svg>
-                        <span>上升 12</span>
-                    </div>
-                </div>
-                <div class="quality-overview-card">
-                    <div class="quality-overview-title">高风险资产数</div>
-                    <div class="quality-overview-value">8</div>
-                    <div class="quality-overview-trend">
-                        <svg class="icon" width="14" height="14"><use href="#icon-arrow-rise"/></svg>
-                        <span>上升 2</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- 质量趋势图表 -->
-            <div class="quality-trend-chart">
+            <!-- 部门质量卡片 -->
+            <div class="quality-dept-cards">
                 <div class="section-header">
-                    <h3 class="section-title">近30天质量问题趋势</h3>
+                    <h3 class="section-title">部门质量概览</h3>
                 </div>
-                <div class="chart-container">
-                    <svg width="800" height="300" viewBox="0 0 800 300">
-                        <defs>
-                            <linearGradient id="areaGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                                <stop offset="0%" style="stop-color:#165DFF;stop-opacity:0.1" />
-                                <stop offset="100%" style="stop-color:#165DFF;stop-opacity:0" />
-                            </linearGradient>
-                        </defs>
-                        <path d="M50,250 L100,220 L150,180 L200,200 L250,150 L300,120 L350,140 L400,100 L450,120 L500,90 L550,70 L600,80 L650,60 L700,40 L750,50" stroke="#165DFF" stroke-width="2" fill="none"/>
-                        <path d="M50,250 L100,220 L150,180 L200,200 L250,150 L300,120 L350,140 L400,100 L450,120 L500,90 L550,70 L600,80 L650,60 L700,40 L750,50 L750,250 L50,250" fill="url(#areaGradient)"/>
-                        <circle cx="50" cy="250" r="3" fill="#165DFF"/>
-                        <circle cx="750" cy="50" r="3" fill="#165DFF"/>
-                        <line x1="50" y1="250" x2="750" y2="250" stroke="#E5E6EB" stroke-width="1"/>
-                        <line x1="50" y1="200" x2="750" y2="200" stroke="#E5E6EB" stroke-width="1"/>
-                        <line x1="50" y1="150" x2="750" y2="150" stroke="#E5E6EB" stroke-width="1"/>
-                        <line x1="50" y1="100" x2="750" y2="100" stroke="#E5E6EB" stroke-width="1"/>
-                        <line x1="50" y1="50" x2="750" y2="50" stroke="#E5E6EB" stroke-width="1"/>
-                    </svg>
+                <div class="dept-cards-grid">
+                    <div class="quality-card">
+                        <div class="quality-card-header">
+                            <div class="dept-name">生产运营部</div>
+                            <span class="quality-status status-pass">达标</span>
+                        </div>
+                        <div class="quality-card-body">
+                            <div class="quality-resource-count">数据资源 <strong>28</strong> 项</div>
+                            <div class="quality-metrics">
+                                <div class="metric-item">
+                                    <span class="metric-label">完整性</span>
+                                    <div class="metric-bar">
+                                        <div class="metric-fill pass" style="width: 98%"></div>
+                                    </div>
+                                    <span class="metric-value pass">98%</span>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-label">准确性</span>
+                                    <div class="metric-bar">
+                                        <div class="metric-fill pass" style="width: 96%"></div>
+                                    </div>
+                                    <span class="metric-value pass">96%</span>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-label">及时性</span>
+                                    <div class="metric-bar">
+                                        <div class="metric-fill pass" style="width: 97%"></div>
+                                    </div>
+                                    <span class="metric-value pass">97%</span>
+                                </div>
+                            </div>
+                            <div class="quality-overall">
+                                <span class="overall-label">综合达标率</span>
+                                <div class="overall-progress">
+                                    <div class="overall-fill pass" style="width: 96%"></div>
+                                </div>
+                                <span class="overall-value pass">96%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="quality-card">
+                        <div class="quality-card-header">
+                            <div class="dept-name">安全环保部</div>
+                            <span class="quality-status status-pass">达标</span>
+                        </div>
+                        <div class="quality-card-body">
+                            <div class="quality-resource-count">数据资源 <strong>22</strong> 项</div>
+                            <div class="quality-metrics">
+                                <div class="metric-item">
+                                    <span class="metric-label">完整性</span>
+                                    <div class="metric-bar">
+                                        <div class="metric-fill pass" style="width: 95%"></div>
+                                    </div>
+                                    <span class="metric-value pass">95%</span>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-label">准确性</span>
+                                    <div class="metric-bar">
+                                        <div class="metric-fill pass" style="width: 94%"></div>
+                                    </div>
+                                    <span class="metric-value pass">94%</span>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-label">及时性</span>
+                                    <div class="metric-bar">
+                                        <div class="metric-fill warning" style="width: 92%"></div>
+                                    </div>
+                                    <span class="metric-value warning">92%</span>
+                                </div>
+                            </div>
+                            <div class="quality-overall">
+                                <span class="overall-label">综合达标率</span>
+                                <div class="overall-progress">
+                                    <div class="overall-fill pass" style="width: 94%"></div>
+                                </div>
+                                <span class="overall-value pass">94%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="quality-card">
+                        <div class="quality-card-header">
+                            <div class="dept-name">财务部</div>
+                            <span class="quality-status status-pass">达标</span>
+                        </div>
+                        <div class="quality-card-body">
+                            <div class="quality-resource-count">数据资源 <strong>18</strong> 项</div>
+                            <div class="quality-metrics">
+                                <div class="metric-item">
+                                    <span class="metric-label">完整性</span>
+                                    <div class="metric-bar">
+                                        <div class="metric-fill pass" style="width: 96%"></div>
+                                    </div>
+                                    <span class="metric-value pass">96%</span>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-label">准确性</span>
+                                    <div class="metric-bar">
+                                        <div class="metric-fill pass" style="width: 93%"></div>
+                                    </div>
+                                    <span class="metric-value pass">93%</span>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-label">及时性</span>
+                                    <div class="metric-bar">
+                                        <div class="metric-fill warning" style="width: 91%"></div>
+                                    </div>
+                                    <span class="metric-value warning">91%</span>
+                                </div>
+                            </div>
+                            <div class="quality-overall">
+                                <span class="overall-label">综合达标率</span>
+                                <div class="overall-progress">
+                                    <div class="overall-fill pass" style="width: 92%"></div>
+                                </div>
+                                <span class="overall-value pass">92%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="quality-card">
+                        <div class="quality-card-header">
+                            <div class="dept-name">人力资源部</div>
+                            <span class="quality-status status-warning">预警</span>
+                        </div>
+                        <div class="quality-card-body">
+                            <div class="quality-resource-count">数据资源 <strong>15</strong> 项</div>
+                            <div class="quality-metrics">
+                                <div class="metric-item">
+                                    <span class="metric-label">完整性</span>
+                                    <div class="metric-bar">
+                                        <div class="metric-fill warning" style="width: 93%"></div>
+                                    </div>
+                                    <span class="metric-value warning">93%</span>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-label">准确性</span>
+                                    <div class="metric-bar">
+                                        <div class="metric-fill warning" style="width: 90%"></div>
+                                    </div>
+                                    <span class="metric-value warning">90%</span>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-label">及时性</span>
+                                    <div class="metric-bar">
+                                        <div class="metric-fill fail" style="width: 88%"></div>
+                                    </div>
+                                    <span class="metric-value fail">88%</span>
+                                </div>
+                            </div>
+                            <div class="quality-overall">
+                                <span class="overall-label">综合达标率</span>
+                                <div class="overall-progress">
+                                    <div class="overall-fill warning" style="width: 91%"></div>
+                                </div>
+                                <span class="overall-value warning">91%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="quality-card">
+                        <div class="quality-card-header">
+                            <div class="dept-name">供应链管理部</div>
+                            <span class="quality-status status-warning">预警</span>
+                        </div>
+                        <div class="quality-card-body">
+                            <div class="quality-resource-count">数据资源 <strong>25</strong> 项</div>
+                            <div class="quality-metrics">
+                                <div class="metric-item">
+                                    <span class="metric-label">完整性</span>
+                                    <div class="metric-bar">
+                                        <div class="metric-fill warning" style="width: 92%"></div>
+                                    </div>
+                                    <span class="metric-value warning">92%</span>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-label">准确性</span>
+                                    <div class="metric-bar">
+                                        <div class="metric-fill warning" style="width: 89%"></div>
+                                    </div>
+                                    <span class="metric-value fail">89%</span>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-label">及时性</span>
+                                    <div class="metric-bar">
+                                        <div class="metric-fill fail" style="width: 85%"></div>
+                                    </div>
+                                    <span class="metric-value fail">85%</span>
+                                </div>
+                            </div>
+                            <div class="quality-overall">
+                                <span class="overall-label">综合达标率</span>
+                                <div class="overall-progress">
+                                    <div class="overall-fill warning" style="width: 88%"></div>
+                                </div>
+                                <span class="overall-value warning">88%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="quality-card">
+                        <div class="quality-card-header">
+                            <div class="dept-name">销售部</div>
+                            <span class="quality-status status-warning">预警</span>
+                        </div>
+                        <div class="quality-card-body">
+                            <div class="quality-resource-count">数据资源 <strong>12</strong> 项</div>
+                            <div class="quality-metrics">
+                                <div class="metric-item">
+                                    <span class="metric-label">完整性</span>
+                                    <div class="metric-bar">
+                                        <div class="metric-fill warning" style="width: 90%"></div>
+                                    </div>
+                                    <span class="metric-value warning">90%</span>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-label">准确性</span>
+                                    <div class="metric-bar">
+                                        <div class="metric-fill fail" style="width: 86%"></div>
+                                    </div>
+                                    <span class="metric-value fail">86%</span>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-label">及时性</span>
+                                    <div class="metric-bar">
+                                        <div class="metric-fill fail" style="width: 82%"></div>
+                                    </div>
+                                    <span class="metric-value fail">82%</span>
+                                </div>
+                            </div>
+                            <div class="quality-overall">
+                                <span class="overall-label">综合达标率</span>
+                                <div class="overall-progress">
+                                    <div class="overall-fill warning" style="width: 85%"></div>
+                                </div>
+                                <span class="overall-value warning">85%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="quality-card">
+                        <div class="quality-card-header">
+                            <div class="dept-name">技术部</div>
+                            <span class="quality-status status-warning">预警</span>
+                        </div>
+                        <div class="quality-card-body">
+                            <div class="quality-resource-count">数据资源 <strong>16</strong> 项</div>
+                            <div class="quality-metrics">
+                                <div class="metric-item">
+                                    <span class="metric-label">完整性</span>
+                                    <div class="metric-bar">
+                                        <div class="metric-fill warning" style="width: 88%"></div>
+                                    </div>
+                                    <span class="metric-value fail">88%</span>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-label">准确性</span>
+                                    <div class="metric-bar">
+                                        <div class="metric-fill fail" style="width: 84%"></div>
+                                    </div>
+                                    <span class="metric-value fail">84%</span>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-label">及时性</span>
+                                    <div class="metric-bar">
+                                        <div class="metric-fill fail" style="width: 80%"></div>
+                                    </div>
+                                    <span class="metric-value fail">80%</span>
+                                </div>
+                            </div>
+                            <div class="quality-overall">
+                                <span class="overall-label">综合达标率</span>
+                                <div class="overall-progress">
+                                    <div class="overall-fill warning" style="width: 83%"></div>
+                                </div>
+                                <span class="overall-value warning">83%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="quality-card">
+                        <div class="quality-card-header">
+                            <div class="dept-name">质量管理部</div>
+                            <span class="quality-status status-warning">预警</span>
+                        </div>
+                        <div class="quality-card-body">
+                            <div class="quality-resource-count">数据资源 <strong>10</strong> 项</div>
+                            <div class="quality-metrics">
+                                <div class="metric-item">
+                                    <span class="metric-label">完整性</span>
+                                    <div class="metric-bar">
+                                        <div class="metric-fill warning" style="width: 86%"></div>
+                                    </div>
+                                    <span class="metric-value fail">86%</span>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-label">准确性</span>
+                                    <div class="metric-bar">
+                                        <div class="metric-fill fail" style="width: 82%"></div>
+                                    </div>
+                                    <span class="metric-value fail">82%</span>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-label">及时性</span>
+                                    <div class="metric-bar">
+                                        <div class="metric-fill fail" style="width: 78%"></div>
+                                    </div>
+                                    <span class="metric-value fail">78%</span>
+                                </div>
+                            </div>
+                            <div class="quality-overall">
+                                <span class="overall-label">综合达标率</span>
+                                <div class="overall-progress">
+                                    <div class="overall-fill warning" style="width: 81%"></div>
+                                </div>
+                                <span class="overall-value warning">81%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="quality-card">
+                        <div class="quality-card-header">
+                            <div class="dept-name">行政部</div>
+                            <span class="quality-status status-fail">未达标</span>
+                        </div>
+                        <div class="quality-card-body">
+                            <div class="quality-resource-count">数据资源 <strong>8</strong> 项</div>
+                            <div class="quality-metrics">
+                                <div class="metric-item">
+                                    <span class="metric-label">完整性</span>
+                                    <div class="metric-bar">
+                                        <div class="metric-fill fail" style="width: 82%"></div>
+                                    </div>
+                                    <span class="metric-value fail">82%</span>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-label">准确性</span>
+                                    <div class="metric-bar">
+                                        <div class="metric-fill fail" style="width: 76%"></div>
+                                    </div>
+                                    <span class="metric-value fail">76%</span>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-label">及时性</span>
+                                    <div class="metric-bar">
+                                        <div class="metric-fill fail" style="width: 72%"></div>
+                                    </div>
+                                    <span class="metric-value fail">72%</span>
+                                </div>
+                            </div>
+                            <div class="quality-overall">
+                                <span class="overall-label">综合达标率</span>
+                                <div class="overall-progress">
+                                    <div class="overall-fill fail" style="width: 76%"></div>
+                                </div>
+                                <span class="overall-value fail">76%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="quality-card">
+                        <div class="quality-card-header">
+                            <div class="dept-name">研发部</div>
+                            <span class="quality-status status-fail">未达标</span>
+                        </div>
+                        <div class="quality-card-body">
+                            <div class="quality-resource-count">数据资源 <strong>14</strong> 项</div>
+                            <div class="quality-metrics">
+                                <div class="metric-item">
+                                    <span class="metric-label">完整性</span>
+                                    <div class="metric-bar">
+                                        <div class="metric-fill fail" style="width: 78%"></div>
+                                    </div>
+                                    <span class="metric-value fail">78%</span>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-label">准确性</span>
+                                    <div class="metric-bar">
+                                        <div class="metric-fill fail" style="width: 72%"></div>
+                                    </div>
+                                    <span class="metric-value fail">72%</span>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-label">及时性</span>
+                                    <div class="metric-bar">
+                                        <div class="metric-fill fail" style="width: 68%"></div>
+                                    </div>
+                                    <span class="metric-value fail">68%</span>
+                                </div>
+                            </div>
+                            <div class="quality-overall">
+                                <span class="overall-label">综合达标率</span>
+                                <div class="overall-progress">
+                                    <div class="overall-fill fail" style="width: 72%"></div>
+                                </div>
+                                <span class="overall-value fail">72%</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            
-            <!-- 质量维度 -->
-            <div class="quality-dimensions">
-                <div class="section-header">
-                    <h3 class="section-title">六大质量维度得分</h3>
-                </div>
-                <div class="dimensions-grid">
-                    <div class="dimension-item">
-                        <div class="dimension-header">
-                            <div class="dimension-name">完整性</div>
-                            <div class="dimension-status normal">正常</div>
-                        </div>
-                        <div class="dimension-score">98.5%</div>
-                        <div class="dimension-bar">
-                            <div class="dimension-bar-fill" style="width: 98.5%; background: var(--success-color);"></div>
-                        </div>
-                    </div>
-                    <div class="dimension-item">
-                        <div class="dimension-header">
-                            <div class="dimension-name">准确性</div>
-                            <div class="dimension-status normal">正常</div>
-                        </div>
-                        <div class="dimension-score">97.2%</div>
-                        <div class="dimension-bar">
-                            <div class="dimension-bar-fill" style="width: 97.2%; background: var(--success-color);"></div>
-                        </div>
-                    </div>
-                    <div class="dimension-item">
-                        <div class="dimension-header">
-                            <div class="dimension-name">及时性</div>
-                            <div class="dimension-status warning">预警</div>
-                        </div>
-                        <div class="dimension-score">92.1%</div>
-                        <div class="dimension-bar">
-                            <div class="dimension-bar-fill" style="width: 92.1%; background: var(--warning-color);"></div>
-                        </div>
-                    </div>
-                    <div class="dimension-item">
-                        <div class="dimension-header">
-                            <div class="dimension-name">唯一性</div>
-                            <div class="dimension-status normal">正常</div>
-                        </div>
-                        <div class="dimension-score">96.8%</div>
-                        <div class="dimension-bar">
-                            <div class="dimension-bar-fill" style="width: 96.8%; background: var(--success-color);"></div>
-                        </div>
-                    </div>
-                    <div class="dimension-item">
-                        <div class="dimension-header">
-                            <div class="dimension-name">有效性</div>
-                            <div class="dimension-status normal">正常</div>
-                        </div>
-                        <div class="dimension-score">95.4%</div>
-                        <div class="dimension-bar">
-                            <div class="dimension-bar-fill" style="width: 95.4%; background: var(--success-color);"></div>
-                        </div>
-                    </div>
-                    <div class="dimension-item">
-                        <div class="dimension-header">
-                            <div class="dimension-name">一致性</div>
-                            <div class="dimension-status warning">预警</div>
-                        </div>
-                        <div class="dimension-score">91.5%</div>
-                        <div class="dimension-bar">
-                            <div class="dimension-bar-fill" style="width: 91.5%; background: var(--warning-color);"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- 资产排行榜 -->
-            <div class="quality-assets">
-                <div class="assets-ranking">
-                    <div class="section-header">
-                        <h3 class="section-title">优质资产 TOP10</h3>
-                    </div>
-                    <div class="ranking-list">
-                        <div class="ranking-item">
-                            <div class="ranking-rank">1</div>
-                            <div class="ranking-asset">
-                                <div class="ranking-asset-name"><a href="detail.html" style="color: var(--text-primary); text-decoration: none;">生产运营数据汇总表</a></div>
-                                <div class="ranking-asset-meta">生产运营部 | 数据表</div>
-                            </div>
-                            <div class="ranking-score good">99.8</div>
-                            <div class="ranking-status dimension-status normal">正常</div>
-                        </div>
-                        <div class="ranking-item">
-                            <div class="ranking-rank">2</div>
-                            <div class="ranking-asset">
-                                <div class="ranking-asset-name"><a href="detail.html" style="color: var(--text-primary); text-decoration: none;">销售业绩分析报表</a></div>
-                                <div class="ranking-asset-meta">销售部 | 报表</div>
-                            </div>
-                            <div class="ranking-score good">99.5</div>
-                            <div class="ranking-status dimension-status normal">正常</div>
-                        </div>
-                        <div class="ranking-item">
-                            <div class="ranking-rank">3</div>
-                            <div class="ranking-asset">
-                                <div class="ranking-asset-name"><a href="detail.html" style="color: var(--text-primary); text-decoration: none;">员工信息数据表</a></div>
-                                <div class="ranking-asset-meta">人力资源部 | 数据表</div>
-                            </div>
-                            <div class="ranking-score good">99.2</div>
-                            <div class="ranking-status dimension-status normal">正常</div>
-                        </div>
-                        <div class="ranking-item">
-                            <div class="ranking-rank">4</div>
-                            <div class="ranking-asset">
-                                <div class="ranking-asset-name"><a href="detail.html" style="color: var(--text-primary); text-decoration: none;">安全环保监测数据</a></div>
-                                <div class="ranking-asset-meta">安全环保部 | 数据表</div>
-                            </div>
-                            <div class="ranking-score good">98.8</div>
-                            <div class="ranking-status dimension-status normal">正常</div>
-                        </div>
-                        <div class="ranking-item">
-                            <div class="ranking-rank">5</div>
-                            <div class="ranking-asset">
-                                <div class="ranking-asset-name"><a href="detail.html" style="color: var(--text-primary); text-decoration: none;">财务报表数据</a></div>
-                                <div class="ranking-asset-meta">财务部 | 数据表</div>
-                            </div>
-                            <div class="ranking-score good">98.5</div>
-                            <div class="ranking-status dimension-status normal">正常</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="assets-ranking">
-                    <div class="section-header">
-                        <h3 class="section-title">问题资产 TOP10</h3>
-                    </div>
-                    <div class="ranking-list">
-                        <div class="ranking-item">
-                            <div class="ranking-rank">1</div>
-                            <div class="ranking-asset">
-                                <div class="ranking-asset-name"><a href="detail.html" style="color: var(--text-primary); text-decoration: none;">供应链库存数据表</a></div>
-                                <div class="ranking-asset-meta">供应链管理部 | 数据表</div>
-                            </div>
-                            <div class="ranking-score poor">75.2</div>
-                            <div class="ranking-status dimension-status error">异常</div>
-                        </div>
-                        <div class="ranking-item">
-                            <div class="ranking-rank">2</div>
-                            <div class="ranking-asset">
-                                <div class="ranking-asset-name"><a href="detail.html" style="color: var(--text-primary); text-decoration: none;">采购合同数据</a></div>
-                                <div class="ranking-asset-meta">供应链管理部 | 数据表</div>
-                            </div>
-                            <div class="ranking-score poor">78.5</div>
-                            <div class="ranking-status dimension-status error">异常</div>
-                        </div>
-                        <div class="ranking-item">
-                            <div class="ranking-rank">3</div>
-                            <div class="ranking-asset">
-                                <div class="ranking-asset-name"><a href="detail.html" style="color: var(--text-primary); text-decoration: none;">设备维护记录</a></div>
-                                <div class="ranking-asset-meta">生产运营部 | 数据表</div>
-                            </div>
-                            <div class="ranking-score poor">79.8</div>
-                            <div class="ranking-status dimension-status error">异常</div>
-                        </div>
-                        <div class="ranking-item">
-                            <div class="ranking-rank">4</div>
-                            <div class="ranking-asset">
-                                <div class="ranking-asset-name"><a href="detail.html" style="color: var(--text-primary); text-decoration: none;">原材料库存数据</a></div>
-                                <div class="ranking-asset-meta">供应链管理部 | 数据表</div>
-                            </div>
-                            <div class="ranking-score poor">81.2</div>
-                            <div class="ranking-status dimension-status warning">预警</div>
-                        </div>
-                        <div class="ranking-item">
-                            <div class="ranking-rank">5</div>
-                            <div class="ranking-asset">
-                                <div class="ranking-asset-name"><a href="detail.html" style="color: var(--text-primary); text-decoration: none;">能耗监测数据</a></div>
-                                <div class="ranking-asset-meta">生产运营部 | 数据表</div>
-                            </div>
-                            <div class="ranking-score poor">82.5</div>
-                            <div class="ranking-status dimension-status warning">预警</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- 质量问题清单 -->
-            <div class="quality-issues">
-                <div class="issues-header">
-                    <h3 class="section-title">质量问题清单</h3>
-                    <div class="issues-filters">
-                        <div class="search-box">
-                            <input type="text" class="search-input" placeholder="搜索资产名称">
-                            <button class="search-btn">
-                                <svg class="icon" width="14" height="14"><use href="#icon-search"/></svg>
-                            </button>
-                        </div>
-                        <select class="filter-select">
-                            <option>所有维度</option>
-                            <option>完整性</option>
-                            <option>准确性</option>
-                            <option>及时性</option>
-                            <option>唯一性</option>
-                            <option>有效性</option>
-                            <option>一致性</option>
-                        </select>
-                        <select class="filter-select">
-                            <option>所有等级</option>
-                            <option>高</option>
-                            <option>中</option>
-                            <option>低</option>
-                        </select>
-                        <select class="filter-select">
-                            <option>近7天</option>
-                            <option>近30天</option>
-                            <option>本月</option>
-                        </select>
-                    </div>
-                </div>
-                <table class="issues-table">
-                    <thead>
-                        <tr>
-                            <th>资产名称</th>
-                            <th>问题维度</th>
-                            <th>问题描述</th>
-                            <th>规则名称</th>
-                            <th>更新时间</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><a href="detail.html">供应链库存数据表</a></td>
-                            <td><span class="issue-dimension completeness">完整性</span></td>
-                            <td>存在空值记录</td>
-                            <td>非空检查规则</td>
-                            <td>2026-03-18 10:30</td>
-                        </tr>
-                        <tr>
-                            <td><a href="detail.html">采购合同数据</a></td>
-                            <td><span class="issue-dimension accuracy">准确性</span></td>
-                            <td>金额字段格式错误</td>
-                            <td>格式验证规则</td>
-                            <td>2026-03-18 09:15</td>
-                        </tr>
-                        <tr>
-                            <td><a href="detail.html">设备维护记录</a></td>
-                            <td><span class="issue-dimension timeliness">及时性</span></td>
-                            <td>数据更新延迟</td>
-                            <td>时效性检查规则</td>
-                            <td>2026-03-
+        </div>
+    </main>
+</body>
+</html>
