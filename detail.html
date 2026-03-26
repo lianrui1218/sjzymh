@@ -776,7 +776,7 @@
         <div class="breadcrumb">
             <a href="index.html">首页</a>
             <span class="breadcrumb-separator">/</span>
-            <a href="assets.html">数据资产</a>
+            <a href="assets.html">数据资源</a>
             <span class="breadcrumb-separator">/</span>
             <span class="breadcrumb-current">资源详情</span>
         </div>
@@ -910,7 +910,7 @@
     <!-- 底部区域 -->
     <footer class="footer">
         <div class="footer-bottom">
-            <p>© 2026 易普力数据资产门户 | 湖北小番茄数据科技 技术支持</p>
+            <p>© 2026 易普力数据资源门户 | 湖北小番茄数据科技 技术支持</p>
         </div>
     </footer>
 
@@ -927,12 +927,12 @@
 
         // 跳转到申请页
         function goToApply() {
-            // 获取当前资产ID（实际项目中可以从URL参数获取）
+            // 获取当前资源ID（实际项目中可以从URL参数获取）
             const assetId = getAssetIdFromUrl();
             window.location.href = `apply.html?id=${assetId}`;
         }
 
-        // 从URL获取资产ID
+        // 从URL获取资源ID
         function getAssetIdFromUrl() {
             const urlParams = new URLSearchParams(window.location.search);
             return urlParams.get('id') || '1';
@@ -941,8 +941,8 @@
         // 页面加载时可以根据URL参数加载资源详情
         document.addEventListener('DOMContentLoaded', function() {
             const assetId = getAssetIdFromUrl();
-            // 实际项目中这里可以调用API获取资产详情数据
-            console.log('加载资产详情，ID:', assetId);
+            // 实际项目中这里可以调用API获取资源详情数据
+            console.log('加载资源详情，ID:', assetId);
         });
     </script>
 </body>

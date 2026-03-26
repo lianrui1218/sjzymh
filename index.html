@@ -102,6 +102,9 @@
             <polyline points="16 17 21 12 16 7"></polyline>
             <line x1="21" y1="12" x2="9" y2="12"></line>
         </symbol>
+        <symbol id="icon-message-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+        </symbol>
     </svg>
     <style>
         * {
@@ -2391,6 +2394,161 @@
             flex: 1;
         }
         
+        /* 全局悬浮入口按钮 */
+        .floating-action-btn {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            width: 56px;
+            height: 56px;
+            background: var(--primary-color);
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(22, 93, 255, 0.3);
+            transition: all 0.3s ease;
+            z-index: 1500;
+        }
+        
+        .floating-action-btn:hover {
+            background: var(--primary-hover);
+            transform: scale(1.1);
+            box-shadow: 0 6px 16px rgba(22, 93, 255, 0.4);
+        }
+        
+        .floating-action-btn::after {
+            content: '数据需求申请';
+            position: absolute;
+            right: 100%;
+            top: 50%;
+            transform: translateY(-50%);
+            margin-right: 12px;
+            padding: 8px 12px;
+            background: var(--text-primary);
+            color: white;
+            border-radius: var(--radius-md);
+            font-size: 12px;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .floating-action-btn:hover::after {
+            opacity: 1;
+            visibility: visible;
+            margin-right: 16px;
+        }
+        
+        /* 数据需求表单样式 */
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            font-size: 14px;
+            transition: border-color 0.2s;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px var(--primary-light);
+        }
+        
+        .form-inputtextarea {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            font-size: 14px;
+            resize: vertical;
+            min-height: 120px;
+            transition: border-color 0.2s;
+        }
+        
+        .form-inputtextarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px var(--primary-light);
+        }
+        
+        .form-select {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            font-size: 14px;
+            transition: border-color 0.2s;
+        }
+        
+        .form-select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px var(--primary-light);
+        }
+        
+        .form-actions {
+            display: flex;
+            gap: 12px;
+            justify-content: flex-end;
+            margin-top: 24px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        .btn {
+            padding: 10px 20px;
+            border-radius: var(--radius-md);
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+        }
+        
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: var(--primary-hover);
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: var(--text-secondary);
+            border: 1px solid var(--border-color);
+        }
+        
+        .btn-secondary:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+        
+        .form-error {
+            color: var(--danger-color);
+            font-size: 12px;
+            margin-top: 4px;
+        }
+        
         .field-table {
             width: 100%;
             border-collapse: collapse;
@@ -2619,7 +2777,7 @@
             <a href="assets.html" class="nav-item">数据资源</a>
         </div>
         <div class="navbar-user">
-            <a href="admin.html" class="nav-item admin-menu-item" style="padding: 6px 16px; background: rgba(255,255,255,0.1); border-radius: 4px;">管理后台</a>
+            <a href="admin.html" class="nav-item admin-menu-item" style="padding: 6px 16px; background: rgba(255,255,255,0.1); border-radius: 4px; transition: all 0.2s ease; cursor: pointer;">管理后台</a>
             <span class="notification-badge"><svg class="icon" width="16" height="16"><use href="#icon-notification"/></svg></span>
             <div class="user-menu">
                 <div class="user-avatar">连</div>
@@ -2897,13 +3055,34 @@
                                         </div>
                                         <span class="metric-value pass">97%</span>
                                     </div>
+                                    <div class="metric-item">
+                                        <span class="metric-label">唯一性</span>
+                                        <div class="metric-bar">
+                                            <div class="metric-fill pass" style="width: 99%"></div>
+                                        </div>
+                                        <span class="metric-value pass">99%</span>
+                                    </div>
+                                    <div class="metric-item">
+                                        <span class="metric-label">一致性</span>
+                                        <div class="metric-bar">
+                                            <div class="metric-fill pass" style="width: 95%"></div>
+                                        </div>
+                                        <span class="metric-value pass">95%</span>
+                                    </div>
+                                    <div class="metric-item">
+                                        <span class="metric-label">有效性</span>
+                                        <div class="metric-bar">
+                                            <div class="metric-fill pass" style="width: 97%"></div>
+                                        </div>
+                                        <span class="metric-value pass">97%</span>
+                                    </div>
                                 </div>
                                 <div class="quality-overall">
                                     <span class="overall-label">综合达标率</span>
                                     <div class="overall-progress">
-                                        <div class="overall-fill pass" style="width: 96%"></div>
+                                        <div class="overall-fill pass" style="width: 97%"></div>
                                     </div>
-                                    <span class="overall-value pass">96%</span>
+                                    <span class="overall-value pass">97%</span>
                                 </div>
                             </div>
                         </div>
@@ -2935,6 +3114,27 @@
                                             <div class="metric-fill warning" style="width: 92%"></div>
                                         </div>
                                         <span class="metric-value warning">92%</span>
+                                    </div>
+                                    <div class="metric-item">
+                                        <span class="metric-label">唯一性</span>
+                                        <div class="metric-bar">
+                                            <div class="metric-fill pass" style="width: 96%"></div>
+                                        </div>
+                                        <span class="metric-value pass">96%</span>
+                                    </div>
+                                    <div class="metric-item">
+                                        <span class="metric-label">一致性</span>
+                                        <div class="metric-bar">
+                                            <div class="metric-fill pass" style="width: 93%"></div>
+                                        </div>
+                                        <span class="metric-value pass">93%</span>
+                                    </div>
+                                    <div class="metric-item">
+                                        <span class="metric-label">有效性</span>
+                                        <div class="metric-bar">
+                                            <div class="metric-fill pass" style="width: 94%"></div>
+                                        </div>
+                                        <span class="metric-value pass">94%</span>
                                     </div>
                                 </div>
                                 <div class="quality-overall">
@@ -2975,13 +3175,34 @@
                                         </div>
                                         <span class="metric-value warning">91%</span>
                                     </div>
+                                    <div class="metric-item">
+                                        <span class="metric-label">唯一性</span>
+                                        <div class="metric-bar">
+                                            <div class="metric-fill pass" style="width: 98%"></div>
+                                        </div>
+                                        <span class="metric-value pass">98%</span>
+                                    </div>
+                                    <div class="metric-item">
+                                        <span class="metric-label">一致性</span>
+                                        <div class="metric-bar">
+                                            <div class="metric-fill pass" style="width: 94%"></div>
+                                        </div>
+                                        <span class="metric-value pass">94%</span>
+                                    </div>
+                                    <div class="metric-item">
+                                        <span class="metric-label">有效性</span>
+                                        <div class="metric-bar">
+                                            <div class="metric-fill pass" style="width: 96%"></div>
+                                        </div>
+                                        <span class="metric-value pass">96%</span>
+                                    </div>
                                 </div>
                                 <div class="quality-overall">
                                     <span class="overall-label">综合达标率</span>
                                     <div class="overall-progress">
-                                        <div class="overall-fill pass" style="width: 92%"></div>
+                                        <div class="overall-fill pass" style="width: 95%"></div>
                                     </div>
-                                    <span class="overall-value pass">92%</span>
+                                    <span class="overall-value pass">95%</span>
                                 </div>
                             </div>
                         </div>
@@ -3014,13 +3235,34 @@
                                         </div>
                                         <span class="metric-value fail">88%</span>
                                     </div>
+                                    <div class="metric-item">
+                                        <span class="metric-label">唯一性</span>
+                                        <div class="metric-bar">
+                                            <div class="metric-fill pass" style="width: 95%"></div>
+                                        </div>
+                                        <span class="metric-value pass">95%</span>
+                                    </div>
+                                    <div class="metric-item">
+                                        <span class="metric-label">一致性</span>
+                                        <div class="metric-bar">
+                                            <div class="metric-fill warning" style="width: 92%"></div>
+                                        </div>
+                                        <span class="metric-value warning">92%</span>
+                                    </div>
+                                    <div class="metric-item">
+                                        <span class="metric-label">有效性</span>
+                                        <div class="metric-bar">
+                                            <div class="metric-fill warning" style="width: 91%"></div>
+                                        </div>
+                                        <span class="metric-value warning">91%</span>
+                                    </div>
                                 </div>
                                 <div class="quality-overall">
                                     <span class="overall-label">综合达标率</span>
                                     <div class="overall-progress">
-                                        <div class="overall-fill warning" style="width: 91%"></div>
+                                        <div class="overall-fill warning" style="width: 92%"></div>
                                     </div>
-                                    <span class="overall-value warning">91%</span>
+                                    <span class="overall-value warning">92%</span>
                                 </div>
                             </div>
                         </div>
@@ -3858,6 +4100,142 @@
                 document.querySelector('.search-btn').click();
             }
         });
+        
+        // 数据需求管理相关功能
+        // 打开数据需求提交表单
+        function openDataRequestModal() {
+            document.getElementById('dataRequestModal').classList.add('active');
+        }
+        
+        // 关闭数据需求提交表单
+        function closeDataRequestModal() {
+            document.getElementById('dataRequestModal').classList.remove('active');
+            // 重置表单
+            document.getElementById('dataRequestForm').reset();
+            document.getElementById('reqTitleError').textContent = '';
+            document.getElementById('reqContentError').textContent = '';
+        }
+        
+        // 提交数据需求
+        function submitDataRequest() {
+            // 表单验证
+            const title = document.getElementById('reqTitle').value.trim();
+            const content = document.getElementById('reqContent').value.trim();
+            const user = document.getElementById('reqUser').value.trim();
+            const dataType = document.getElementById('reqDataType').value;
+            const expectedTime = document.getElementById('reqExpectedTime').value;
+            const contact = document.getElementById('reqContact').value.trim();
+            let isValid = true;
+            
+            if (!title) {
+                document.getElementById('reqTitleError').textContent = '请输入需求标题';
+                isValid = false;
+            } else {
+                document.getElementById('reqTitleError').textContent = '';
+            }
+            
+            if (!content) {
+                document.getElementById('reqContentError').textContent = '请输入需求内容';
+                isValid = false;
+            } else {
+                document.getElementById('reqContentError').textContent = '';
+            }
+            
+            if (!user) {
+                document.getElementById('reqUserError').textContent = '请输入需求用户';
+                isValid = false;
+            } else {
+                document.getElementById('reqUserError').textContent = '';
+            }
+            
+            if (!dataType) {
+                document.getElementById('reqDataTypeError').textContent = '请选择数据类型';
+                isValid = false;
+            } else {
+                document.getElementById('reqDataTypeError').textContent = '';
+            }
+            
+            if (!expectedTime) {
+                document.getElementById('reqExpectedTimeError').textContent = '请选择预期上线时间';
+                isValid = false;
+            } else {
+                document.getElementById('reqExpectedTimeError').textContent = '';
+            }
+            
+            if (!contact) {
+                document.getElementById('reqContactError').textContent = '请输入联系方式';
+                isValid = false;
+            } else {
+                document.getElementById('reqContactError').textContent = '';
+            }
+            
+            if (isValid) {
+                // 模拟提交成功
+                alert('需求提交成功！');
+                closeDataRequestModal();
+            }
+        }
     </script>
+    
+    <!-- 全局悬浮入口按钮 -->
+    <button class="floating-action-btn" onclick="openDataRequestModal()">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+        </svg>
+    </button>
+    
+    <!-- 数据需求提交表单弹窗 -->
+    <div id="dataRequestModal" class="modal-overlay">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 class="modal-title">数据需求反馈</h3>
+                <button class="modal-close" onclick="closeDataRequestModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="dataRequestForm">
+                    <div class="form-group">
+                        <label class="form-label">需求标题 <span style="color: var(--danger-color);">*</span></label>
+                        <input type="text" class="form-input" id="reqTitle" placeholder="请输入需求标题">
+                        <div class="form-error" id="reqTitleError"></div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">需求内容 <span style="color: var(--danger-color);">*</span></label>
+                        <textarea class="form-inputtextarea" id="reqContent" placeholder="请详细描述您的需求"></textarea>
+                        <div class="form-error" id="reqContentError"></div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">需求用户 <span style="color: var(--danger-color);">*</span></label>
+                        <input type="text" class="form-input" id="reqUser" placeholder="请输入需求用户">
+                        <div class="form-error" id="reqUserError"></div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">数据类型 <span style="color: var(--danger-color);">*</span></label>
+                        <select class="form-select" id="reqDataType">
+                            <option value="">请选择数据类型</option>
+                            <option value="数据集">数据集</option>
+                            <option value="数据服务">数据服务</option>
+                            <option value="数据看板">数据看板</option>
+                            <option value="数据指标">数据指标</option>
+                        </select>
+                        <div class="form-error" id="reqDataTypeError"></div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">预期上线时间 <span style="color: var(--danger-color);">*</span></label>
+                        <input type="date" class="form-input" id="reqExpectedTime">
+                        <div class="form-error" id="reqExpectedTimeError"></div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">联系方式 <span style="color: var(--danger-color);">*</span></label>
+                        <input type="text" class="form-input" id="reqContact" placeholder="请输入联系方式">
+                        <div class="form-error" id="reqContactError"></div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" onclick="closeDataRequestModal()">取消</button>
+                        <button type="button" class="btn btn-primary" onclick="submitDataRequest()">提交</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

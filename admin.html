@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>管理后台 - 易普力数据资产门户</title>
+    <title>管理后台 - 易普力数据资源门户</title>
     <!-- Arco Design 风格 SVG 图标定义 -->
     <svg style="display: none;">
         <symbol id="icon-notification" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -121,6 +121,9 @@
             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
             <polyline points="17 8 12 3 7 8"></polyline>
             <line x1="12" y1="3" x2="12" y2="15"></line>
+        </symbol>
+        <symbol id="icon-message-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
         </symbol>
     </svg>
     <style>
@@ -473,6 +476,9 @@
         .data-table td {
             font-size: 14px;
             color: var(--text-primary);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
         
         .data-table tbody tr:hover td {
@@ -710,6 +716,178 @@
             color: var(--success-color);
         }
         
+        /* 数据需求管理相关样式 */
+        .search-filter-section {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: 20px;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .search-filter-form {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        
+        .form-actions {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+        
+        .form-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .form-label {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-primary);
+            min-width: 80px;
+        }
+        
+        .form-input {
+            padding: 8px 12px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            font-size: 14px;
+            transition: border-color 0.2s;
+            height: 36px;
+            box-sizing: border-box;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px var(--primary-light);
+        }
+        
+        .form-select {
+            padding: 8px 12px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            font-size: 14px;
+            transition: border-color 0.2s;
+            height: 36px;
+            box-sizing: border-box;
+        }
+        
+        .form-select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px var(--primary-light);
+        }
+        
+        .btn {
+            height: 36px;
+            box-sizing: border-box;
+        }
+        
+        .form-actions {
+            display: flex;
+            gap: 12px;
+            align-items: flex-end;
+        }
+        
+        .data-list-section {
+            background: white;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .status-tag.pending {
+            background: var(--warning-light);
+            color: var(--warning-color);
+        }
+        
+        .status-tag.processing {
+            background: var(--primary-light);
+            color: var(--primary-color);
+        }
+        
+        .status-tag.completed {
+            background: var(--success-light);
+            color: var(--success-color);
+        }
+        
+        .status-tag.rejected {
+            background: var(--danger-light);
+            color: var(--danger-color);
+        }
+        
+        .status-select {
+            padding: 2px 8px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            font-size: 12px;
+        }
+        
+        .pagination-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 20px;
+            border-top: 1px solid var(--border-color);
+            gap: 12px;
+        }
+        
+        .pagination-info {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+        
+        .pagination-controls {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        
+        .page-size-selector {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+        
+        .pagination-btn {
+            padding: 6px 12px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            background: white;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 14px;
+        }
+        
+        .pagination-btn:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+        
+        .pagination-btn.active {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+        
+        .pagination-btn:disabled {
+            color: var(--text-light);
+            border-color: var(--border-color);
+            cursor: not-allowed;
+        }
+        
+        .pagination-btn:disabled:hover {
+            color: var(--text-light);
+            border-color: var(--border-color);
+        }
+        
         /* 响应式 */
         @media (max-width: 768px) {
             .sidebar {
@@ -759,7 +937,7 @@
             <div class="navbar-logo">
                 <img src="https://www.cecic.com.cn/images/logo.png" alt="中国能建" onerror="this.style.display='none'">
             </div>
-            <span class="navbar-title">易普力数据资产门户 - 管理后台</span>
+            <span class="navbar-title">易普力数据资源门户 - 管理后台</span>
         </div>
         <div class="navbar-user">
             <div class="user-menu">
@@ -797,6 +975,12 @@
                         数据管理标准规范
                     </a>
                 </li>
+                <li class="menu-item">
+                    <a href="#data-requests" class="menu-link" onclick="showModule('data-requests')">
+                        <svg class="menu-icon" width="16" height="16"><use href="#icon-message-circle"/></svg>
+                        数据需求管理
+                    </a>
+                </li>
             </ul>
         </aside>
         
@@ -831,6 +1015,29 @@
                             <!-- 通知数据将通过JavaScript动态生成 -->
                         </tbody>
                     </table>
+                    
+                    <!-- 分页区域 -->
+                    <div class="pagination-section">
+                        <div class="pagination-info">
+                            共 10 条数据，当前第 1 / 1 页
+                        </div>
+                        <div class="pagination-controls">
+                            <div class="page-size-selector">
+                                <label>每页显示：</label>
+                                <select class="form-select" style="width: 80px; margin-left: 8px;">
+                                    <option value="10">10</option>
+                                    <option value="20">20</option>
+                                    <option value="50">50</option>
+                                    <option value="100">100</option>
+                                </select>
+                            </div>
+                            <div class="pagination-buttons">
+                                <button class="pagination-btn" disabled>上一页</button>
+                                <button class="pagination-btn active">1</button>
+                                <button class="pagination-btn" disabled>下一页</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             
@@ -862,6 +1069,214 @@
                             <!-- 标准规范数据将通过JavaScript动态生成 -->
                         </tbody>
                     </table>
+                    
+                    <!-- 分页区域 -->
+                    <div class="pagination-section">
+                        <div class="pagination-info">
+                            共 10 条数据，当前第 1 / 1 页
+                        </div>
+                        <div class="pagination-controls">
+                            <div class="page-size-selector">
+                                <label>每页显示：</label>
+                                <select class="form-select" style="width: 80px; margin-left: 8px;">
+                                    <option value="10">10</option>
+                                    <option value="20">20</option>
+                                    <option value="50">50</option>
+                                    <option value="100">100</option>
+                                </select>
+                            </div>
+                            <div class="pagination-buttons">
+                                <button class="pagination-btn" disabled>上一页</button>
+                                <button class="pagination-btn active">1</button>
+                                <button class="pagination-btn" disabled>下一页</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 数据需求管理模块 -->
+            <div id="data-requests-module" class="module-content" style="display: none;">
+                <h1 class="page-title">数据需求管理</h1>
+                
+                <!-- 搜索筛选区域 -->
+                <div class="search-filter-section">
+                    <form class="search-filter-form">
+                        <div class="form-group">
+                            <label class="form-label">需求标题</label>
+                            <input type="text" class="form-input" placeholder="请输入需求标题">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">需求用户</label>
+                            <input type="text" class="form-input" placeholder="请输入需求用户">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">数据类型</label>
+                            <select class="form-select">
+                                <option value="">全部</option>
+                                <option value="数据集">数据集</option>
+                                <option value="数据服务">数据服务</option>
+                                <option value="数据看板">数据看板</option>
+                                <option value="数据指标">数据指标</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">处理状态</label>
+                            <select class="form-select">
+                                <option value="">全部</option>
+                                <option value="pending">待处理</option>
+                                <option value="processing">处理中</option>
+                                <option value="completed">已完成</option>
+                                <option value="rejected">已驳回</option>
+                            </select>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-primary">搜索</button>
+                            <button type="button" class="btn btn-secondary">重置</button>
+                        </div>
+                    </form>
+                </div>
+                
+                <!-- 数据列表区域 -->
+                <div class="data-table">
+                    <table style="width: 100%;">
+                        <thead>
+                            <tr>
+                                <th style="width: 60px;">序号</th>
+                                <th style="width: 180px;">需求标题</th>
+                                <th style="width: 100px;">需求用户</th>
+                                <th style="width: 100px;">数据类型</th>
+                                <th style="width: 200px;">需求内容</th>
+                                <th style="width: 120px;">预期上线时间</th>
+                                <th style="width: 120px;">联系方式</th>
+                                <th style="width: 140px; white-space: nowrap;">提交时间</th>
+                                <th style="width: 100px;">处理状态</th>
+                                <th style="width: 120px;">操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>生产运营数据看板需求</td>
+                                <td>张三</td>
+                                <td>数据看板</td>
+                                <td>需要一个实时展示生产运营数据的看板，包含产量、效率等指标</td>
+                                <td>2026-04-15</td>
+                                <td>13800138000</td>
+                                <td>2026-03-20 10:30</td>
+                                <td><span class="status-tag pending">待处理</span></td>
+                                <td>
+                                    <select class="status-select" onchange="updateStatus(this, 1)">
+                                        <option value="pending" selected>待处理</option>
+                                        <option value="processing">处理中</option>
+                                        <option value="completed">已完成</option>
+                                        <option value="rejected">已驳回</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>安全环保数据接口需求</td>
+                                <td>李四</td>
+                                <td>数据服务</td>
+                                <td>需要安全环保监测数据的API接口，用于第三方系统集成</td>
+                                <td>2026-04-10</td>
+                                <td>13900139000</td>
+                                <td>2026-03-19 14:20</td>
+                                <td><span class="status-tag processing">处理中</span></td>
+                                <td>
+                                    <select class="status-select" onchange="updateStatus(this, 2)">
+                                        <option value="pending">待处理</option>
+                                        <option value="processing" selected>处理中</option>
+                                        <option value="completed">已完成</option>
+                                        <option value="rejected">已驳回</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>人力资源数据报表需求</td>
+                                <td>王五</td>
+                                <td>数据指标</td>
+                                <td>需要人力资源相关的关键指标报表，包括人员结构、流动率等</td>
+                                <td>2026-04-05</td>
+                                <td>13700137000</td>
+                                <td>2026-03-18 09:15</td>
+                                <td><span class="status-tag completed">已完成</span></td>
+                                <td>
+                                    <select class="status-select" onchange="updateStatus(this, 3)">
+                                        <option value="pending">待处理</option>
+                                        <option value="processing">处理中</option>
+                                        <option value="completed" selected>已完成</option>
+                                        <option value="rejected">已驳回</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>供应链数据集成需求</td>
+                                <td>赵六</td>
+                                <td>数据集</td>
+                                <td>需要供应链各环节的数据集成，包括采购、库存、物流等</td>
+                                <td>2026-04-20</td>
+                                <td>13600136000</td>
+                                <td>2026-03-17 16:45</td>
+                                <td><span class="status-tag rejected">已驳回</span></td>
+                                <td>
+                                    <select class="status-select" onchange="updateStatus(this, 4)">
+                                        <option value="pending">待处理</option>
+                                        <option value="processing">处理中</option>
+                                        <option value="completed">已完成</option>
+                                        <option value="rejected" selected>已驳回</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>财务数据分析需求</td>
+                                <td>孙七</td>
+                                <td>数据看板</td>
+                                <td>需要财务数据的多维度分析看板，支持按部门、时间等维度分析</td>
+                                <td>2026-04-25</td>
+                                <td>13500135000</td>
+                                <td>2026-03-16 11:20</td>
+                                <td><span class="status-tag pending">待处理</span></td>
+                                <td>
+                                    <select class="status-select" onchange="updateStatus(this, 5)">
+                                        <option value="pending" selected>待处理</option>
+                                        <option value="processing">处理中</option>
+                                        <option value="completed">已完成</option>
+                                        <option value="rejected">已驳回</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <!-- 分页区域 -->
+                    <div class="pagination-section">
+                        <div class="pagination-info">
+                            共 12 条数据，当前第 1 / 3 页
+                        </div>
+                        <div class="pagination-controls">
+                            <div class="page-size-selector">
+                                <label>每页显示：</label>
+                                <select class="form-select" style="width: 80px; margin-left: 8px;">
+                                    <option value="10">10</option>
+                                    <option value="20">20</option>
+                                    <option value="50">50</option>
+                                    <option value="100">100</option>
+                                </select>
+                            </div>
+                            <div class="pagination-buttons">
+                                <button class="pagination-btn" disabled>上一页</button>
+                                <button class="pagination-btn active">1</button>
+                                <button class="pagination-btn">2</button>
+                                <button class="pagination-btn">3</button>
+                                <button class="pagination-btn">下一页</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1014,13 +1429,13 @@
     <script>
         // 模拟数据
         let notifications = [
-            { id: 1, title: '关于数据资产门户系统升级维护的通知', type: 'important', department: '信息技术部', content: '系统将于近期进行升级维护，请各位用户提前做好准备。', date: '2026-03-15' },
-            { id: 2, title: '数据资产管理规范培训通知', type: 'normal', department: '数据管理部', content: '将于下周举办数据资产管理规范培训，请相关人员准时参加。', date: '2026-03-14' },
-            { id: 3, title: '新增生产运营类数据资产上架公告', type: 'update', department: '生产运营部', content: '新增一批生产运营类数据资产已上架，欢迎大家申请使用。', date: '2026-03-13' }
+            { id: 1, title: '关于数据资源门户系统升级维护的通知', type: 'important', department: '信息技术部', content: '系统将于近期进行升级维护，请各位用户提前做好准备。', date: '2026-03-15' },
+            { id: 2, title: '数据资源管理规范培训通知', type: 'normal', department: '数据管理部', content: '将于下周举办数据资源管理规范培训，请相关人员准时参加。', date: '2026-03-14' },
+            { id: 3, title: '新增生产运营类数据资源上架公告', type: 'update', department: '生产运营部', content: '新增一批生产运营类数据资源已上架，欢迎大家申请使用。', date: '2026-03-13' }
         ];
         
         let standards = [
-            { id: 1, name: '数据资产管理规范', type: 'pdf', date: '2026-03-10', file: '规范文件1.pdf' },
+            { id: 1, name: '数据资源管理规范', type: 'pdf', date: '2026-03-10', file: '规范文件1.pdf' },
             { id: 2, name: '数据安全管理办法', type: 'doc', date: '2026-03-08', file: '安全管理办法.docx' },
             { id: 3, name: '数据质量评估标准', type: 'xlsx', date: '2026-03-05', file: '质量评估标准.xlsx' }
         ];
@@ -1046,6 +1461,8 @@
                 renderNotifications();
             } else if (moduleName === 'standards') {
                 renderStandards();
+            } else if (moduleName === 'data-requests') {
+                // 数据需求管理模块不需要特殊初始化
             }
         }
         
@@ -1259,9 +1676,73 @@
             }
         }
         
-        // 初始化
+        // 更新需求状态
+        function updateStatus(selectElement, id) {
+            const newStatus = selectElement.value;
+            const statusTag = selectElement.closest('tr').querySelector('.status-tag');
+            
+            // 更新状态标签
+            statusTag.className = 'status-tag';
+            switch(newStatus) {
+                case 'pending':
+                    statusTag.className += ' pending';
+                    statusTag.textContent = '待处理';
+                    break;
+                case 'processing':
+                    statusTag.className += ' processing';
+                    statusTag.textContent = '处理中';
+                    break;
+                case 'completed':
+                    statusTag.className += ' completed';
+                    statusTag.textContent = '已完成';
+                    break;
+                case 'rejected':
+                    statusTag.className += ' rejected';
+                    statusTag.textContent = '已驳回';
+                    break;
+            }
+            
+            // 模拟状态更新
+            console.log(`更新需求 ID: ${id} 的状态为: ${newStatus}`);
+        }
+        
+        // 搜索功能
         document.addEventListener('DOMContentLoaded', function() {
             renderNotifications();
+            
+            // 数据需求管理搜索功能
+            const searchBtn = document.querySelector('#data-requests-module .btn-primary');
+            if (searchBtn) {
+                searchBtn.addEventListener('click', function() {
+                    // 模拟搜索
+                    alert('搜索功能已触发');
+                });
+            }
+            
+            // 数据需求管理重置功能
+            const resetBtn = document.querySelector('#data-requests-module .btn-secondary');
+            if (resetBtn) {
+                resetBtn.addEventListener('click', function() {
+                    // 重置表单
+                    const form = this.closest('form');
+                    form.querySelectorAll('.form-input, .form-select').forEach(input => {
+                        input.value = '';
+                    });
+                });
+            }
+            
+            // 数据需求管理分页功能
+            const paginationBtns = document.querySelectorAll('#data-requests-module .pagination-btn:not(:disabled)');
+            paginationBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    if (!this.classList.contains('active')) {
+                        document.querySelector('#data-requests-module .pagination-btn.active').classList.remove('active');
+                        this.classList.add('active');
+                        // 模拟分页
+                        console.log(`切换到第 ${this.textContent} 页`);
+                    }
+                });
+            });
         });
     </script>
 </body>

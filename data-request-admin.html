@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据需求管理 - 易普力数据资源门户</title>
+    <!-- Arco Design 风格 SVG 图标定义 -->
+    <svg style="display: none;">
+        <symbol id="icon-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </symbol>
+        <symbol id="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+        </symbol>
+        <symbol id="icon-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+        </symbol>
+        <symbol id="icon-settings" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+        </symbol>
+        <symbol id="icon-logout" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+            <polyline points="16 17 21 12 16 7"></polyline>
+            <line x1="21" y1="12" x2="9" y2="12"></line>
+        </symbol>
+        <symbol id="icon-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+        </symbol>
+        <symbol id="icon-arrow-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+        </symbol>
+    </svg>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            /* Arco Design 科技蓝色系 */
+            --primary-color: #165DFF;
+            --primary-hover: #4080FF;
+            --primary-active: #0E42D2;
+            --primary-light: #E8F3FF;
+            --success-color: #00B42A;
+            --success-light: #E8FFEA;
+            --warning-color: #FF7D00;
+            --warning-light: #FFF7E8;
+            --danger-color: #F53F3F;
+            --danger-light: #FFECE8;
+            --text-primary: #1D2129;
+            --text-secondary: #4E5969;
+            --text-light: #86909C;
+            --bg-primary: #ffffff;
+            --bg-secondary: #F5F7FA;
+            --bg-tertiary: #E5E6EB;
+            --border-color: #E5E6EB;
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+            --shadow-md: 0 2px 8px rgba(0,0,0,0.08);
+            --shadow-lg: 0 4px 12px rgba(0,0,0,0.1);
+            --radius-sm: 2px;
+            --radius-md: 4px;
+            --radius-lg: 8px;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+        
+        /* 顶部导航栏 */
+        .navbar {
+            background: var(--primary-color);
+            padding: 0 40px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .navbar-logo {
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .navbar-logo img {
+            height: 36px;
+            width: auto;
+        }
+        
+        .navbar-title {
+            color: white;
+            font-size: 20px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        
+        .navbar-nav {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .nav-item {
+            padding: 8px 20px;
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+            border-radius: var(--radius-md);
+            transition: all 0.2s ease;
+            font-size: 14px;
+        }
+        
+        .nav-item:hover {
+            background: rgba(255,255,255,0.1);
+            color: white;
+        }
+        
+        .nav-item.active {
+            background: rgba(255,255,255,0.15);
+            color: white;
+            font-weight: 500;
+        }
+        
+        .navbar-user {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        
+        .user-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        
+        .user-avatar:hover {
+            background: rgba(255,255,255,0.3);
+        }
+        
+        .user-menu {
+            position: relative;
+        }
+        
+        .user-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            margin-top: 8px;
+            background: white;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            min-width: 160px;
+            overflow: hidden;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.2s;
+            z-index: 1000;
+        }
+        
+        .user-menu:hover .user-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .user-dropdown-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 16px;
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: background 0.2s;
+            cursor: pointer;
+        }
+        
+        .user-dropdown-item:hover {
+            background: var(--bg-secondary);
+        }
+        
+        .user-dropdown-item.danger {
+            color: var(--danger-color);
+        }
+        
+        .user-dropdown-divider {
+            height: 1px;
+            background: var(--border-color);
+            margin: 4px 0;
+        }
+        
+        /* 主内容区域 */
+        .main-content {
+            margin-top: 64px;
+            min-height: calc(100vh - 64px);
+            padding: 24px 40px;
+        }
+        
+        .content-wrapper {
+            max-width: 1440px;
+            margin: 0 auto;
+        }
+        
+        /* 页面标题 */
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+        
+        .page-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+        
+        .breadcrumb a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        
+        /* 搜索筛选区域 */
+        .search-filter-section {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: 20px;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .search-filter-form {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .form-label {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+        
+        .form-input {
+            padding: 8px 12px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            font-size: 14px;
+            transition: border-color 0.2s;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px var(--primary-light);
+        }
+        
+        .form-select {
+            padding: 8px 12px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            font-size: 14px;
+            transition: border-color 0.2s;
+        }
+        
+        .form-select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px var(--primary-light);
+        }
+        
+        .form-actions {
+            display: flex;
+            gap: 12px;
+            align-items: flex-end;
+        }
+        
+        .btn {
+            padding: 8px 16px;
+            border-radius: var(--radius-md);
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+        }
+        
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: var(--primary-hover);
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: var(--text-secondary);
+            border: 1px solid var(--border-color);
+        }
+        
+        .btn-secondary:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+        
+        /* 数据列表区域 */
+        .data-list-section {
+            background: white;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .data-table th {
+            background: var(--bg-secondary);
+            padding: 12px 16px;
+            text-align: left;
+            font-weight: 500;
+            color: var(--text-secondary);
+            font-size: 14px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .data-table td {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 14px;
+            color: var(--text-primary);
+        }
+        
+        .data-table tr:hover td {
+            background: var(--bg-secondary);
+        }
+        
+        .data-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        /* 状态标签 */
+        .status-tag {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: var(--radius-sm);
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        .status-tag.pending {
+            background: var(--warning-light);
+            color: var(--warning-color);
+        }
+        
+        .status-tag.processing {
+            background: var(--primary-light);
+            color: var(--primary-color);
+        }
+        
+        .status-tag.completed {
+            background: var(--success-light);
+            color: var(--success-color);
+        }
+        
+        .status-tag.rejected {
+            background: var(--danger-light);
+            color: var(--danger-color);
+        }
+        
+        /* 操作按钮 */
+        .action-btn {
+            padding: 4px 12px;
+            border-radius: var(--radius-sm);
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid var(--border-color);
+            background: white;
+            color: var(--text-secondary);
+        }
+        
+        .action-btn:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+        
+        /* 状态选择器 */
+        .status-select {
+            padding: 2px 8px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            font-size: 12px;
+        }
+        
+        /* 分页区域 */
+        .pagination-section {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 16px 20px;
+            border-top: 1px solid var(--border-color);
+            gap: 12px;
+        }
+        
+        .pagination-info {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+        
+        .pagination-btn {
+            padding: 6px 12px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            background: white;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 14px;
+        }
+        
+        .pagination-btn:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+        
+        .pagination-btn.active {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+        
+        .pagination-btn:disabled {
+            color: var(--text-light);
+            border-color: var(--border-color);
+            cursor: not-allowed;
+        }
+        
+        .pagination-btn:disabled:hover {
+            color: var(--text-light);
+            border-color: var(--border-color);
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 1200px) {
+            .search-filter-form {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .main-content {
+                padding: 16px;
+            }
+            
+            .navbar {
+                padding: 0 20px;
+            }
+            
+            .navbar-title {
+                font-size: 16px;
+            }
+            
+            .nav-item {
+                padding: 6px 12px;
+                font-size: 13px;
+            }
+            
+            .search-filter-form {
+                grid-template-columns: 1fr;
+            }
+            
+            .data-table {
+                font-size: 13px;
+            }
+            
+            .data-table th,
+            .data-table td {
+                padding: 8px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <nav class="navbar logged-in">
+        <div class="navbar-brand">
+            <div class="navbar-logo">
+                <img src="https://www.cecic.com.cn/images/logo.png" alt="中国能建" onerror="this.style.display='none'">
+            </div>
+            <span class="navbar-title">易普力数据资源门户</span>
+        </div>
+        <div class="navbar-nav">
+            <a href="index.html" class="nav-item">首页</a>
+            <a href="assets.html" class="nav-item">数据资源</a>
+            <a href="data-request-admin.html" class="nav-item active">数据需求管理</a>
+        </div>
+        <div class="navbar-user">
+            <div class="user-menu">
+                <div class="user-avatar">连</div>
+                <div class="user-dropdown">
+                    <div class="user-dropdown-item">
+                        <svg class="icon" width="16" height="16"><use href="#icon-user"/></svg>
+                        个人中心
+                    </div>
+                    <div class="user-dropdown-item">
+                        <svg class="icon" width="16" height="16"><use href="#icon-file"/></svg>
+                        我的申请
+                    </div>
+                    <div class="user-dropdown-item">
+                        <svg class="icon" width="16" height="16"><use href="#icon-table"/></svg>
+                        我的资源
+                    </div>
+                    <div class="user-dropdown-item">
+                        <svg class="icon" width="16" height="16"><use href="#icon-settings"/></svg>
+                        修改密码
+                    </div>
+                    <div class="user-dropdown-item" onclick="window.location.href='admin.html'">
+                        <svg class="icon" width="16" height="16"><use href="#icon-book"/></svg>
+                        管理后台
+                    </div>
+                    <div class="user-dropdown-divider"></div>
+                    <div class="user-dropdown-item danger" onclick="toggleLogin()">
+                        <svg class="icon" width="16" height="16"><use href="#icon-logout"/></svg>
+                        退出登录
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- 主内容区域 -->
+    <main class="main-content">
+        <div class="content-wrapper">
+            <!-- 页面标题 -->
+            <div class="page-header">
+                <h1 class="page-title">数据需求管理</h1>
+                <div class="breadcrumb">
+                    <a href="index.html">首页</a>
+                    <span>/</span>
+                    <span>数据需求管理</span>
+                </div>
+            </div>
+            
+            <!-- 搜索筛选区域 -->
+            <section class="search-filter-section">
+                <form class="search-filter-form">
+                    <div class="form-group">
+                        <label class="form-label">需求标题</label>
+                        <input type="text" class="form-input" placeholder="请输入需求标题">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">需求用户</label>
+                        <input type="text" class="form-input" placeholder="请输入需求用户">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">数据类型</label>
+                        <select class="form-select">
+                            <option value="">全部</option>
+                            <option value="数据集">数据集</option>
+                            <option value="数据服务">数据服务</option>
+                            <option value="数据看板">数据看板</option>
+                            <option value="数据指标">数据指标</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">处理状态</label>
+                        <select class="form-select">
+                            <option value="">全部</option>
+                            <option value="pending">待处理</option>
+                            <option value="processing">处理中</option>
+                            <option value="completed">已完成</option>
+                            <option value="rejected">已驳回</option>
+                        </select>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-primary">搜索</button>
+                        <button type="button" class="btn btn-secondary">重置</button>
+                    </div>
+                </form>
+            </section>
+            
+            <!-- 数据列表区域 -->
+            <section class="data-list-section">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>序号</th>
+                            <th>需求标题</th>
+                            <th>需求用户</th>
+                            <th>数据类型</th>
+                            <th>需求内容</th>
+                            <th>预期上线时间</th>
+                            <th>联系方式</th>
+                            <th>提交时间</th>
+                            <th>处理状态</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>生产运营数据看板需求</td>
+                            <td>张三</td>
+                            <td>数据看板</td>
+                            <td>需要一个实时展示生产运营数据的看板，包含产量、效率等指标</td>
+                            <td>2026-04-15</td>
+                            <td>13800138000</td>
+                            <td>2026-03-20 10:30</td>
+                            <td><span class="status-tag pending">待处理</span></td>
+                            <td>
+                                <select class="status-select" onchange="updateStatus(this, 1)">
+                                    <option value="pending" selected>待处理</option>
+                                    <option value="processing">处理中</option>
+                                    <option value="completed">已完成</option>
+                                    <option value="rejected">已驳回</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>安全环保数据接口需求</td>
+                            <td>李四</td>
+                            <td>数据服务</td>
+                            <td>需要安全环保监测数据的API接口，用于第三方系统集成</td>
+                            <td>2026-04-10</td>
+                            <td>13900139000</td>
+                            <td>2026-03-19 14:20</td>
+                            <td><span class="status-tag processing">处理中</span></td>
+                            <td>
+                                <select class="status-select" onchange="updateStatus(this, 2)">
+                                    <option value="pending">待处理</option>
+                                    <option value="processing" selected>处理中</option>
+                                    <option value="completed">已完成</option>
+                                    <option value="rejected">已驳回</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>人力资源数据报表需求</td>
+                            <td>王五</td>
+                            <td>数据指标</td>
+                            <td>需要人力资源相关的关键指标报表，包括人员结构、流动率等</td>
+                            <td>2026-04-05</td>
+                            <td>13700137000</td>
+                            <td>2026-03-18 09:15</td>
+                            <td><span class="status-tag completed">已完成</span></td>
+                            <td>
+                                <select class="status-select" onchange="updateStatus(this, 3)">
+                                    <option value="pending">待处理</option>
+                                    <option value="processing">处理中</option>
+                                    <option value="completed" selected>已完成</option>
+                                    <option value="rejected">已驳回</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>供应链数据集成需求</td>
+                            <td>赵六</td>
+                            <td>数据集</td>
+                            <td>需要供应链各环节的数据集成，包括采购、库存、物流等</td>
+                            <td>2026-04-20</td>
+                            <td>13600136000</td>
+                            <td>2026-03-17 16:45</td>
+                            <td><span class="status-tag rejected">已驳回</span></td>
+                            <td>
+                                <select class="status-select" onchange="updateStatus(this, 4)">
+                                    <option value="pending">待处理</option>
+                                    <option value="processing">处理中</option>
+                                    <option value="completed">已完成</option>
+                                    <option value="rejected" selected>已驳回</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>财务数据分析需求</td>
+                            <td>孙七</td>
+                            <td>数据看板</td>
+                            <td>需要财务数据的多维度分析看板，支持按部门、时间等维度分析</td>
+                            <td>2026-04-25</td>
+                            <td>13500135000</td>
+                            <td>2026-03-16 11:20</td>
+                            <td><span class="status-tag pending">待处理</span></td>
+                            <td>
+                                <select class="status-select" onchange="updateStatus(this, 5)">
+                                    <option value="pending" selected>待处理</option>
+                                    <option value="processing">处理中</option>
+                                    <option value="completed">已完成</option>
+                                    <option value="rejected">已驳回</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <!-- 分页区域 -->
+                <div class="pagination-section">
+                    <div class="pagination-info">
+                        共 12 条数据，当前第 1 / 3 页
+                    </div>
+                    <div class="pagination-buttons">
+                        <button class="pagination-btn" disabled>上一页</button>
+                        <button class="pagination-btn active">1</button>
+                        <button class="pagination-btn">2</button>
+                        <button class="pagination-btn">3</button>
+                        <button class="pagination-btn">下一页</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    
+    <script>
+        // 登录状态管理
+        let isLoggedIn = true;
+        
+        function toggleLogin() {
+            isLoggedIn = !isLoggedIn;
+            updateLoginState();
+        }
+        
+        function updateLoginState() {
+            const navbar = document.querySelector('.navbar');
+            if (isLoggedIn) {
+                navbar.classList.add('logged-in');
+                navbar.classList.remove('logged-out');
+            } else {
+                navbar.classList.add('logged-out');
+                navbar.classList.remove('logged-in');
+            }
+        }
+        
+        // 初始化登录状态
+        updateLoginState();
+        
+        // 更新状态
+        function updateStatus(selectElement, id) {
+            const newStatus = selectElement.value;
+            const statusTag = selectElement.closest('tr').querySelector('.status-tag');
+            
+            // 更新状态标签
+            statusTag.className = 'status-tag';
+            switch(newStatus) {
+                case 'pending':
+                    statusTag.className += ' pending';
+                    statusTag.textContent = '待处理';
+                    break;
+                case 'processing':
+                    statusTag.className += ' processing';
+                    statusTag.textContent = '处理中';
+                    break;
+                case 'completed':
+                    statusTag.className += ' completed';
+                    statusTag.textContent = '已完成';
+                    break;
+                case 'rejected':
+                    statusTag.className += ' rejected';
+                    statusTag.textContent = '已驳回';
+                    break;
+            }
+            
+            // 模拟状态更新
+            console.log(`更新需求 ID: ${id} 的状态为: ${newStatus}`);
+        }
+        
+        // 搜索功能
+        document.querySelector('.btn-primary').addEventListener('click', function() {
+            // 模拟搜索
+            alert('搜索功能已触发');
+        });
+        
+        // 重置功能
+        document.querySelector('.btn-secondary').addEventListener('click', function() {
+            // 重置表单
+            document.querySelectorAll('.form-input, .form-select').forEach(input => {
+                input.value = '';
+            });
+        });
+        
+        // 分页功能
+        document.querySelectorAll('.pagination-btn:not(:disabled)').forEach(btn => {
+            btn.addEventListener('click', function() {
+                if (!this.classList.contains('active')) {
+                    document.querySelector('.pagination-btn.active').classList.remove('active');
+                    this.classList.add('active');
+                    // 模拟分页
+                    console.log(`切换到第 ${this.textContent} 页`);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
